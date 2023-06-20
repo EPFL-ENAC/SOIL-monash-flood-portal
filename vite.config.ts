@@ -11,5 +11,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: '/soil-monash-flood-portal/'
+  base: '/SOIL-monash-flood-portal/'
 })
