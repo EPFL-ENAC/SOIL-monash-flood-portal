@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/EPFL-ENAC/it4r-webmap/main/schema/parameters.schema.json",
+  "$schema": "https://raw.githubusercontent.com/EPFL-ENAC/SOIL-monash-flood-portal/main/schema/parameters.schema.json",
   "center": { "lat": 37.991496, "lng": 23.732299 },
   "zoom": 12,
   "selectableItems": [

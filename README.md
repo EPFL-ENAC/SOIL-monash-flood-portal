@@ -1,4 +1,4 @@
-# it4r-webmap
+# SOIL-monash-flood-portal
 
 ## Configuration
 
