@@ -4,16 +4,48 @@
   "zoom": 10,
   "selectableItems": [
     {
-      "label": "OSM",
-      "legend": "Open Street Map",
-      "ids": ["osm"],
-      "selected": true
+      "id": "background",
+      "label": "Background",
+      "children": [
+        {
+          "id": "osm",
+          "label": "OSM",
+          "ids": ["osm"],
+          "selected": false
+        },
+        {
+          "id": "light",
+          "label": "Light",
+          "ids": ["light"],
+          "selected": true
+        },
+        {
+          "id": "dark",
+          "label": "Dark",
+          "ids": ["dark"],
+          "selected": false
+        }
+      ]
     },
     {
-      "label": "Exposure",
-      "ids": ["exposure"],
-      "selected": true,
-      "legendImage": "https://ge.ch/sitgags1/services/VECTOR/SITG_OPENDATA_04/MapServer/WmsServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=46"
+      "id": "vulnerability",
+      "label": "Vulnerability",
+      "multiple": false,
+      "children": [
+        {
+          "id": "economic",
+          "label": "Economic",
+          "ids": ["economic"],
+          "selected": false
+        },
+        {
+          "id": "exposure",
+          "label": "Exposure",
+          "ids": ["exposure"],
+          "selected": true,
+          "legendImage": "https://ge.ch/sitgags1/services/VECTOR/SITG_OPENDATA_04/MapServer/WmsServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=46"
+        }
+      ]
     }
   ],
   "title": "Monash Flood Portal",

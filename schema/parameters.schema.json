@@ -3,16 +3,22 @@
     "definitions": {
         "SelectableGroupItem": {
             "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "selected": {
+                    "type": "boolean"
+                },
                 "children": {
                     "items": {
                         "$ref": "#/definitions/SelectableSingleItem"
                     },
                     "type": "array"
                 },
-                "label": {
-                    "type": "string"
-                },
-                "selected": {
+                "multiple": {
                     "type": "boolean"
                 }
             },
@@ -30,20 +36,23 @@
         },
         "SelectableSingleItem": {
             "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "selected": {
+                    "type": "boolean"
+                },
                 "ids": {
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
                 },
-                "label": {
-                    "type": "string"
-                },
                 "legend": {
                     "type": "string"
-                },
-                "selected": {
-                    "type": "boolean"
                 }
             },
             "type": "object"

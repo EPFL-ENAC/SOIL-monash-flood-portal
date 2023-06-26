@@ -4,20 +4,63 @@
   "sources": {
     "osm": {
       "type": "raster",
-      "tiles": ["https://api.maptiler.com/maps/basic-v2-light/{z}/{x}/{y}.png?key=kramlD0izE1YxWEKKCus"],
+      "tiles": ["https://tile.osm.ch/osm-swiss-style/{z}/{x}/{y}.png"],
       "tileSize": 256,
       "minzoom": 0,
-      "maxzoom": 19
+      "maxzoom": 20
+    },
+    "light": {
+      "type": "raster",
+      "tiles": ["https://api.maptiler.com/maps/basic-v2-light/256/{z}/{x}/{y}.png?key=kramlD0izE1YxWEKKCus"],
+      "tileSize": 256,
+      "minzoom": 0,
+      "maxzoom": 20
+    },
+    "dark": {
+      "type": "raster",
+      "tiles": ["https://api.maptiler.com/maps/dataviz-dark/256/{z}/{x}/{y}.png?key=kramlD0izE1YxWEKKCus"],
+      "tileSize": 256,
+      "minzoom": 0,
+      "maxzoom": 20
+    },
+    "economic": {
+      "type": "raster",
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-26/tiles/economic/{z}/{x}/{y}.png"],
+      "minZoom": 0,
+      "maxZoom": 20
     },
     "exposure": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-20T151103Z/tiles/exposure/{z}/{x}/{y}.png"],
-      "minZoom": 8,
-      "maxZoom": 12
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-26/tiles/exposure/{z}/{x}/{y}.png"],
+      "minZoom": 0,
+      "maxZoom": 20
     }
   },
   "layers": [
-    { "id": "osm", "type": "raster", "source": "osm" },
+    { "id": "osm",
+      "type": "raster",
+      "source": "osm",
+      "layout": { "visibility": "none" }
+    },
+    { "id": "light",
+      "type": "raster",
+      "source": "light"
+    },
+    { "id": "dark",
+      "type": "raster",
+      "source": "dark",
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "economic",
+      "type": "raster",
+      "source": "economic",
+      "minzoom": 8,
+      "maxzoom": 22,
+      "paint": {
+        "raster-opacity": 0.5
+      }
+    },
     {
       "id": "exposure",
       "type": "raster",

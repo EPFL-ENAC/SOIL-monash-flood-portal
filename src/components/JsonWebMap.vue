@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import ConfigurationForm from '@/components/ConfigurationForm.vue'
 import LayerSelector from '@/components/LayerSelector.vue'
 import MapLibreMap from '@/components/MapLibreMap.vue'
 import { useTitleStore } from '@/stores/title'
 import type { Parameters } from '@/utils/jsonWebMap'
-import type { SelectableSingleItem } from '@/utils/layerSelector'
 import { mdiChevronLeft, mdiChevronRight, mdiCog, mdiLayers, mdiMapLegend } from '@mdi/js'
+import type { SelectableSingleItem } from '@/utils/layerSelector'
 import axios from 'axios'
 import { storeToRefs } from 'pinia'
 import { computed, ref, shallowRef, triggerRef, watch } from 'vue'
@@ -69,6 +68,11 @@ watch(
         </template>
       </v-list-item>
       <v-list-item :prepend-icon="mdiLayers">
+        <v-list-item-title>
+          <span class="text-h6">Layers</span>
+        </v-list-item-title>
+      </v-list-item>
+      <v-list-item v-if="!drawerRail">
         <LayerSelector
           v-if="!drawerRail"
           v-model="selectedLayerIds"
@@ -76,7 +80,12 @@ watch(
         />
       </v-list-item>
       <v-list-item :prepend-icon="mdiMapLegend">
-        <v-card v-if="!drawerRail" title="Legends" flat>
+        <v-list-item-title>
+          <span class="text-h6">Legends</span>
+        </v-list-item-title>
+      </v-list-item>
+      <v-list-item v-if="!drawerRail">
+        <v-card>
           <v-card-text>
             <v-row>
               <v-col v-for="(item, index) in legendItems" :key="index" cols="12">
@@ -88,18 +97,6 @@ watch(
           </v-card-text>
         </v-card>
       </v-list-item>
-      <v-divider class="border-opacity-100 mx-n3" />
-      <v-dialog>
-        <!-- eslint-disable-next-line vue/no-template-shadow -->
-        <template #activator="{ props }">
-          <v-list-item v-bind="props" :prepend-icon="mdiCog" title="Configuration" />
-        </template>
-        <v-card title="Configuration">
-          <v-card-text>
-            <ConfigurationForm />
-          </v-card-text>
-        </v-card>
-      </v-dialog>
     </v-list>
   </v-navigation-drawer>
   <v-container class="fill-height pa-0" fluid>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { SelectableItem, SelectableSingleItem } from '@/utils/layerSelector'
-import { computed, watch } from 'vue'
+import { computed, toRaw, watch, ref } from 'vue'
 
-interface CheckboxProps {
+interface SelectableProps {
   label: string
   value: string[]
 }
@@ -21,116 +21,80 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: string[]): void
 }>()
 
-const singleItems = computed<SelectableSingleItem[]>(() =>
-  props.items.flatMap((item) => {
-    if ('children' in item) {
-      return item.children
-    } else {
-      return [item]
-    }
-  })
-)
-const items = computed<(CheckboxProps | { label: string; children: CheckboxProps[] })[]>(() =>
+const items = computed<(SelectableProps | { id: string, label: string; multiple: boolean, children: SelectableProps[] })[]>(() =>
   props.items.map((item) =>
     'children' in item
       ? {
+          id: item.id,
           label: item.label,
+          multiple: item.multiple,
           children: item.children.map((child) => ({
             label: child.label,
-            value: child.ids
+            value: child.id,
+            ids: child.ids
           }))
         }
       : {
           label: item.label,
-          value: item.ids
+          value: item.id,
+          ids: item.ids
         }
   )
 )
-const selectedItems = computed<string[][]>({
-  get: () =>
-    singleItems.value
-      .map((item) => item.ids)
-      .filter((values) => props.modelValue.some((value) => values.includes(value))),
-  set: (value) => {
-    emit('update:modelValue', value.flat())
-  }
+
+const selections = ref({})
+
+watch(selections.value, (value) => {
+  console.debug(value)
+  const newval = Object.keys(value).flatMap(k => {
+    if (Array.isArray(value[k])) {
+      return value[k].flatMap(val => toRaw(val.ids))
+    } else {
+      return value[k].ids.flat()
+    }
+  })
+  emit('update:modelValue', newval)
 })
 
-watch(
-  singleItems,
+watch(() => props.items,
   (value) => {
-    emit(
-      'update:modelValue',
-      value.filter((item) => item.selected).flatMap((item) => item.ids)
-    )
+    const selected = []
+    value.forEach((item) => {
+      console.debug(item)
+      if ('children' in item) {
+        item.children.filter(child => child.selected).forEach(child => {
+          selected.push(child.ids)
+        })
+      } else {
+        selected.push(item.ids)
+      }
+    })
+    emit('update:modelValue', selected.flat())  
   },
   { immediate: true }
 )
 
-function selectAll(value: boolean, children: string[][]) {
-  if (value) {
-    selectedItems.value = [...selectedItems.value, ...children]
-  } else {
-    selectedItems.value = selectedItems.value.filter((item) => !children.includes(item))
-  }
-}
+
 </script>
 
 <template>
   <v-card flat>
-    <v-card-item>
-      <v-card-title class="text-capitalize">Layers</v-card-title>
-    </v-card-item>
-    <v-expansion-panels multiple variant="accordion">
-      <v-expansion-panel v-for="(item, index) in items" :key="index">
-        <v-expansion-panel-title v-if="'children' in item">
-          <v-checkbox
-            color="primary"
-            density="compact"
-            hide-details
-            :indeterminate="
-              item.children.some((child) => selectedItems.includes(child.value)) &&
-              !item.children.every((child) => selectedItems.includes(child.value))
-            "
+    <v-card-text>
+      <div v-for="(item, index) in items" :key="index">
+        <div v-if="'children' in item">
+          <v-combobox
+            v-model="selections[item.id]"
             :label="item.label"
-            :model-value="item.children.every((child) => selectedItems.includes(child.value))"
-            @update:model-value="
-              selectAll(
-                $event,
-                item.children.map((child) => child.value)
-              )
-            "
-            @click.stop=""
-          >
-            <template #label="{ label }">
-              <span @click.stop="">{{ label }}</span>
-            </template>
-          </v-checkbox>
-        </v-expansion-panel-title>
-        <v-expansion-panel-title v-else collapse-icon="" expand-icon="">
-          <v-checkbox
-            v-model="selectedItems"
-            color="primary"
+            :multiple="item.multiple"
+            :items="item.children"
+            item-title="label"
+            item-value="id"
             density="compact"
-            hide-details
-            :label="item.label"
-            :value="item.value"
-          />
-        </v-expansion-panel-title>
-        <v-expansion-panel-text v-if="'children' in item">
-          <v-checkbox
-            v-for="(child, childIndex) in item.children"
-            :key="childIndex"
-            v-model="selectedItems"
-            color="primary"
-            density="compact"
-            hide-details
-            :label="child.label"
-            :value="child.value"
-          >
-          </v-checkbox>
-        </v-expansion-panel-text>
-      </v-expansion-panel>
-    </v-expansion-panels>
+            chips
+            :closable-chips="item.multiple"
+          ></v-combobox>
+        </div>
+      </div>
+    </v-card-text>
   </v-card>
 </template>
