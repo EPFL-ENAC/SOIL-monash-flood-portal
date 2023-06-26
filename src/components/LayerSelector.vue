@@ -21,14 +21,14 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: string[]): void
 }>()
 
-const items = computed<(SelectableProps | { id: string, label: string; multiple: boolean, children: SelectableProps[] })[]>(() =>
-  props.items.map((item) =>
+const items = computed<(SelectableProps | { id: string, label: string; multiple: boolean, children: SelectableProps[] })[]>((): any[] =>
+  props.items.map((item: SelectableItem) =>
     'children' in item
       ? {
           id: item.id,
           label: item.label,
           multiple: item.multiple,
-          children: item.children.map((child) => ({
+          children: item.children.map((child: SelectableSingleItem) => ({
             label: child.label,
             value: child.id,
             ids: child.ids
@@ -42,13 +42,12 @@ const items = computed<(SelectableProps | { id: string, label: string; multiple:
   )
 )
 
-const selections = ref({})
+const selections = ref<any>({})
 
 watch(selections.value, (value) => {
-  console.debug(value)
   const newval = Object.keys(value).flatMap(k => {
     if (Array.isArray(value[k])) {
-      return value[k].flatMap(val => toRaw(val.ids))
+      return value[k].flatMap((val: any) => toRaw(val.ids))
     } else {
       return value[k].ids.flat()
     }
@@ -58,11 +57,10 @@ watch(selections.value, (value) => {
 
 watch(() => props.items,
   (value) => {
-    const selected = []
-    value.forEach((item) => {
-      console.debug(item)
+    const selected: string[][] = []
+    value.forEach((item: SelectableItem) => {
       if ('children' in item) {
-        item.children.filter(child => child.selected).forEach(child => {
+        item.children.filter((child: SelectableItem) => child.selected).forEach(child => {
           selected.push(child.ids)
         })
       } else {
