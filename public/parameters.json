@@ -10,19 +10,16 @@
         {
           "id": "osm",
           "label": "OSM",
-          "ids": ["osm"],
           "selected": false
         },
         {
           "id": "light",
           "label": "Light",
-          "ids": ["light"],
           "selected": true
         },
         {
           "id": "dark",
           "label": "Dark",
-          "ids": ["dark"],
           "selected": false
         }
       ]
@@ -35,7 +32,6 @@
         {
           "id": "economic",
           "label": "Economic",
-          "ids": ["economic"],
           "selected": false,
           "legendScale": [
             {
@@ -71,7 +67,6 @@
         {
           "id": "susceptibility",
           "label": "Susceptibility",
-          "ids": ["susceptibility"],
           "selected": false,
           "legendScale": [
             {
@@ -107,7 +102,6 @@
         {
           "id": "social",
           "label": "Social",
-          "ids": ["social"],
           "selected": false,
           "legendScale": [
             {
@@ -143,7 +137,6 @@
         {
           "id": "resilience",
           "label": "Resilience",
-          "ids": ["resilience"],
           "selected": false,
           "legendScale": [
             {
@@ -179,7 +172,6 @@
         {
           "id": "physical",
           "label": "Physical",
-          "ids": ["physical"],
           "selected": false,
           "legendScale": [
             {
@@ -215,7 +207,6 @@
         {
           "id": "exposure",
           "label": "Exposure",
-          "ids": ["exposure"],
           "selected": false,
           "legendScale": [
             {
@@ -251,7 +242,6 @@
         {
           "id": "CFVI",
           "label": "CFVI",
-          "ids": ["CFVI"],
           "selected": false,
           "legendScale": [
             {
@@ -294,7 +284,6 @@
         {
           "id": "depthBase_20yr",
           "label": "Depth 20 years",
-          "ids": ["depthBase_20yr"],
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 20 years ARI.",
           "legendScale": [
@@ -332,7 +321,6 @@
         {
           "id": "depthBase_50yr",
           "label": "Depth 50 years",
-          "ids": ["depthBase_50yr"],
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 50 years ARI.",
           "legendScale": [
@@ -370,7 +358,6 @@
         {
           "id": "depthBase_100yr",
           "label": "Depth 100 years",
-          "ids": ["depthBase_100yr"],
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 100 years ARI.",
           "legendScale": [
@@ -408,7 +395,6 @@
         {
           "id": "depthCC_20yr",
           "label": "Depth 20 years (climate change)",
-          "ids": ["depthCC_20yr"],
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 20 years ARI with the consideration of climate change.",
           "legendScale": [
@@ -446,7 +432,6 @@
         {
           "id": "depthCC_50yr",
           "label": "Depth 50 years (climate change)",
-          "ids": ["depthCC_50yr"],
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 50 years ARI with the consideration of climate change.",
           "legendScale": [
@@ -484,7 +469,6 @@
         {
           "id": "depthCC_100yr",
           "label": "Depth 20 years (climate change)",
-          "ids": ["depthCC_100yr"],
           "legend": "Inundation of Sungai Selangor River basin for 100 years ARI with the consideration of climate change.",
           "selected": false,
           "legendScale": [

@@ -125,7 +125,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
-      }
+      },
+      "layout": { "visibility": "none" }
     },
     {
       "id": "susceptibility",
@@ -135,7 +136,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
-      }
+      },
+      "layout": { "visibility": "none" }
     },
     {
       "id": "social",
@@ -145,7 +147,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
-      }
+      },
+      "layout": { "visibility": "none" }
     },
     {
       "id": "resilience",
@@ -155,7 +158,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
-      }
+      },
+      "layout": { "visibility": "none" }
     },
     {
       "id": "physical",
@@ -165,7 +169,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
-      }
+      },
+      "layout": { "visibility": "none" }
     },
     {
       "id": "exposure",
@@ -175,7 +180,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
-      }
+      },
+      "layout": { "visibility": "none" }
     },
     {
       "id": "CFVI",
@@ -185,7 +191,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
-      }
+      },
+      "layout": { "visibility": "none" }
     },
     {
       "id": "depthBase_20yr",
@@ -195,7 +202,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
-      }
+      },
+      "layout": { "visibility": "none" }
     },
     {
       "id": "depthBase_50yr",
@@ -205,7 +213,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
-      }
+      },
+      "layout": { "visibility": "none" }
     },
     {
       "id": "depthBase_100yr",
@@ -215,7 +224,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
-      }
+      },
+      "layout": { "visibility": "none" }
     },
     {
       "id": "depthCC_20yr",
@@ -225,7 +235,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
-      }
+      },
+      "layout": { "visibility": "none" }
     },
     {
       "id": "depthCC_50yr",
@@ -235,7 +246,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
-      }
+      },
+      "layout": { "visibility": "none" }
     },
     {
       "id": "depthCC_100yr",
@@ -245,7 +257,8 @@
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.6
-      }
+      },
+      "layout": { "visibility": "none" }
     }
   ]
 }

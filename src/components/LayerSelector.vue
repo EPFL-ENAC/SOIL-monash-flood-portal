@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { SelectableItem, SelectableSingleItem } from '@/utils/layerSelector'
-import { computed, toRaw, watch, ref } from 'vue'
+import { computed, watch, ref } from 'vue'
 
 interface SelectableProps {
   label: string
@@ -30,14 +30,12 @@ const items = computed<(SelectableProps | { id: string, label: string; multiple:
           multiple: item.multiple,
           children: item.children.map((child: SelectableSingleItem) => ({
             label: child.label,
-            value: child.id,
-            ids: child.ids
+            value: child.id
           }))
         }
       : {
           label: item.label,
-          value: item.id,
-          ids: item.ids
+          value: item.id
         }
   )
 )
@@ -45,19 +43,16 @@ const items = computed<(SelectableProps | { id: string, label: string; multiple:
 const selections = ref<any>({
   "background": {
     "label": "Light",
-    "value": "light",
-    "ids": [
-      "light"
-    ]
+    "value": "light"
   }
 })
 
 watch(selections.value, (value) => {
   const newval = Object.keys(value).flatMap(k => {
     if (Array.isArray(value[k])) {
-      return value[k].flatMap((val: any) => toRaw(val.ids))
+      return value[k].flatMap((val: any) => val.value)
     } else {
-      return value[k].ids.flat()
+      return value[k].value
     }
   })
   emit('update:modelValue', newval)
@@ -65,17 +60,19 @@ watch(selections.value, (value) => {
 
 watch(() => props.items,
   (value) => {
-    const selected: string[][] = []
+    const selected: string[] = []
     value.forEach((item: SelectableItem) => {
       if ('children' in item) {
-        item.children.filter((child: SelectableItem) => child.selected).forEach(child => {
-          selected.push(child.ids)
-        })
+        item.children
+          .filter((child: SelectableItem) => child.selected)
+          .forEach((child: SelectableItem) => {
+            selected.push(child.id)
+          })
       } else {
-        selected.push(item.ids)
+        selected.push(item.id)
       }
     })
-    emit('update:modelValue', selected.flat())
+    emit('update:modelValue', selected)
   },
   { immediate: true }
 )

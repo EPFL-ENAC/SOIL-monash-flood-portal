@@ -3,8 +3,8 @@ import LayerSelector from '@/components/LayerSelector.vue'
 import MapLibreMap from '@/components/MapLibreMap.vue'
 import { useTitleStore } from '@/stores/title'
 import type { Parameters } from '@/utils/jsonWebMap'
-import { mdiChevronLeft, mdiChevronRight, mdiCog, mdiLayers, mdiMapLegend } from '@mdi/js'
-import type { SelectableSingleItem } from '@/utils/layerSelector'
+import { mdiChevronLeft, mdiChevronRight, mdiClose, mdiLayers, mdiMapLegend } from '@mdi/js'
+import type { SelectableItem, SelectableSingleItem } from '@/utils/layerSelector'
 import axios from 'axios'
 import { storeToRefs } from 'pinia'
 import { computed, ref, shallowRef, triggerRef, watch } from 'vue'
@@ -18,6 +18,7 @@ const map = ref<InstanceType<typeof MapLibreMap>>()
 const selectedLayerIds = ref<string[]>([])
 const parameters = shallowRef<Parameters>({})
 const drawerRail = ref(false)
+const drawerRight = ref(false)
 
 const { title, subtitle } = storeToRefs(useTitleStore())
 
@@ -26,12 +27,12 @@ const singleItems = computed<SelectableSingleItem[]>(() =>
     'children' in item ? item.children : [item]
   )
 )
-const selectableLayerIds = computed<string[]>(() => singleItems.value.flatMap((item) => item.ids))
+const selectableLayerIds = computed<string[]>(() => singleItems.value.map((item) => item.id))
 const legendItems = computed(() =>
   singleItems.value
-    .filter((item) => selectedLayerIds.value.some((id) => item.ids.includes(id)))
-    .filter((item) => item.legend !== undefined || item.legendImage !== undefined || item.legendScale !== undefined)
-    .map((item) => ({
+    .filter((item: SelectableSingleItem) => selectedLayerIds.value.some((id: string) => item.id === id))
+    .filter((item: SelectableSingleItem) => item.legend !== undefined || item.legendImage !== undefined || item.legendScale !== undefined)
+    .map((item: SelectableSingleItem) => ({
       label: item.label,
       legend: item.legend,
       legendImage: item.legendImage,
@@ -41,7 +42,7 @@ const legendItems = computed(() =>
 
 watch(
   () => props.parametersUrl,
-  (parametersUrl) => {
+  (parametersUrl: string) => {
     axios
       .get<Parameters>(parametersUrl)
       .then((response) => response.data)
@@ -115,6 +116,16 @@ watch(
           </v-card-text>
         </v-card>
       </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
+  <v-navigation-drawer v-if="drawerRight" location="right">
+    <v-list>
+      <v-list-item>
+        <template #append>
+          <v-btn :icon="mdiClose" variant="flat" @click.stop="drawerRight = false" />
+        </template>
+      </v-list-item>
+      <v-list-item title="Coordinate details"></v-list-item>
     </v-list>
   </v-navigation-drawer>
   <v-container class="fill-height pa-0" fluid>
