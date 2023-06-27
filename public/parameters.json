@@ -4,8 +4,8 @@
   "zoom": 10,
   "selectableItems": [
     {
-      "id": "background",
-      "label": "Background",
+      "id": "theme",
+      "label": "Theme",
       "children": [
         {
           "id": "osm",
@@ -468,7 +468,7 @@
         },
         {
           "id": "depthCC_100yr",
-          "label": "Depth 20 years (climate change)",
+          "label": "Depth 100 years (climate change)",
           "legend": "Inundation of Sungai Selangor River basin for 100 years ARI with the consideration of climate change.",
           "selected": false,
           "legendScale": [

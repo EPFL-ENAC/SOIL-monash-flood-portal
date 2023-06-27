@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import type { SelectableItem, SelectableSingleItem } from '@/utils/layerSelector'
-import { computed, watch, ref } from 'vue'
-
-interface SelectableProps {
-  label: string
-  value: string[]
-}
+import { watch, ref } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -21,58 +16,33 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: string[]): void
 }>()
 
-const items = computed<(SelectableProps | { id: string, label: string; multiple: boolean, children: SelectableProps[] })[]>((): any[] =>
-  props.items.map((item: SelectableItem) =>
-    'children' in item
-      ? {
-          id: item.id,
-          label: item.label,
-          multiple: item.multiple,
-          children: item.children.map((child: SelectableSingleItem) => ({
-            label: child.label,
-            value: child.id
-          }))
-        }
-      : {
-          label: item.label,
-          value: item.id
-        }
-  )
-)
+const selections = ref<SelectableSingleItem[] | SelectableSingleItem[][]>([])
 
-const selections = ref<any>({
-  "background": {
-    "label": "Light",
-    "value": "light"
-  }
-})
-
-watch(selections.value, (value) => {
-  const newval = Object.keys(value).flatMap(k => {
-    if (Array.isArray(value[k])) {
-      return value[k].flatMap((val: any) => val.value)
-    } else {
-      return value[k].value
-    }
-  })
+watch(selections.value, (value: SelectableSingleItem[]) => {
+  const newval = value
+    .filter((k: SelectableSingleItem) => k)
+    .map((k: SelectableSingleItem) => {
+      if (Array.isArray(k)) {
+        return k.map((val: SelectableSingleItem) => val.id)
+      } else {
+        return k.id
+      }
+    }).flat()
   emit('update:modelValue', newval)
 })
 
 watch(() => props.items,
-  (value) => {
-    const selected: string[] = []
-    value.forEach((item: SelectableItem) => {
+  (value: SelectableItem[]) => {
+    value.forEach((item: SelectableItem, index: number) => {
       if ('children' in item) {
-        item.children
-          .filter((child: SelectableItem) => child.selected)
-          .forEach((child: SelectableItem) => {
-            selected.push(child.id)
-          })
-      } else {
-        selected.push(item.id)
+        const selectedChildren: SelectableSingleItem[] = item.children
+          .filter((child: SelectableSingleItem) => child.selected)
+        
+        selections.value[index] = item.multiple ? selectedChildren : selectedChildren.pop()
+      } else if (item.selected) {
+        selections.value[index] = item
       }
     })
-    emit('update:modelValue', selected)
   },
   { immediate: true }
 )
@@ -85,7 +55,7 @@ watch(() => props.items,
       <div v-for="(item, index) in items" :key="index">
         <div v-if="'children' in item">
           <v-combobox
-            v-model="selections[item.id]"
+            v-model="selections[index]"
             :label="item.label"
             :multiple="item.multiple"
             :items="item.children"
@@ -93,6 +63,7 @@ watch(() => props.items,
             item-value="id"
             density="compact"
             chips
+            clearable
           ></v-combobox>
         </div>
       </div>
