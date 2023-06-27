@@ -61,12 +61,6 @@
                 "selected": {
                     "type": "boolean"
                 },
-                "ids": {
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
                 "legend": {
                     "type": "string"
                 },
