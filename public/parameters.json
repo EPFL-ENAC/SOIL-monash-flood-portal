@@ -285,6 +285,241 @@
           ]
         }
       ]
+    },
+    {
+      "id": "depth",
+      "label": "Depth (m)",
+      "multiple": false,
+      "children": [
+        {
+          "id": "depthBase_20yr",
+          "label": "Depth 20 years",
+          "ids": ["depthBase_20yr"],
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 20 years ARI.",
+          "legendScale": [
+            {
+              "color": "#f7fbff",
+              "label": "Very low",
+              "min": 0,
+              "max": 0.25
+            },
+            {
+              "color": "#dbe9f6",
+              "label": "Low",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#c6dbef",
+              "label": "Medium",
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "color": "#6baed6",
+              "label": "High",
+              "min": 1,
+              "max": 1.5
+            },
+            {
+              "color": "#08306b",
+              "label": "Very high",
+              "min": 1.5
+            }
+          ]
+        },
+        {
+          "id": "depthBase_50yr",
+          "label": "Depth 50 years",
+          "ids": ["depthBase_50yr"],
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 50 years ARI.",
+          "legendScale": [
+            {
+              "color": "#f7fbff",
+              "label": "Very low",
+              "min": 0,
+              "max": 0.25
+            },
+            {
+              "color": "#dbe9f6",
+              "label": "Low",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#c6dbef",
+              "label": "Medium",
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "color": "#6baed6",
+              "label": "High",
+              "min": 1,
+              "max": 1.5
+            },
+            {
+              "color": "#08306b",
+              "label": "Very high",
+              "min": 1.5
+            }
+          ]
+        },
+        {
+          "id": "depthBase_100yr",
+          "label": "Depth 100 years",
+          "ids": ["depthBase_100yr"],
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 100 years ARI.",
+          "legendScale": [
+            {
+              "color": "#f7fbff",
+              "label": "Very low",
+              "min": 0,
+              "max": 0.25
+            },
+            {
+              "color": "#dbe9f6",
+              "label": "Low",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#c6dbef",
+              "label": "Medium",
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "color": "#6baed6",
+              "label": "High",
+              "min": 1,
+              "max": 1.5
+            },
+            {
+              "color": "#08306b",
+              "label": "Very high",
+              "min": 1.5
+            }
+          ]
+        },
+        {
+          "id": "depthCC_20yr",
+          "label": "Depth 20 years (climate change)",
+          "ids": ["depthCC_20yr"],
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 20 years ARI with the consideration of climate change.",
+          "legendScale": [
+            {
+              "color": "#f7fbff",
+              "label": "Very low",
+              "min": 0,
+              "max": 0.25
+            },
+            {
+              "color": "#dbe9f6",
+              "label": "Low",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#c6dbef",
+              "label": "Medium",
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "color": "#6baed6",
+              "label": "High",
+              "min": 1,
+              "max": 1.5
+            },
+            {
+              "color": "#08306b",
+              "label": "Very high",
+              "min": 1.5
+            }
+          ]
+        },
+        {
+          "id": "depthCC_50yr",
+          "label": "Depth 50 years (climate change)",
+          "ids": ["depthCC_50yr"],
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 50 years ARI with the consideration of climate change.",
+          "legendScale": [
+            {
+              "color": "#f7fbff",
+              "label": "Very low",
+              "min": 0,
+              "max": 0.25
+            },
+            {
+              "color": "#dbe9f6",
+              "label": "Low",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#c6dbef",
+              "label": "Medium",
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "color": "#6baed6",
+              "label": "High",
+              "min": 1,
+              "max": 1.5
+            },
+            {
+              "color": "#08306b",
+              "label": "Very high",
+              "min": 1.5
+            }
+          ]
+        },
+        {
+          "id": "depthCC_100yr",
+          "label": "Depth 20 years (climate change)",
+          "ids": ["depthCC_100yr"],
+          "legend": "Inundation of Sungai Selangor River basin for 100 years ARI with the consideration of climate change.",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#f7fbff",
+              "label": "Very low",
+              "min": 0,
+              "max": 0.25
+            },
+            {
+              "color": "#dbe9f6",
+              "label": "Low",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#c6dbef",
+              "label": "Medium",
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "color": "#6baed6",
+              "label": "High",
+              "min": 1,
+              "max": 1.5
+            },
+            {
+              "color": "#08306b",
+              "label": "Very high",
+              "min": 1.5
+            }
+          ]
+        }
+      ]
     }
   ],
   "title": "Monash Flood Portal",

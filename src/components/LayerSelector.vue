@@ -42,7 +42,15 @@ const items = computed<(SelectableProps | { id: string, label: string; multiple:
   )
 )
 
-const selections = ref<any>({})
+const selections = ref<any>({
+  "background": {
+    "label": "Light",
+    "value": "light",
+    "ids": [
+      "light"
+    ]
+  }
+})
 
 watch(selections.value, (value) => {
   const newval = Object.keys(value).flatMap(k => {
@@ -67,11 +75,10 @@ watch(() => props.items,
         selected.push(item.ids)
       }
     })
-    emit('update:modelValue', selected.flat())  
+    emit('update:modelValue', selected.flat())
   },
   { immediate: true }
 )
-
 
 </script>
 
@@ -89,7 +96,6 @@ watch(() => props.items,
             item-value="id"
             density="compact"
             chips
-            :closable-chips="item.multiple"
           ></v-combobox>
         </div>
       </div>

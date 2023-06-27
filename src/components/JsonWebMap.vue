@@ -73,9 +73,8 @@ watch(
           <span class="text-h6">Layers</span>
         </v-list-item-title>
       </v-list-item>
-      <v-list-item v-if="!drawerRail">
+      <v-list-item v-show="!drawerRail">
         <LayerSelector
-          v-if="!drawerRail"
           v-model="selectedLayerIds"
           :items="parameters.selectableItems"
         />
@@ -91,7 +90,7 @@ watch(
             <v-row>
               <v-col v-for="(item, index) in legendItems" :key="index" cols="12">
                 <div class="mb-2 text-overline">{{ item.label }}</div>
-                <div v-if="item.legend" class="mb-3">{{ item.legend }}</div>
+                <div v-if="item.legend" class="mb-3 text-caption">{{ item.legend }}</div>
                 <v-img v-if="item.legendImage" :src="item.legendImage" />
                 <v-table v-if="item.legendScale" density="compact">
                   <tbody>
