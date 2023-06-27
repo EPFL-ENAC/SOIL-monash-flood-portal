@@ -30,11 +30,12 @@ const selectableLayerIds = computed<string[]>(() => singleItems.value.flatMap((i
 const legendItems = computed(() =>
   singleItems.value
     .filter((item) => selectedLayerIds.value.some((id) => item.ids.includes(id)))
-    .filter((item) => item.legend !== undefined || item.legendImage !== undefined)
+    .filter((item) => item.legend !== undefined || item.legendImage !== undefined || item.legendScale !== undefined)
     .map((item) => ({
       label: item.label,
       legend: item.legend,
-      legendImage: item.legendImage
+      legendImage: item.legendImage,
+      legendScale: item.legendScale
     }))
 )
 
@@ -89,9 +90,27 @@ watch(
           <v-card-text>
             <v-row>
               <v-col v-for="(item, index) in legendItems" :key="index" cols="12">
-                <h3>{{ item.label }}</h3>
-                <div v-if="item.legend">{{ item.legend }}</div>
+                <div class="mb-2 text-overline">{{ item.label }}</div>
+                <div v-if="item.legend" class="mb-3">{{ item.legend }}</div>
                 <v-img v-if="item.legendImage" :src="item.legendImage" />
+                <v-table v-if="item.legendScale" density="compact">
+                  <tbody>
+                    <tr
+                      v-for="entry in item.legendScale"
+                      :key="entry.color"
+                    >
+                      <td :style="`background-color: ${entry.color}`"></td>
+                      <td>
+                        <div>{{ entry.label }}</div>
+                        <div class="text-caption">
+                          <span v-if="entry.min === undefined && entry.max !== undefined">{{ entry.max }} &le;</span>
+                          <span v-if="entry.min !== undefined && entry.max !== undefined">{{ entry.min }} - {{ entry.max }}</span>
+                          <span v-if="entry.min !== undefined && entry.max === undefined">&gt; {{ entry.min }}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </v-table>
               </v-col>
             </v-row>
           </v-card-text>

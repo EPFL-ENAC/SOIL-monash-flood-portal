@@ -25,13 +25,43 @@
     },
     "economic": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-26/tiles/economic/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-27T09:15/tiles/economic/{z}/{x}/{y}.png"],
+      "minZoom": 0,
+      "maxZoom": 20
+    },
+    "susceptibility": {
+      "type": "raster",
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-27T09:15/tiles/susceptibility/{z}/{x}/{y}.png"],
+      "minZoom": 0,
+      "maxZoom": 20
+    },
+    "social": {
+      "type": "raster",
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-27T09:15/tiles/social/{z}/{x}/{y}.png"],
+      "minZoom": 0,
+      "maxZoom": 20
+    },
+    "resilience": {
+      "type": "raster",
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-27T09:15/tiles/resilience/{z}/{x}/{y}.png"],
+      "minZoom": 0,
+      "maxZoom": 20
+    },
+    "physical": {
+      "type": "raster",
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-27T09:15/tiles/physical/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "exposure": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-26/tiles/exposure/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-27T09:15/tiles/exposure/{z}/{x}/{y}.png"],
+      "minZoom": 0,
+      "maxZoom": 20
+    },
+    "CFVI": {
+      "type": "raster",
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-27T09:15/tiles/CFVI/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     }
@@ -55,7 +85,47 @@
       "id": "economic",
       "type": "raster",
       "source": "economic",
-      "minzoom": 8,
+      "minzoom": 1,
+      "maxzoom": 22,
+      "paint": {
+        "raster-opacity": 0.5
+      }
+    },
+    {
+      "id": "susceptibility",
+      "type": "raster",
+      "source": "susceptibility",
+      "minzoom": 1,
+      "maxzoom": 22,
+      "paint": {
+        "raster-opacity": 0.5
+      }
+    },
+    {
+      "id": "social",
+      "type": "raster",
+      "source": "social",
+      "minzoom": 1,
+      "maxzoom": 22,
+      "paint": {
+        "raster-opacity": 0.5
+      }
+    },
+    {
+      "id": "resilience",
+      "type": "raster",
+      "source": "resilience",
+      "minzoom": 1,
+      "maxzoom": 22,
+      "paint": {
+        "raster-opacity": 0.5
+      }
+    },
+    {
+      "id": "physical",
+      "type": "raster",
+      "source": "physical",
+      "minzoom": 1,
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5
@@ -65,7 +135,17 @@
       "id": "exposure",
       "type": "raster",
       "source": "exposure",
-      "minzoom": 8,
+      "minzoom": 1,
+      "maxzoom": 22,
+      "paint": {
+        "raster-opacity": 0.5
+      }
+    },
+    {
+      "id": "CFVI",
+      "type": "raster",
+      "source": "CFVI",
+      "minzoom": 1,
       "maxzoom": 22,
       "paint": {
         "raster-opacity": 0.5

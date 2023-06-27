@@ -34,6 +34,22 @@
                 }
             ]
         },
+        "ScaleEntry": {
+            "properties": {
+                "color": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "min": {
+                    "type": "number"
+                },
+                "max": {
+                    "type": "number"
+                }
+            }
+        },
         "SelectableSingleItem": {
             "properties": {
                 "id": {
@@ -53,6 +69,15 @@
                 },
                 "legend": {
                     "type": "string"
+                },
+                "legendImage": {
+                    "type": "string"
+                },
+                "legendScale": {
+                    "items": {
+                        "$ref": "#/definitions/ScaleEntry"
+                    },
+                    "type": "array"
                 }
             },
             "type": "object"
