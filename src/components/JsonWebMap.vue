@@ -62,7 +62,7 @@ watch(
 </script>
 
 <template>
-  <v-navigation-drawer :rail="drawerRail" @click="drawerRail = false">
+  <v-navigation-drawer :rail="drawerRail" permanent @click="drawerRail = false">
     <v-list density="compact" nav>
       <v-list-item :prepend-icon="drawerRail ? mdiChevronRight : undefined">
         <template #append>
