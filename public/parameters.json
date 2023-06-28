@@ -613,8 +613,8 @@
       ]
     },
     {
-      "id": "depth",
-      "label": "Depth (m)",
+      "id": "inundation",
+      "label": "Inundation",
       "multiple": false,
       "children": [
         {
@@ -626,31 +626,36 @@
             {
               "color": "#08306b",
               "label": "Very high",
-              "min": 1.5
+              "min": 1.5,
+              "unit": "m"
             },
             {
               "color": "#6baed6",
               "label": "High",
               "min": 1,
-              "max": 1.5
+              "max": 1.5,
+              "unit": "m"
             },
             {
               "color": "#c6dbef",
               "label": "Medium",
               "min": 0.5,
-              "max": 1
+              "max": 1,
+              "unit": "m"
             },
             {
               "color": "#dbe9f6",
               "label": "Low",
               "min": 0.25,
-              "max": 0.5
+              "max": 0.5,
+              "unit": "m"
             },
             {
               "color": "#f7fbff",
               "label": "Very low",
               "min": 0,
-              "max": 0.25
+              "max": 0.25,
+              "unit": "m"
             }
           ]
         },
@@ -663,31 +668,36 @@
             {
               "color": "#08306b",
               "label": "Very high",
-              "min": 1.5
+              "min": 1.5,
+              "unit": "m"
             },
             {
               "color": "#6baed6",
               "label": "High",
               "min": 1,
-              "max": 1.5
+              "max": 1.5,
+              "unit": "m"
             },
             {
               "color": "#c6dbef",
               "label": "Medium",
               "min": 0.5,
-              "max": 1
+              "max": 1,
+              "unit": "m"
             },
             {
               "color": "#dbe9f6",
               "label": "Low",
               "min": 0.25,
-              "max": 0.5
+              "max": 0.5,
+              "unit": "m"
             },
             {
               "color": "#f7fbff",
               "label": "Very low",
               "min": 0,
-              "max": 0.25
+              "max": 0.25,
+              "unit": "m"
             }
           ]
         },
@@ -700,31 +710,36 @@
             {
               "color": "#08306b",
               "label": "Very high",
-              "min": 1.5
+              "min": 1.5,
+              "unit": "m"
             },
             {
               "color": "#6baed6",
               "label": "High",
               "min": 1,
-              "max": 1.5
+              "max": 1.5,
+              "unit": "m"
             },
             {
               "color": "#c6dbef",
               "label": "Medium",
               "min": 0.5,
-              "max": 1
+              "max": 1,
+              "unit": "m"
             },
             {
               "color": "#dbe9f6",
               "label": "Low",
               "min": 0.25,
-              "max": 0.5
+              "max": 0.5,
+              "unit": "m"
             },
             {
               "color": "#f7fbff",
               "label": "Very low",
               "min": 0,
-              "max": 0.25
+              "max": 0.25,
+              "unit": "m"
             }
           ]
         },
@@ -737,31 +752,36 @@
             {
               "color": "#08306b",
               "label": "Very high",
-              "min": 1.5
+              "min": 1.5,
+              "unit": "m"
             },
             {
               "color": "#6baed6",
               "label": "High",
               "min": 1,
-              "max": 1.5
+              "max": 1.5,
+              "unit": "m"
             },
             {
               "color": "#c6dbef",
               "label": "Medium",
               "min": 0.5,
-              "max": 1
+              "max": 1,
+              "unit": "m"
             },
             {
               "color": "#dbe9f6",
               "label": "Low",
               "min": 0.25,
-              "max": 0.5
+              "max": 0.5,
+              "unit": "m"
             },
             {
               "color": "#f7fbff",
               "label": "Very low",
               "min": 0,
-              "max": 0.25
+              "max": 0.25,
+              "unit": "m"
             }
           ]
         },
@@ -774,31 +794,36 @@
             {
               "color": "#08306b",
               "label": "Very high",
-              "min": 1.5
+              "min": 1.5,
+              "unit": "m"
             },
             {
               "color": "#6baed6",
               "label": "High",
               "min": 1,
-              "max": 1.5
+              "max": 1.5,
+              "unit": "m"
             },
             {
               "color": "#c6dbef",
               "label": "Medium",
               "min": 0.5,
-              "max": 1
+              "max": 1,
+              "unit": "m"
             },
             {
               "color": "#dbe9f6",
               "label": "Low",
               "min": 0.25,
-              "max": 0.5
+              "max": 0.5,
+              "unit": "m"
             },
             {
               "color": "#f7fbff",
               "label": "Very low",
               "min": 0,
-              "max": 0.25
+              "max": 0.25,
+              "unit": "m"
             }
           ]
         },
@@ -811,31 +836,36 @@
             {
               "color": "#08306b",
               "label": "Very high",
-              "min": 1.5
+              "min": 1.5,
+              "unit": "m"
             },
             {
               "color": "#6baed6",
               "label": "High",
               "min": 1,
-              "max": 1.5
+              "max": 1.5,
+              "unit": "m"
             },
             {
               "color": "#c6dbef",
               "label": "Medium",
               "min": 0.5,
-              "max": 1
+              "max": 1,
+              "unit": "m"
             },
             {
               "color": "#dbe9f6",
               "label": "Low",
               "min": 0.25,
-              "max": 0.5
+              "max": 0.5,
+              "unit": "m"
             },
             {
               "color": "#f7fbff",
               "label": "Very low",
               "min": 0,
-              "max": 0.25
+              "max": 0.25,
+              "unit": "m"
             }
           ]
         }
@@ -843,5 +873,5 @@
     }
   ],
   "title": "Monash Flood Portal",
-  "subtitle": ""
+  "subtitle": "Hazard, risk, vulnerability and inundation maps in the Sungai Selangor River basin, Malaysia"
 }

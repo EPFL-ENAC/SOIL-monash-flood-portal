@@ -47,8 +47,12 @@
                 },
                 "max": {
                     "type": "number"
+                },
+                "unit": {
+                    "type": "string"
                 }
-            }
+            },
+            "type": "object"
         },
         "SelectableSingleItem": {
             "properties": {

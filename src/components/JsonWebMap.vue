@@ -106,6 +106,7 @@ watch(
                           <span v-if="entry.min === undefined && entry.max !== undefined">{{ entry.max }} &le;</span>
                           <span v-if="entry.min !== undefined && entry.max !== undefined">{{ entry.min }} - {{ entry.max }}</span>
                           <span v-if="entry.min !== undefined && entry.max === undefined">&gt; {{ entry.min }}</span>
+                          <span v-if="entry.unit">&nbsp;({{ entry.unit }})</span>
                         </div>
                       </td>
                     </tr>

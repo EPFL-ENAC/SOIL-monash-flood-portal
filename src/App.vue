@@ -11,7 +11,7 @@ const { title, subtitle } = storeToRefs(useTitleStore())
     <v-app-bar flat height="68">
       <v-app-bar-title>
         <div v-if="title" class="text-h5">{{ title }}</div>
-        <div v-if="subtitle" class="text-subtitle-1">{{ subtitle }}</div>
+        <div v-if="subtitle" class="text-subtitle-2">{{ subtitle }}</div>
       </v-app-bar-title>
       <template #append>
         <a href="https://epfl.ch" target="_blank">
