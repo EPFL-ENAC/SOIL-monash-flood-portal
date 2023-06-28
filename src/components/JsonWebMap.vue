@@ -87,7 +87,7 @@ watch(
       </v-list-item>
       <v-list-item v-if="!drawerRail">
         <v-card>
-          <v-card-text>
+          <v-card-text class="pa-0">
             <v-row>
               <v-col v-for="(item, index) in legendItems" :key="index" cols="12">
                 <div class="mb-2 text-overline">{{ item.label }}</div>

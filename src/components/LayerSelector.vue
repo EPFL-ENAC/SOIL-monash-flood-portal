@@ -51,7 +51,7 @@ watch(() => props.items,
 
 <template>
   <v-card flat>
-    <v-card-text>
+    <v-card-text class="pa-0">
       <div v-for="(item, index) in items" :key="index">
         <div v-if="'children' in item">
           <v-combobox

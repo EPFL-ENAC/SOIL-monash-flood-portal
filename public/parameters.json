@@ -25,6 +25,342 @@
       ]
     },
     {
+      "id": "hazard",
+      "label": "Hazard",
+      "children": [
+        {
+          "id": "hazardBase_20",
+          "label": "Hazard 20 years",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#d7191c",
+              "label": "Very high"
+            },
+            {
+              "color": "#fdae61",
+              "label": "High"
+            },
+            {
+              "color": "#9ad148",
+              "label": "Medium"
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low"
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low"
+            }
+          ]
+        },
+        {
+          "id": "hazardBase_50",
+          "label": "Hazard 50 years",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#d7191c",
+              "label": "Very high"
+            },
+            {
+              "color": "#fdae61",
+              "label": "High"
+            },
+            {
+              "color": "#9ad148",
+              "label": "Medium"
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low"
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low"
+            }
+          ]
+        },
+        {
+          "id": "hazardBase_100",
+          "label": "Hazard 100 years",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#d7191c",
+              "label": "Very high"
+            },
+            {
+              "color": "#fdae61",
+              "label": "High"
+            },
+            {
+              "color": "#9ad148",
+              "label": "Medium"
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low"
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low"
+            }
+          ]
+        },
+        {
+          "id": "hazardCC_20",
+          "label": "Hazard 20 years (climate change)",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#d7191c",
+              "label": "Very high"
+            },
+            {
+              "color": "#fdae61",
+              "label": "High"
+            },
+            {
+              "color": "#9ad148",
+              "label": "Medium"
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low"
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low"
+            }
+          ]
+        },
+        {
+          "id": "hazardCC_50",
+          "label": "Hazard 50 years (climate change)",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#d7191c",
+              "label": "Very high"
+            },
+            {
+              "color": "#fdae61",
+              "label": "High"
+            },
+            {
+              "color": "#9ad148",
+              "label": "Medium"
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low"
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low"
+            }
+          ]
+        },
+        {
+          "id": "hazardCC_100",
+          "label": "Hazard 100 years (climate change)",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#d7191c",
+              "label": "Very high"
+            },
+            {
+              "color": "#fdae61",
+              "label": "High"
+            },
+            {
+              "color": "#9ad148",
+              "label": "Medium"
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low"
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "risk",
+      "label": "Risk",
+      "children": [
+        {
+          "id": "riskBase_20yr",
+          "label": "Risk 20 years",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#d7191c",
+              "label": "Very high"
+            },
+            {
+              "color": "#fdae61",
+              "label": "High"
+            },
+            {
+              "color": "#9ad148",
+              "label": "Medium"
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low"
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low"
+            }
+          ]
+        },
+        {
+          "id": "riskBase_50yr",
+          "label": "Risk 50 years",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#d7191c",
+              "label": "Very high"
+            },
+            {
+              "color": "#fdae61",
+              "label": "High"
+            },
+            {
+              "color": "#9ad148",
+              "label": "Medium"
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low"
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low"
+            }
+          ]
+        },
+        {
+          "id": "riskBase_100yr",
+          "label": "Risk 100 years",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#d7191c",
+              "label": "Very high"
+            },
+            {
+              "color": "#fdae61",
+              "label": "High"
+            },
+            {
+              "color": "#9ad148",
+              "label": "Medium"
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low"
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low"
+            }
+          ]
+        },
+        {
+          "id": "riskCC_20yr",
+          "label": "Risk 20 years (climate change)",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#d7191c",
+              "label": "Very high"
+            },
+            {
+              "color": "#fdae61",
+              "label": "High"
+            },
+            {
+              "color": "#9ad148",
+              "label": "Medium"
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low"
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low"
+            }
+          ]
+        },
+        {
+          "id": "riskCC_50yr",
+          "label": "Risk 50 years (climate change)",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#d7191c",
+              "label": "Very high"
+            },
+            {
+              "color": "#fdae61",
+              "label": "High"
+            },
+            {
+              "color": "#9ad148",
+              "label": "Medium"
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low"
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low"
+            }
+          ]
+        },
+        {
+          "id": "riskCC_100yr",
+          "label": "Risk 100 years (climate change)",
+          "selected": false,
+          "legendScale": [
+            {
+              "color": "#d7191c",
+              "label": "Very high"
+            },
+            {
+              "color": "#fdae61",
+              "label": "High"
+            },
+            {
+              "color": "#9ad148",
+              "label": "Medium"
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low"
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "vulnerability",
       "label": "Vulnerability",
       "multiple": false,
@@ -35,21 +371,9 @@
           "selected": false,
           "legendScale": [
             {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
+              "color": "#d7191c",
+              "label": "Very high",
+              "min": 0.75
             },
             {
               "color": "#fdae61",
@@ -58,9 +382,21 @@
               "max": 0.75
             },
             {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
+              "color": "#9ad148",
+              "label": "Medium",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low",
+              "min": 0.1,
+              "max": 0.25
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low",
+              "max": 0.1
             }
           ]
         },
@@ -70,21 +406,9 @@
           "selected": false,
           "legendScale": [
             {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
+              "color": "#d7191c",
+              "label": "Very high",
+              "min": 0.75
             },
             {
               "color": "#fdae61",
@@ -93,9 +417,21 @@
               "max": 0.75
             },
             {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
+              "color": "#9ad148",
+              "label": "Medium",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low",
+              "min": 0.1,
+              "max": 0.25
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low",
+              "max": 0.1
             }
           ]
         },
@@ -105,21 +441,9 @@
           "selected": false,
           "legendScale": [
             {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
+              "color": "#d7191c",
+              "label": "Very high",
+              "min": 0.75
             },
             {
               "color": "#fdae61",
@@ -128,9 +452,21 @@
               "max": 0.75
             },
             {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
+              "color": "#9ad148",
+              "label": "Medium",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low",
+              "min": 0.1,
+              "max": 0.25
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low",
+              "max": 0.1
             }
           ]
         },
@@ -140,21 +476,9 @@
           "selected": false,
           "legendScale": [
             {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
+              "color": "#d7191c",
+              "label": "Very high",
+              "min": 0.75
             },
             {
               "color": "#fdae61",
@@ -163,9 +487,21 @@
               "max": 0.75
             },
             {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
+              "color": "#9ad148",
+              "label": "Medium",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low",
+              "min": 0.1,
+              "max": 0.25
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low",
+              "max": 0.1
             }
           ]
         },
@@ -175,21 +511,9 @@
           "selected": false,
           "legendScale": [
             {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
+              "color": "#d7191c",
+              "label": "Very high",
+              "min": 0.75
             },
             {
               "color": "#fdae61",
@@ -198,9 +522,21 @@
               "max": 0.75
             },
             {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
+              "color": "#9ad148",
+              "label": "Medium",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low",
+              "min": 0.1,
+              "max": 0.25
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low",
+              "max": 0.1
             }
           ]
         },
@@ -210,21 +546,9 @@
           "selected": false,
           "legendScale": [
             {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
+              "color": "#d7191c",
+              "label": "Very high",
+              "min": 0.75
             },
             {
               "color": "#fdae61",
@@ -233,9 +557,21 @@
               "max": 0.75
             },
             {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
+              "color": "#9ad148",
+              "label": "Medium",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low",
+              "min": 0.1,
+              "max": 0.25
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low",
+              "max": 0.1
             }
           ]
         },
@@ -245,21 +581,9 @@
           "selected": false,
           "legendScale": [
             {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
+              "color": "#d7191c",
+              "label": "Very high",
+              "min": 0.75
             },
             {
               "color": "#fdae61",
@@ -268,9 +592,21 @@
               "max": 0.75
             },
             {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
+              "color": "#9ad148",
+              "label": "Medium",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#96cfe2",
+              "label": "Low",
+              "min": 0.1,
+              "max": 0.25
+            },
+            {
+              "color": "#b1b2b2",
+              "label": "Very low",
+              "max": 0.1
             }
           ]
         }
@@ -288,22 +624,9 @@
           "legend": "Inundation of Sungai Selangor River basin for 20 years ARI.",
           "legendScale": [
             {
-              "color": "#f7fbff",
-              "label": "Very low",
-              "min": 0,
-              "max": 0.25
-            },
-            {
-              "color": "#dbe9f6",
-              "label": "Low",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#c6dbef",
-              "label": "Medium",
-              "min": 0.5,
-              "max": 1
+              "color": "#08306b",
+              "label": "Very high",
+              "min": 1.5
             },
             {
               "color": "#6baed6",
@@ -312,9 +635,22 @@
               "max": 1.5
             },
             {
-              "color": "#08306b",
-              "label": "Very high",
-              "min": 1.5
+              "color": "#c6dbef",
+              "label": "Medium",
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "color": "#dbe9f6",
+              "label": "Low",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#f7fbff",
+              "label": "Very low",
+              "min": 0,
+              "max": 0.25
             }
           ]
         },
@@ -325,22 +661,9 @@
           "legend": "Inundation of Sungai Selangor River basin for 50 years ARI.",
           "legendScale": [
             {
-              "color": "#f7fbff",
-              "label": "Very low",
-              "min": 0,
-              "max": 0.25
-            },
-            {
-              "color": "#dbe9f6",
-              "label": "Low",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#c6dbef",
-              "label": "Medium",
-              "min": 0.5,
-              "max": 1
+              "color": "#08306b",
+              "label": "Very high",
+              "min": 1.5
             },
             {
               "color": "#6baed6",
@@ -349,9 +672,22 @@
               "max": 1.5
             },
             {
-              "color": "#08306b",
-              "label": "Very high",
-              "min": 1.5
+              "color": "#c6dbef",
+              "label": "Medium",
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "color": "#dbe9f6",
+              "label": "Low",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#f7fbff",
+              "label": "Very low",
+              "min": 0,
+              "max": 0.25
             }
           ]
         },
@@ -362,22 +698,9 @@
           "legend": "Inundation of Sungai Selangor River basin for 100 years ARI.",
           "legendScale": [
             {
-              "color": "#f7fbff",
-              "label": "Very low",
-              "min": 0,
-              "max": 0.25
-            },
-            {
-              "color": "#dbe9f6",
-              "label": "Low",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#c6dbef",
-              "label": "Medium",
-              "min": 0.5,
-              "max": 1
+              "color": "#08306b",
+              "label": "Very high",
+              "min": 1.5
             },
             {
               "color": "#6baed6",
@@ -386,9 +709,22 @@
               "max": 1.5
             },
             {
-              "color": "#08306b",
-              "label": "Very high",
-              "min": 1.5
+              "color": "#c6dbef",
+              "label": "Medium",
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "color": "#dbe9f6",
+              "label": "Low",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#f7fbff",
+              "label": "Very low",
+              "min": 0,
+              "max": 0.25
             }
           ]
         },
@@ -399,22 +735,9 @@
           "legend": "Inundation of Sungai Selangor River basin for 20 years ARI with the consideration of climate change.",
           "legendScale": [
             {
-              "color": "#f7fbff",
-              "label": "Very low",
-              "min": 0,
-              "max": 0.25
-            },
-            {
-              "color": "#dbe9f6",
-              "label": "Low",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#c6dbef",
-              "label": "Medium",
-              "min": 0.5,
-              "max": 1
+              "color": "#08306b",
+              "label": "Very high",
+              "min": 1.5
             },
             {
               "color": "#6baed6",
@@ -423,9 +746,22 @@
               "max": 1.5
             },
             {
-              "color": "#08306b",
-              "label": "Very high",
-              "min": 1.5
+              "color": "#c6dbef",
+              "label": "Medium",
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "color": "#dbe9f6",
+              "label": "Low",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#f7fbff",
+              "label": "Very low",
+              "min": 0,
+              "max": 0.25
             }
           ]
         },
@@ -436,22 +772,9 @@
           "legend": "Inundation of Sungai Selangor River basin for 50 years ARI with the consideration of climate change.",
           "legendScale": [
             {
-              "color": "#f7fbff",
-              "label": "Very low",
-              "min": 0,
-              "max": 0.25
-            },
-            {
-              "color": "#dbe9f6",
-              "label": "Low",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#c6dbef",
-              "label": "Medium",
-              "min": 0.5,
-              "max": 1
+              "color": "#08306b",
+              "label": "Very high",
+              "min": 1.5
             },
             {
               "color": "#6baed6",
@@ -460,9 +783,22 @@
               "max": 1.5
             },
             {
-              "color": "#08306b",
-              "label": "Very high",
-              "min": 1.5
+              "color": "#c6dbef",
+              "label": "Medium",
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "color": "#dbe9f6",
+              "label": "Low",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#f7fbff",
+              "label": "Very low",
+              "min": 0,
+              "max": 0.25
             }
           ]
         },
@@ -473,22 +809,9 @@
           "selected": false,
           "legendScale": [
             {
-              "color": "#f7fbff",
-              "label": "Very low",
-              "min": 0,
-              "max": 0.25
-            },
-            {
-              "color": "#dbe9f6",
-              "label": "Low",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#c6dbef",
-              "label": "Medium",
-              "min": 0.5,
-              "max": 1
+              "color": "#08306b",
+              "label": "Very high",
+              "min": 1.5
             },
             {
               "color": "#6baed6",
@@ -497,9 +820,22 @@
               "max": 1.5
             },
             {
-              "color": "#08306b",
-              "label": "Very high",
-              "min": 1.5
+              "color": "#c6dbef",
+              "label": "Medium",
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "color": "#dbe9f6",
+              "label": "Low",
+              "min": 0.25,
+              "max": 0.5
+            },
+            {
+              "color": "#f7fbff",
+              "label": "Very low",
+              "min": 0,
+              "max": 0.25
             }
           ]
         }
