@@ -94,26 +94,20 @@ watch(
     popupLayerIds.forEach((layerId) => {
       const popup = new Popup({
         closeButton: false,
-        closeOnClick: false
+        closeOnClick: true
       })
-      map?.on('mouseenter', layerId, function (e) {
+      map?.on('click', layerId, function (e) {
         if (map) {
           map.getCanvas().style.cursor = 'pointer'
-          popup
-            .setLngLat(e.lngLat)
-            .setHTML(
-              Object.entries(e.features?.at(0)?.properties ?? {})
+          let html = Object.entries(e.features?.at(0)?.properties ?? {})
                 .map(([key, value]) => `<strong>${key}:</strong> ${value}`)
                 .join('<br>')
-            )
+          html = `<strong>${layerId}</strong><br>${html}`
+          popup
+            .setLngLat(e.lngLat)
+            .setHTML(html)
             .addTo(map)
         }
-      })
-      map?.on('mouseleave', layerId, function () {
-        if (map) {
-          map.getCanvas().style.cursor = ''
-        }
-        popup.remove()
       })
     })
   },
