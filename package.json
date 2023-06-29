@@ -15,7 +15,9 @@
     "schema": "typescript-json-schema --esModuleInterop -o schema/parameters.schema.json src/utils/*.ts Parameters"
   },
   "dependencies": {
+    "@maplibre/maplibre-gl-geocoder": "^1.5.0",
     "axios": "^1.3.4",
+    "events": "^3.3.0",
     "maplibre-gl": "^2.4.0",
     "pinia": "^2.0.32",
     "vue": "^3.2.47",

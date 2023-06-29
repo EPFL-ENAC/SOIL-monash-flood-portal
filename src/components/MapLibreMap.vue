@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import 'maplibre-gl/dist/maplibre-gl.css'
+import '@maplibre/maplibre-gl-geocoder/dist/maplibre-gl-geocoder.css'
 
+import { geocoderApi } from '@/utils/geocoder'
 import { DivControl } from '@/utils/control'
+import MaplibreGeocoder from '@maplibre/maplibre-gl-geocoder'
 import {
   FullscreenControl,
   GeolocateControl,
   Map,
   MapMouseEvent,
+  Marker,
   NavigationControl,
   Popup,
   ScaleControl,
@@ -59,8 +63,16 @@ onMounted(() => {
   map.addControl(new GeolocateControl({}))
   map.addControl(new ScaleControl({}))
   map.addControl(new FullscreenControl({}))
+  map.addControl(
+    new MaplibreGeocoder(geocoderApi, {
+      maplibregl: { Marker },
+      showResultsWhileTyping: true,
+    }),
+    'top-left'
+  )
   const positionControl = new DivControl({ id: 'map-position' })
   map.addControl(positionControl, 'bottom-left')
+ 
 
   map.on('mousemove', function (event: MapMouseEvent) {
     if (positionControl.container) {
