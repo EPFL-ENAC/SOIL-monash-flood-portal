@@ -2,6 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/EPFL-ENAC/SOIL-monash-flood-portal/main/schema/parameters.schema.json",
   "center": { "lat": 3.46769, "lng": 101.54976 },
   "zoom": 10,
+  "popupLayerIds": [
+    "riskBase_20yr", "riskBase_50yr", "riskBase_100yr",
+    "riskCC_20yr", "riskCC_50yr", "riskCC_100yr", 
+    "hazardBase_20", "hazardBase_50", "hazardBase_100", 
+    "hazardCC_20", "hazardCC_50", "hazardCC_100"
+  ],
   "selectableItems": [
     {
       "id": "theme",
