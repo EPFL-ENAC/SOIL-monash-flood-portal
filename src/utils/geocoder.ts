@@ -1,7 +1,11 @@
+// TODO have it in the parameters
+const countryCode = 'my'
+const viewBox = '101.13,3.75,101.85,3.22'
+
 function handleNominatimResponse(geojson: any): any[] {
   const features = []
   const place_names: string[] = []
-  for (const feature of geojson.features.filter((f: any) => f.properties.address.country_code === 'my')) {
+  for (const feature of geojson.features.filter((f: any) => f.properties.address.country_code === countryCode)) {
     if (!place_names.includes(feature.properties.display_name)) {
       const center = [
         feature.bbox[0] + (feature.bbox[2] - feature.bbox[0]) / 2,
@@ -38,10 +42,10 @@ export const geocoderApi = {
   forwardGeocode: async (config: { query: string; limit: number; countries: string[] }) => {
     let features = []
     try {
-      let countrycodes = 'my'
+      let countrycodes = countryCode
       if (config.countries && config.countries.length > 0)
         countrycodes = config.countries.join(',')
-      const request = `https://nominatim.openstreetmap.org/search?q=${config.query}&limit=${config.limit}&format=geojson&polygon_geojson=1&addressdetails=1&countrycodes=${countrycodes}`
+      const request = `https://nominatim.openstreetmap.org/search?q=${config.query}&limit=${config.limit}&format=geojson&polygon_geojson=1&addressdetails=1&countrycodes=${countrycodes}&bounded=1&viewbox=${viewBox}`
       if (searchController)
         searchController.abort()
       searchController = new AbortController()
