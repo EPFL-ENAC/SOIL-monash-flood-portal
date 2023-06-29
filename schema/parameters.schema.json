@@ -18,7 +18,10 @@
                     },
                     "type": "array"
                 },
-                "multiple": {
+                "permanent": {
+                    "type": "boolean"
+                },
+                "tab": {
                     "type": "boolean"
                 }
             },

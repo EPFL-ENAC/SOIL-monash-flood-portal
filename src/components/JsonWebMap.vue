@@ -4,7 +4,7 @@ import MapLibreMap from '@/components/MapLibreMap.vue'
 import { useTitleStore } from '@/stores/title'
 import type { Parameters } from '@/utils/jsonWebMap'
 import { mdiChevronLeft, mdiChevronRight, mdiClose, mdiLayers, mdiMapLegend } from '@mdi/js'
-import type { SelectableSingleItem } from '@/utils/layerSelector'
+import type { SelectableItem, SelectableSingleItem } from '@/utils/layerSelector'
 import axios from 'axios'
 import { storeToRefs } from 'pinia'
 import { computed, ref, shallowRef, triggerRef, watch } from 'vue'
@@ -33,6 +33,7 @@ const legendItems = computed(() =>
     .filter((item: SelectableSingleItem) => selectedLayerIds.value.some((id: string) => item.id === id))
     .filter((item: SelectableSingleItem) => item.legend !== undefined || item.legendImage !== undefined || item.legendScale !== undefined)
     .map((item: SelectableSingleItem) => ({
+      id: item.id,
       label: item.label,
       legend: item.legend,
       legendImage: item.legendImage,
@@ -59,6 +60,22 @@ watch(
   },
   { immediate: true }
 )
+
+function getParent(id: string): SelectableItem | undefined {
+  return (parameters.value.selectableItems ?? [])
+    .filter((item: SelectableItem) => {
+      if ('children' in item) {
+        return item.children.map((child: SelectableSingleItem) => child.id).includes(id)
+      }
+      return false
+    })
+    .pop()
+}
+
+function getParentLabel(id: string) {
+  const parent = getParent(id)
+  return parent?.label
+}
 </script>
 
 <template>
@@ -90,7 +107,7 @@ watch(
           <v-card-text class="pa-0">
             <v-row>
               <v-col v-for="(item, index) in legendItems" :key="index" cols="12">
-                <div class="mb-2 text-overline">{{ item.label }}</div>
+                <div class="mb-2 text-overline">{{ getParentLabel(item.id) }}: {{ item.label }}</div>
                 <div v-if="item.legend" class="mb-3 text-caption">{{ item.legend }}</div>
                 <v-img v-if="item.legendImage" :src="item.legendImage" />
                 <v-table v-if="item.legendScale" density="compact">

@@ -3,15 +3,16 @@
   "center": { "lat": 3.46769, "lng": 101.54976 },
   "zoom": 10,
   "popupLayerIds": [
-    "riskBase_20yr", "riskBase_50yr", "riskBase_100yr",
-    "riskCC_20yr", "riskCC_50yr", "riskCC_100yr", 
-    "hazardBase_20", "hazardBase_50", "hazardBase_100", 
-    "hazardCC_20", "hazardCC_50", "hazardCC_100"
+    "risk_base_20", "risk_base_50", "risk_base_100",
+    "risk_cc_20", "risk_cc_50", "risk_cc_100", 
+    "hazard_base_20", "hazard_base_50", "hazard_base_100", 
+    "hazard_cc_20", "hazard_cc_50", "hazard_cc_100"
   ],
   "selectableItems": [
     {
       "id": "theme",
       "label": "Theme",
+      "permanent": true,
       "children": [
         {
           "id": "osm",
@@ -33,10 +34,11 @@
     {
       "id": "hazard",
       "label": "Hazard",
+      "tab": true,
       "children": [
         {
-          "id": "hazardBase_20",
-          "label": "Hazard 20 years",
+          "id": "hazard_base_20",
+          "label": "20 years",
           "selected": false,
           "legendScale": [
             {
@@ -62,8 +64,8 @@
           ]
         },
         {
-          "id": "hazardBase_50",
-          "label": "Hazard 50 years",
+          "id": "hazard_base_50",
+          "label": "50 years",
           "selected": false,
           "legendScale": [
             {
@@ -89,8 +91,8 @@
           ]
         },
         {
-          "id": "hazardBase_100",
-          "label": "Hazard 100 years",
+          "id": "hazard_base_100",
+          "label": "100 years",
           "selected": false,
           "legendScale": [
             {
@@ -116,8 +118,8 @@
           ]
         },
         {
-          "id": "hazardCC_20",
-          "label": "Hazard 20 years (climate change)",
+          "id": "hazard_cc_20",
+          "label": "20 years (climate change)",
           "selected": false,
           "legendScale": [
             {
@@ -143,8 +145,8 @@
           ]
         },
         {
-          "id": "hazardCC_50",
-          "label": "Hazard 50 years (climate change)",
+          "id": "hazard_cc_50",
+          "label": "50 years (climate change)",
           "selected": false,
           "legendScale": [
             {
@@ -170,8 +172,8 @@
           ]
         },
         {
-          "id": "hazardCC_100",
-          "label": "Hazard 100 years (climate change)",
+          "id": "hazard_cc_100",
+          "label": "100 years (climate change)",
           "selected": false,
           "legendScale": [
             {
@@ -201,10 +203,11 @@
     {
       "id": "risk",
       "label": "Risk",
+      "tab": true,
       "children": [
         {
-          "id": "riskBase_20yr",
-          "label": "Risk 20 years",
+          "id": "risk_base_20",
+          "label": "20 years",
           "selected": false,
           "legendScale": [
             {
@@ -230,8 +233,8 @@
           ]
         },
         {
-          "id": "riskBase_50yr",
-          "label": "Risk 50 years",
+          "id": "risk_base_50",
+          "label": "50 years",
           "selected": false,
           "legendScale": [
             {
@@ -257,8 +260,8 @@
           ]
         },
         {
-          "id": "riskBase_100yr",
-          "label": "Risk 100 years",
+          "id": "risk_base_100",
+          "label": "100 years",
           "selected": false,
           "legendScale": [
             {
@@ -284,8 +287,8 @@
           ]
         },
         {
-          "id": "riskCC_20yr",
-          "label": "Risk 20 years (climate change)",
+          "id": "risk_cc_20",
+          "label": "20 years (climate change)",
           "selected": false,
           "legendScale": [
             {
@@ -311,8 +314,8 @@
           ]
         },
         {
-          "id": "riskCC_50yr",
-          "label": "Risk 50 years (climate change)",
+          "id": "risk_cc_50",
+          "label": "50 years (climate change)",
           "selected": false,
           "legendScale": [
             {
@@ -338,8 +341,8 @@
           ]
         },
         {
-          "id": "riskCC_100yr",
-          "label": "Risk 100 years (climate change)",
+          "id": "risk_cc_100",
+          "label": "100 years (climate change)",
           "selected": false,
           "legendScale": [
             {
@@ -369,7 +372,7 @@
     {
       "id": "vulnerability",
       "label": "Vulnerability",
-      "multiple": false,
+      "tab": true,
       "children": [
         {
           "id": "economic",
@@ -620,12 +623,11 @@
     },
     {
       "id": "inundation",
-      "label": "Inundation",
-      "multiple": false,
+      "label": "Inundation depth",
       "children": [
         {
-          "id": "depthBase_20yr",
-          "label": "Depth 20 years",
+          "id": "depth_base_20",
+          "label": "20 years",
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 20 years ARI.",
           "legendScale": [
@@ -666,8 +668,8 @@
           ]
         },
         {
-          "id": "depthBase_50yr",
-          "label": "Depth 50 years",
+          "id": "depth_base_50",
+          "label": "50 years",
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 50 years ARI.",
           "legendScale": [
@@ -708,8 +710,8 @@
           ]
         },
         {
-          "id": "depthBase_100yr",
-          "label": "Depth 100 years",
+          "id": "depth_base_100",
+          "label": "100 years",
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 100 years ARI.",
           "legendScale": [
@@ -750,8 +752,8 @@
           ]
         },
         {
-          "id": "depthCC_20yr",
-          "label": "Depth 20 years (climate change)",
+          "id": "depth_cc_20",
+          "label": "20 years (climate change)",
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 20 years ARI with the consideration of climate change.",
           "legendScale": [
@@ -792,8 +794,8 @@
           ]
         },
         {
-          "id": "depthCC_50yr",
-          "label": "Depth 50 years (climate change)",
+          "id": "depth_cc_50",
+          "label": "50 years (climate change)",
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 50 years ARI with the consideration of climate change.",
           "legendScale": [
@@ -834,8 +836,8 @@
           ]
         },
         {
-          "id": "depthCC_100yr",
-          "label": "Depth 100 years (climate change)",
+          "id": "depth_cc_100",
+          "label": "100 years (climate change)",
           "legend": "Inundation of Sungai Selangor River basin for 100 years ARI with the consideration of climate change.",
           "selected": false,
           "legendScale": [
