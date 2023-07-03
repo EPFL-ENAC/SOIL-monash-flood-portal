@@ -12,7 +12,6 @@
     {
       "id": "theme",
       "label": "Theme",
-      "permanent": true,
       "children": [
         {
           "id": "osm",
