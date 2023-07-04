@@ -14,8 +14,8 @@
       "label": "Theme",
       "children": [
         {
-          "id": "osm",
-          "label": "OSM",
+          "id": "classic",
+          "label": "Classic",
           "selected": false
         },
         {

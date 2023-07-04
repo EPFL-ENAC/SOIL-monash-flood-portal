@@ -9,13 +9,6 @@
       "minzoom": 0,
       "maxzoom": 20
     },
-    "light": {
-      "type": "raster",
-      "tiles": ["https://api.maptiler.com/maps/basic-v2-light/256/{z}/{x}/{y}.png?key=kramlD0izE1YxWEKKCus"],
-      "tileSize": 256,
-      "minzoom": 0,
-      "maxzoom": 20
-    },
     "dark": {
       "type": "raster",
       "tiles": ["https://api.maptiler.com/maps/dataviz-dark/256/{z}/{x}/{y}.png?key=kramlD0izE1YxWEKKCus"],
@@ -151,18 +144,26 @@
     }
   },
   "layers": [
-    { "id": "osm",
+    { "id": "classic",
       "type": "raster",
       "source": "osm",
       "layout": { "visibility": "none" }
     },
     { "id": "light",
       "type": "raster",
-      "source": "light"
+      "source": "osm",
+      "paint": {
+        "raster-saturation": -0.9,
+        "raster-brightness-min": 0.7
+      }
     },
     { "id": "dark",
       "type": "raster",
-      "source": "dark",
+      "source": "osm",
+      "paint": {
+        "raster-saturation": -1,
+        "raster-brightness-max": 0.2
+      },
       "layout": { "visibility": "none" }
     },
     {
