@@ -20,6 +20,6 @@ export interface SelectableSingleItem extends SelectableParentItem {
 }
 export interface SelectableGroupItem extends SelectableParentItem {
   id: string
-  multiple: boolean
+  tab: boolean
   children: SelectableSingleItem[]
 }

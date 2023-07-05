@@ -9,13 +9,6 @@
       "minzoom": 0,
       "maxzoom": 20
     },
-    "light": {
-      "type": "raster",
-      "tiles": ["https://api.maptiler.com/maps/basic-v2-light/256/{z}/{x}/{y}.png?key=kramlD0izE1YxWEKKCus"],
-      "tileSize": 256,
-      "minzoom": 0,
-      "maxzoom": 20
-    },
     "dark": {
       "type": "raster",
       "tiles": ["https://api.maptiler.com/maps/dataviz-dark/256/{z}/{x}/{y}.png?key=kramlD0izE1YxWEKKCus"],
@@ -65,104 +58,112 @@
       "minZoom": 0,
       "maxZoom": 20
     },
-    "depthBase_20yr": {
+    "depth_base_20": {
       "type": "raster",
       "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/tiles/depthBase_20yr/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
-    "depthBase_50yr": {
+    "depth_base_50": {
       "type": "raster",
       "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/tiles/depthBase_50yr/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
-    "depthBase_100yr": {
+    "depth_base_100": {
       "type": "raster",
       "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/tiles/depthBase_100yr/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
-    "depthCC_20yr": {
+    "depth_cc_20": {
       "type": "raster",
       "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/tiles/depthCC_20yr/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
-    "depthCC_50yr": {
+    "depth_cc_50": {
       "type": "raster",
       "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/tiles/depthCC_50yr/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
-    "depthCC_100yr": {
+    "depth_cc_100": {
       "type": "raster",
       "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/tiles/depthCC_100yr/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
-    "hazardBase_20": {
+    "hazard_base_20": {
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/hazardBase_20.geojson"
     },
-    "hazardBase_50": {
+    "hazard_base_50": {
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/hazardBase_50.geojson"
     },
-    "hazardBase_100": {
+    "hazard_base_100": {
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/hazardBase_100.geojson"
     },
-    "hazardCC_20": {
+    "hazard_cc_20": {
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/hazardCC_20.geojson"
     },
-    "hazardCC_50": {
+    "hazard_cc_50": {
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/hazardCC_50.geojson"
     },
-    "hazardCC_100": {
+    "hazard_cc_100": {
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/hazardCC_100.geojson"
     },
-    "riskBase_20yr": {
+    "risk_base_20": {
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/riskBase_20yr.geojson"
     },
-    "riskBase_50yr": {
+    "risk_base_50": {
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/riskBase_50yr.geojson"
     },
-    "riskBase_100yr": {
+    "risk_base_100": {
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/riskBase_100yr.geojson"
     },
-    "riskCC_20yr": {
+    "risk_cc_20": {
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/riskCC_20yr.geojson"
     },
-    "riskCC_50yr": {
+    "risk_cc_50": {
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/riskCC_50yr.geojson"
     },
-    "riskCC_100yr": {
+    "risk_cc_100": {
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/riskCC_100yr.geojson"
     }
   },
   "layers": [
-    { "id": "osm",
+    { "id": "classic",
       "type": "raster",
       "source": "osm",
       "layout": { "visibility": "none" }
     },
     { "id": "light",
       "type": "raster",
-      "source": "light"
+      "source": "osm",
+      "paint": {
+        "raster-saturation": -0.9,
+        "raster-brightness-min": 0.7
+      }
     },
     { "id": "dark",
       "type": "raster",
-      "source": "dark",
+      "source": "osm",
+      "paint": {
+        "raster-saturation": -1,
+        "raster-brightness-max": 0.2
+      },
       "layout": { "visibility": "none" }
     },
     {
@@ -243,9 +244,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "depthBase_20yr",
+      "id": "depth_base_20",
       "type": "raster",
-      "source": "depthBase_20yr",
+      "source": "depth_base_20",
       "minzoom": 1,
       "maxzoom": 22,
       "paint": {
@@ -254,9 +255,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "depthBase_50yr",
+      "id": "depth_base_50",
       "type": "raster",
-      "source": "depthBase_50yr",
+      "source": "depth_base_50",
       "minzoom": 1,
       "maxzoom": 22,
       "paint": {
@@ -265,9 +266,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "depthBase_100yr",
+      "id": "depth_base_100",
       "type": "raster",
-      "source": "depthBase_100yr",
+      "source": "depth_base_100",
       "minzoom": 1,
       "maxzoom": 22,
       "paint": {
@@ -276,9 +277,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "depthCC_20yr",
+      "id": "depth_cc_20",
       "type": "raster",
-      "source": "depthCC_20yr",
+      "source": "depth_cc_20",
       "minzoom": 1,
       "maxzoom": 22,
       "paint": {
@@ -287,9 +288,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "depthCC_50yr",
+      "id": "depth_cc_50",
       "type": "raster",
-      "source": "depthCC_50yr",
+      "source": "depth_cc_50",
       "minzoom": 1,
       "maxzoom": 22,
       "paint": {
@@ -298,9 +299,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "depthCC_100yr",
+      "id": "depth_cc_100",
       "type": "raster",
-      "source": "depthCC_100yr",
+      "source": "depth_cc_100",
       "minzoom": 1,
       "maxzoom": 22,
       "paint": {
@@ -309,9 +310,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "hazardBase_20",
+      "id": "hazard_base_20",
       "type": "fill",
-      "source": "hazardBase_20",
+      "source": "hazard_base_20",
       "paint": {
         "fill-color": [
             "interpolate",
@@ -329,9 +330,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "hazardBase_50",
+      "id": "hazard_base_50",
       "type": "fill",
-      "source": "hazardBase_50",
+      "source": "hazard_base_50",
       "paint": {
         "fill-color": [
             "interpolate",
@@ -349,9 +350,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "hazardBase_100",
+      "id": "hazard_base_100",
       "type": "fill",
-      "source": "hazardBase_100",
+      "source": "hazard_base_100",
       "paint": {
         "fill-color": [
             "interpolate",
@@ -369,9 +370,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "hazardCC_20",
+      "id": "hazard_cc_20",
       "type": "fill",
-      "source": "hazardCC_20",
+      "source": "hazard_cc_20",
       "paint": {
         "fill-color": [
             "interpolate",
@@ -389,9 +390,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "hazardCC_50",
+      "id": "hazard_cc_50",
       "type": "fill",
-      "source": "hazardCC_50",
+      "source": "hazard_cc_50",
       "paint": {
         "fill-color": [
             "interpolate",
@@ -409,9 +410,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "hazardCC_100",
+      "id": "hazard_cc_100",
       "type": "fill",
-      "source": "hazardCC_100",
+      "source": "hazard_cc_100",
       "paint": {
         "fill-color": [
             "interpolate",
@@ -429,9 +430,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "riskBase_20yr",
+      "id": "risk_base_20",
       "type": "fill",
-      "source": "riskBase_20yr",
+      "source": "risk_base_20",
       "paint": {
         "fill-color": [
             "interpolate",
@@ -449,9 +450,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "riskBase_50yr",
+      "id": "risk_base_50",
       "type": "fill",
-      "source": "riskBase_50yr",
+      "source": "risk_base_50",
       "paint": {
         "fill-color": [
             "interpolate",
@@ -469,9 +470,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "riskBase_100yr",
+      "id": "risk_base_100",
       "type": "fill",
-      "source": "riskBase_100yr",
+      "source": "risk_base_100",
       "paint": {
         "fill-color": [
             "interpolate",
@@ -489,9 +490,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "riskCC_20yr",
+      "id": "risk_cc_20",
       "type": "fill",
-      "source": "riskCC_20yr",
+      "source": "risk_cc_20",
       "paint": {
         "fill-color": [
             "interpolate",
@@ -509,9 +510,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "riskCC_50yr",
+      "id": "risk_cc_50",
       "type": "fill",
-      "source": "riskCC_50yr",
+      "source": "risk_cc_50",
       "paint": {
         "fill-color": [
             "interpolate",
@@ -529,9 +530,9 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "riskCC_100yr",
+      "id": "risk_cc_100",
       "type": "fill",
-      "source": "riskCC_100yr",
+      "source": "risk_cc_100",
       "paint": {
         "fill-color": [
             "interpolate",

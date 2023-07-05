@@ -6,6 +6,7 @@ import { geocoderApi } from '@/utils/geocoder'
 import { DivControl } from '@/utils/control'
 import MaplibreGeocoder from '@maplibre/maplibre-gl-geocoder'
 import {
+  AttributionControl,
   FullscreenControl,
   GeolocateControl,
   Map,
@@ -57,12 +58,17 @@ onMounted(() => {
     style: props.styleSpec,
     center: props.center,
     zoom: props.zoom,
-    trackResize: true
+    trackResize: true,
+    attributionControl: false
   })
   map.addControl(new NavigationControl({}))
   map.addControl(new GeolocateControl({}))
   map.addControl(new ScaleControl({}))
   map.addControl(new FullscreenControl({}))
+  map.addControl(new AttributionControl({
+      compact: true,
+      customAttribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>, <a href="https://www.monash.edu.my/" target="_blank">Monash Univ. Malaysia</a>'
+  }));
   map.addControl(
     new MaplibreGeocoder(geocoderApi, {
       maplibregl: { Marker },

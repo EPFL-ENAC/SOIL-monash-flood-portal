@@ -53,7 +53,7 @@ export const geocoderApi = {
       const geojson = await response.json()
       features = handleNominatimResponse(geojson)
     }
-    catch (e) {
+    catch (e: any) {
       if (e.name !== 'AbortError')
         console.error(`Failed to forwardGeocode with error: ${e}`)
     }
@@ -61,7 +61,7 @@ export const geocoderApi = {
       features,
     }
   },
-  reverseGeocode: async (config: { query: string }) => {
+  reverseGeocode: async (config: { query: any }) => {
     let features = []
     try {
       if (reverseController)
@@ -72,7 +72,7 @@ export const geocoderApi = {
       const geojson = await response.json()
       features = handleNominatimResponse(geojson)
     }
-    catch (e) {
+    catch (e: any) {
       if (e.name !== 'AbortError')
         console.error(`Failed to reverseGeocode with error: ${e}`)
     }
