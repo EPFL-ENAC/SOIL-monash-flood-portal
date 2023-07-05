@@ -141,7 +141,7 @@ function updateLayers() {
         <v-checkbox-btn v-model="showInundation" label="Inundation"></v-checkbox-btn>
       </div>
       <div class="mt-2">
-        <div class="mb-2 text-overline">Time scale</div>
+        <div class="mb-2 text-overline">Average Recurrence Interval</div>
         <v-btn-toggle
           v-model="timeIdx"
           divided

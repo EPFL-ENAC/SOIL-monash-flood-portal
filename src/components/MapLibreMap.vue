@@ -119,7 +119,7 @@ watch(
         if (map) {
           map.getCanvas().style.cursor = 'pointer'
           const fprops = e.features?.at(0)?.properties
-          // display combinations of scenario and time scale for hazard and risk related layers
+          // display combinations of scenario and ARI for hazard and risk related layers
           if (fprops && fprops.scenari_name) {
             const scenari = fprops['scenari_name'].split(',')
             const times = fprops['scenari_date'].split(',')
