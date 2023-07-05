@@ -3,10 +3,8 @@
   "center": { "lat": 3.46769, "lng": 101.54976 },
   "zoom": 10,
   "popupLayerIds": [
-    "risk_base_20", "risk_base_50", "risk_base_100",
-    "risk_cc_20", "risk_cc_50", "risk_cc_100", 
-    "hazard_base_20", "hazard_base_50", "hazard_base_100", 
-    "hazard_cc_20", "hazard_cc_50", "hazard_cc_100"
+    "hazard", 
+    "risk"
   ],
   "selectableItems": [
     {
@@ -37,6 +35,7 @@
       "children": [
         {
           "id": "hazard_base_20",
+          "ids": ["hazard"],
           "label": "20 years",
           "selected": false,
           "legendScale": [
@@ -64,6 +63,7 @@
         },
         {
           "id": "hazard_base_50",
+          "ids": ["hazard"],
           "label": "50 years",
           "selected": false,
           "legendScale": [
@@ -91,6 +91,7 @@
         },
         {
           "id": "hazard_base_100",
+          "ids": ["hazard"],
           "label": "100 years",
           "selected": false,
           "legendScale": [
@@ -118,6 +119,7 @@
         },
         {
           "id": "hazard_cc_20",
+          "ids": ["hazard"],
           "label": "20 years (climate change)",
           "selected": false,
           "legendScale": [
@@ -145,6 +147,7 @@
         },
         {
           "id": "hazard_cc_50",
+          "ids": ["hazard"],
           "label": "50 years (climate change)",
           "selected": false,
           "legendScale": [
@@ -172,6 +175,7 @@
         },
         {
           "id": "hazard_cc_100",
+          "ids": ["hazard"],
           "label": "100 years (climate change)",
           "selected": false,
           "legendScale": [
@@ -206,6 +210,7 @@
       "children": [
         {
           "id": "risk_base_20",
+          "ids": ["risk"],
           "label": "20 years",
           "selected": false,
           "legendScale": [
@@ -233,6 +238,7 @@
         },
         {
           "id": "risk_base_50",
+          "ids": ["risk"],
           "label": "50 years",
           "selected": false,
           "legendScale": [
@@ -260,6 +266,7 @@
         },
         {
           "id": "risk_base_100",
+          "ids": ["risk"],
           "label": "100 years",
           "selected": false,
           "legendScale": [
@@ -287,6 +294,7 @@
         },
         {
           "id": "risk_cc_20",
+          "ids": ["risk"],
           "label": "20 years (climate change)",
           "selected": false,
           "legendScale": [
@@ -314,6 +322,7 @@
         },
         {
           "id": "risk_cc_50",
+          "ids": ["risk"],
           "label": "50 years (climate change)",
           "selected": false,
           "legendScale": [
@@ -341,6 +350,7 @@
         },
         {
           "id": "risk_cc_100",
+          "ids": ["risk"],
           "label": "100 years (climate change)",
           "selected": false,
           "legendScale": [

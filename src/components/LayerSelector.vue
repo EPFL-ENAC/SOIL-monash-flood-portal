@@ -147,6 +147,7 @@ function updateLayers() {
         >
           <v-btn v-for="(item, index) in timeItems" :key="index" size="x-small">{{ item }}</v-btn>
         </v-btn-toggle>
+        <span class="ml-2">years</span>
       </div>
       <div class="mt-2">
         <div class="mb-2 text-overline">Scenario</div>

@@ -82,9 +82,7 @@ onMounted(() => {
 
   map.on('mousemove', function (event: MapMouseEvent) {
     if (positionControl.container) {
-      positionControl.container.innerHTML = `Lat/Lon: (${event.lngLat.lat.toFixed(
-        4
-      )}; ${event.lngLat.lng.toFixed(4)})`
+      positionControl.container.innerHTML = `Lat/Lon: (${event.lngLat.lat.toFixed(4)}; ${event.lngLat.lng.toFixed(4)})`
     }
   })
   map.on('mouseout', function () {
@@ -117,10 +115,55 @@ watch(
       map?.on('click', layerId, function (e) {
         if (map) {
           map.getCanvas().style.cursor = 'pointer'
-          let html = Object.entries(e.features?.at(0)?.properties ?? {})
+          const fprops = e.features?.at(0)?.properties
+          let html = Object.entries(fprops ?? {})
                 .map(([key, value]) => `<strong>${key}:</strong> ${value}`)
                 .join('<br>')
           html = `<strong>${layerId}</strong><br>${html}`
+          if ((layerId.startsWith('hazard') || layerId.startsWith('risk')) && fprops && fprops.scenari_name) {
+            const scenari = fprops['scenari_name'].split(',')
+            const times = fprops['scenari_date'].split(',')
+            const labels = fprops['hzrd_clss'] ? fprops['hzrd_clss'].split(',') : fprops['risk_clss'].split(',')
+            const codes = fprops['gridcode'].split(',').map((val: string) => Number.parseInt(val))
+            const data: any = {}
+            scenari.forEach((scenario: string, index: number) => {
+              if (!data[scenario]) {
+                data[scenario] = {}
+              }
+              if (!data[scenario][times[index]]) {
+                data[scenario][times[index]] = {}
+              }
+              data[scenario][times[index]]['code'] = codes[index]
+              data[scenario][times[index]]['label'] = labels[index]
+            })
+            console.debug(data)
+            const colors = ['#b1b2b2', '#96cfe2', '#9ad148', '#fdae61', '#d7191c']
+            const toColor = (code: number) => colors[code-1]
+            const toTitle = (label: string) => label || ''
+            const toCells = (scenario: string) =>
+              ['20', '50', '100']
+                .map((year) => `<td style="background-color: ${toColor(data[scenario]?.[year]?.code)}; width: 25px" title="${toTitle(data[scenario]?.[year]?.label)}"></td>`)
+                .join('')
+            html = `<p class="text-overline">${layerId}</p>
+              <table>
+                <tbody>
+                <tr>
+                  <td class="text-caption text-right pr-1">Base</td>
+                  ${toCells('base')}
+                </tr>
+                <tr>
+                  <td class="text-caption text-right pr-1">Climate change</td>
+                  ${toCells('cc')}
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="text-caption">20</td>
+                  <td class="text-caption">50</td>
+                  <td class="text-caption">100</td>
+                </tr>
+                </tbody>
+              </table>`
+          }
           popup
             .setLngLat(e.lngLat)
             .setHTML(html)
@@ -150,7 +193,7 @@ function filterLayers() {
   if (map?.loaded()) {
     map
       .getStyle()
-      .layers.filter((layer) => props.selectableLayerIds.includes(layer.id))
+      .layers
       .forEach((layer) => {
         map?.setLayoutProperty(
           layer.id,

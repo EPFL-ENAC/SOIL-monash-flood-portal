@@ -94,53 +94,61 @@
       "minZoom": 0,
       "maxZoom": 20
     },
+    "hazard": {
+      "type": "geojson",
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/hazard.geojson"
+    },
     "hazard_base_20": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/hazardBase_20.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/hazardBase_20.geojson"
     },
     "hazard_base_50": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/hazardBase_50.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/hazardBase_50.geojson"
     },
     "hazard_base_100": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/hazardBase_100.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/hazardBase_100.geojson"
     },
     "hazard_cc_20": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/hazardCC_20.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/hazardCC_20.geojson"
     },
     "hazard_cc_50": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/hazardCC_50.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/hazardCC_50.geojson"
     },
     "hazard_cc_100": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/hazardCC_100.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/hazardCC_100.geojson"
+    },
+    "risk": {
+      "type": "geojson",
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/risk.geojson"
     },
     "risk_base_20": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/riskBase_20yr.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/riskBase_20yr.geojson"
     },
     "risk_base_50": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/riskBase_50yr.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/riskBase_50yr.geojson"
     },
     "risk_base_100": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/riskBase_100yr.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/riskBase_100yr.geojson"
     },
     "risk_cc_20": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/riskCC_20yr.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/riskCC_20yr.geojson"
     },
     "risk_cc_50": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/riskCC_50yr.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/riskCC_50yr.geojson"
     },
     "risk_cc_100": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-06-28T09:20/geojson/riskCC_100yr.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-07-04T16:50/geojson/riskCC_100yr.geojson"
     }
   },
   "layers": [
@@ -170,8 +178,7 @@
       "id": "economic",
       "type": "raster",
       "source": "economic",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
         "raster-opacity": 0.5
       },
@@ -181,8 +188,7 @@
       "id": "susceptibility",
       "type": "raster",
       "source": "susceptibility",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
         "raster-opacity": 0.5
       },
@@ -192,8 +198,7 @@
       "id": "social",
       "type": "raster",
       "source": "social",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
         "raster-opacity": 0.5
       },
@@ -203,8 +208,7 @@
       "id": "resilience",
       "type": "raster",
       "source": "resilience",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
         "raster-opacity": 0.5
       },
@@ -214,8 +218,7 @@
       "id": "physical",
       "type": "raster",
       "source": "physical",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
         "raster-opacity": 0.5
       },
@@ -225,8 +228,7 @@
       "id": "exposure",
       "type": "raster",
       "source": "exposure",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
         "raster-opacity": 0.5
       },
@@ -236,8 +238,7 @@
       "id": "CFVI",
       "type": "raster",
       "source": "CFVI",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
         "raster-opacity": 0.5
       },
@@ -247,10 +248,9 @@
       "id": "depth_base_20",
       "type": "raster",
       "source": "depth_base_20",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.8
       },
       "layout": { "visibility": "none" }
     },
@@ -258,10 +258,9 @@
       "id": "depth_base_50",
       "type": "raster",
       "source": "depth_base_50",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.8
       },
       "layout": { "visibility": "none" }
     },
@@ -269,10 +268,9 @@
       "id": "depth_base_100",
       "type": "raster",
       "source": "depth_base_100",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.8
       },
       "layout": { "visibility": "none" }
     },
@@ -280,10 +278,9 @@
       "id": "depth_cc_20",
       "type": "raster",
       "source": "depth_cc_20",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.8
       },
       "layout": { "visibility": "none" }
     },
@@ -291,10 +288,9 @@
       "id": "depth_cc_50",
       "type": "raster",
       "source": "depth_cc_50",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.8
       },
       "layout": { "visibility": "none" }
     },
@@ -302,10 +298,19 @@
       "id": "depth_cc_100",
       "type": "raster",
       "source": "depth_cc_100",
-      "minzoom": 1,
-      "maxzoom": 22,
+      "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.8
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "hazard",
+      "type": "fill",
+      "source": "hazard",
+      "minzoom": 6,
+      "paint": {
+        "fill-opacity": 0
       },
       "layout": { "visibility": "none" }
     },
@@ -313,6 +318,7 @@
       "id": "hazard_base_20",
       "type": "fill",
       "source": "hazard_base_20",
+      "minzoom": 6,
       "paint": {
         "fill-color": [
             "interpolate",
@@ -333,6 +339,7 @@
       "id": "hazard_base_50",
       "type": "fill",
       "source": "hazard_base_50",
+      "minzoom": 6,
       "paint": {
         "fill-color": [
             "interpolate",
@@ -353,6 +360,7 @@
       "id": "hazard_base_100",
       "type": "fill",
       "source": "hazard_base_100",
+      "minzoom": 6,
       "paint": {
         "fill-color": [
             "interpolate",
@@ -373,6 +381,7 @@
       "id": "hazard_cc_20",
       "type": "fill",
       "source": "hazard_cc_20",
+      "minzoom": 6,
       "paint": {
         "fill-color": [
             "interpolate",
@@ -393,6 +402,7 @@
       "id": "hazard_cc_50",
       "type": "fill",
       "source": "hazard_cc_50",
+      "minzoom": 6,
       "paint": {
         "fill-color": [
             "interpolate",
@@ -413,6 +423,7 @@
       "id": "hazard_cc_100",
       "type": "fill",
       "source": "hazard_cc_100",
+      "minzoom": 6,
       "paint": {
         "fill-color": [
             "interpolate",
@@ -430,9 +441,20 @@
       "layout": { "visibility": "none" }
     },
     {
+      "id": "risk",
+      "type": "fill",
+      "source": "risk",
+      "minzoom": 6,
+      "paint": {
+        "fill-opacity": 0
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
       "id": "risk_base_20",
       "type": "fill",
       "source": "risk_base_20",
+      "minzoom": 6,
       "paint": {
         "fill-color": [
             "interpolate",
@@ -453,6 +475,7 @@
       "id": "risk_base_50",
       "type": "fill",
       "source": "risk_base_50",
+      "minzoom": 6,
       "paint": {
         "fill-color": [
             "interpolate",
@@ -473,6 +496,7 @@
       "id": "risk_base_100",
       "type": "fill",
       "source": "risk_base_100",
+      "minzoom": 6,
       "paint": {
         "fill-color": [
             "interpolate",
@@ -493,6 +517,7 @@
       "id": "risk_cc_20",
       "type": "fill",
       "source": "risk_cc_20",
+      "minzoom": 6,
       "paint": {
         "fill-color": [
             "interpolate",
@@ -513,6 +538,7 @@
       "id": "risk_cc_50",
       "type": "fill",
       "source": "risk_cc_50",
+      "minzoom": 6,
       "paint": {
         "fill-color": [
             "interpolate",
@@ -533,6 +559,7 @@
       "id": "risk_cc_100",
       "type": "fill",
       "source": "risk_cc_100",
+      "minzoom": 6,
       "paint": {
         "fill-color": [
             "interpolate",

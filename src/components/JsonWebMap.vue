@@ -23,7 +23,7 @@ const drawerRight = ref(false)
 const { title, subtitle } = storeToRefs(useTitleStore())
 
 const singleItems = computed<SelectableSingleItem[]>(() =>
-  (parameters.value.selectableItems ?? []).flatMap((item) =>
+  (parameters.value.selectableItems ?? []).flatMap((item: SelectableItem) =>
     'children' in item ? item.children : [item]
   )
 )
@@ -33,6 +33,14 @@ const legendItems = computed(() =>
     .filter((item: SelectableSingleItem) => selectedLayerIds.value.some((id: string) => item.id === id))
     .filter((item: SelectableSingleItem) => item.legend !== undefined || item.legendImage !== undefined || item.legendScale !== undefined)
 )
+
+const extendedSelectedLayerIds = computed<string[]>(() => {
+  const addtionalIds: string[] = singleItems.value
+    .filter((item: SelectableSingleItem) => item.ids && selectedLayerIds.value.includes(item.id))
+    .flatMap((item: SelectableSingleItem) => item.ids)
+  const ids: string[] = [selectedLayerIds.value, addtionalIds].flat()
+  return ids
+})
 
 watch(
   () => props.parametersUrl,
@@ -142,7 +150,7 @@ function getParentLabel(id: string) {
           :center="parameters.center"
           :style-spec="styleUrl"
           :selectable-layer-ids="selectableLayerIds"
-          :selected-layer-ids="selectedLayerIds"
+          :selected-layer-ids="extendedSelectedLayerIds"
           :popup-layer-ids="parameters.popupLayerIds"
           :zoom="parameters.zoom"
         />
