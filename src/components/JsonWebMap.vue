@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import LayerSelector from '@/components/LayerSelector.vue'
+import SimpleDialog from '@/components/SimpleDialog.vue'
 import MapLibreMap from '@/components/MapLibreMap.vue'
 import { useTitleStore } from '@/stores/title'
 import type { Parameters, LegendScale, ScaleEntry } from '@/utils/jsonWebMap'
-import { mdiChevronLeft, mdiChevronRight, mdiClose, mdiLayers, mdiMapLegend } from '@mdi/js'
+import { mdiChevronLeft, mdiChevronRight, mdiClose, mdiLayers, mdiMapLegend, mdiBookOpenPageVariant } from '@mdi/js'
 import type { SelectableGroupItem, SelectableItem, SelectableSingleItem } from '@/utils/layerSelector'
 import axios from 'axios'
+import { marked } from 'marked'
+import DOMPurify from 'dompurify'
 import { storeToRefs } from 'pinia'
-import { computed, ref, shallowRef, triggerRef, watch } from 'vue'
+import { useDisplay } from 'vuetify'
+import { computed, onMounted, ref, shallowRef, triggerRef, watch } from 'vue'
 
 const props = defineProps<{
   styleUrl: string
@@ -19,8 +23,24 @@ const selectedLayerIds = ref<string[]>([])
 const parameters = shallowRef<Parameters>({})
 const drawerRail = ref(false)
 const drawerRight = ref(false)
+const drawerHtml = ref('')
+const docHtml = ref<any>({})
+const { mobile } = useDisplay()
 
 const { title, subtitle } = storeToRefs(useTitleStore())
+
+const documentationIds = ['hazard', 'risk', 'vulnerability', 'inundations']
+
+onMounted(() => {
+  documentationIds.forEach((id: string) => {
+    axios
+    .get<string>(`/${id}.md`)
+    .then((response) => response.data)
+    .then((data) => {
+      docHtml.value[id] = DOMPurify.sanitize(marked.parse(data))
+    })
+  })
+});
 
 const singleItems = computed<SelectableSingleItem[]>(() =>
   (parameters.value.selectableItems ?? []).flatMap((item: SelectableItem) =>
@@ -75,6 +95,15 @@ function getParentLabel(id: string) {
 
 function getLegendScale(id: string): ScaleEntry[] | undefined {
   return parameters.value?.legendScales?.find((scale: LegendScale) => scale.id === id)?.scale
+}
+
+function showDocumentation(id: string) {
+  if (id in docHtml.value) {
+    drawerHtml.value = docHtml.value[id]
+  } else {
+    drawerHtml.value = `Ooops, no documentation about '${id}'`
+  }
+  drawerRight.value = true
 }
 </script>
 
@@ -134,16 +163,40 @@ function getLegendScale(id: string): ScaleEntry[] | undefined {
           </v-card-text>
         </v-card>
       </v-list-item>
+      <v-list-item :prepend-icon="mdiBookOpenPageVariant">
+        <v-list-item-title>
+          <span class="text-h6">Documentation</span>
+        </v-list-item-title>
+      </v-list-item>
+      <v-list-item v-if="!drawerRail">
+        <div>
+          <v-btn variant="text" class="text-none" @click="showDocumentation('hazard')">Hazard</v-btn>
+        </div>
+        <div>
+          <v-btn variant="text" class="text-none" @click="showDocumentation('risk')">Risk</v-btn>
+        </div>
+        <div>
+          <v-btn variant="text" class="text-none" @click="showDocumentation('vulnerability')">Vulnerability</v-btn>
+        </div>
+        <div>
+          <v-btn variant="text" class="text-none" @click="showDocumentation('inundations')">Inundations</v-btn>
+        </div>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
-  <v-navigation-drawer v-if="drawerRight" location="right">
+  <v-navigation-drawer v-if="drawerRight" permanent location="right" :width="mobile ? 400 : 800">
     <v-list>
       <v-list-item>
         <template #append>
           <v-btn :icon="mdiClose" variant="flat" @click.stop="drawerRight = false" />
         </template>
       </v-list-item>
-      <v-list-item title="Coordinate details"></v-list-item>
+      <v-list-item>
+        <v-card>
+          <v-card-text v-html="drawerHtml" class="marked">
+          </v-card-text>
+        </v-card>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
   <v-container class="fill-height pa-0" fluid>
@@ -162,6 +215,8 @@ function getLegendScale(id: string): ScaleEntry[] | undefined {
       </v-col>
     </v-row>
   </v-container>
+  <simple-dialog button-text="Start" content-url="/welcome.md" open>
+  </simple-dialog>
 </template>
 
 <style lang="scss">

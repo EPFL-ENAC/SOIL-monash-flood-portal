@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container class="pa-3" fluid>
     <h1>This is an about page</h1>
-  </div>
+  </v-container>
 </template>

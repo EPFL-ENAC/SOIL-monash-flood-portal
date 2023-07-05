@@ -4,6 +4,8 @@ import { RouterView } from 'vue-router'
 import { useTitleStore } from './stores/title'
 import epflLogoUrl from '/EPFL_Logo_184X53.svg'
 const { title, subtitle } = storeToRefs(useTitleStore())
+
+
 </script>
 
 <template>
