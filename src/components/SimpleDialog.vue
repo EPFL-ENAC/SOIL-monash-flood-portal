@@ -20,7 +20,9 @@ const props = withDefaults(
     open: false,
     buttonText: undefined,
   }
-);
+)
+
+const emit = defineEmits(['dialogClose'])
 
 const dialog = ref<boolean>(false)
 const { mobile } = useDisplay()
@@ -34,9 +36,14 @@ onMounted(() => {
     .get<string>(props.contentUrl)
     .then((response) => response.data)
     .then((data) => {
-      contentHtml.value = DOMPurify.sanitize(marked.parse(data))
+      contentHtml.value = DOMPurify.sanitize(marked.parse(data, {headerIds: false}))
     })
-});
+})
+
+function close() {
+  dialog.value = false
+  emit('dialogClose')
+}
 </script>
 
 <template>
@@ -51,10 +58,10 @@ onMounted(() => {
         <div v-html="contentHtml" class="marked"></div>
       </v-card-text>
       <v-card-actions class="justify-end">
-        <v-btn v-if="buttonText" text @click="dialog = false">
+        <v-btn v-if="buttonText" text @click="close">
           {{ buttonText }}
         </v-btn>
-        <v-btn v-else icon @click="dialog = false">
+        <v-btn v-else icon @click="close()">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-card-actions>

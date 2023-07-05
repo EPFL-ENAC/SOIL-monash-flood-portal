@@ -11,6 +11,7 @@ import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 import { storeToRefs } from 'pinia'
 import { useDisplay } from 'vuetify'
+import { useCookies } from 'vue3-cookies'
 import { computed, onMounted, ref, shallowRef, triggerRef, watch } from 'vue'
 
 const props = defineProps<{
@@ -26,7 +27,7 @@ const drawerRight = ref(false)
 const drawerHtml = ref('')
 const docHtml = ref<any>({})
 const { mobile } = useDisplay()
-
+const { cookies } = useCookies()
 const { title, subtitle } = storeToRefs(useTitleStore())
 
 const documentationIds = ['hazard', 'risk', 'vulnerability', 'inundations']
@@ -37,7 +38,7 @@ onMounted(() => {
     .get<string>(`/${id}.md`)
     .then((response) => response.data)
     .then((data) => {
-      docHtml.value[id] = DOMPurify.sanitize(marked.parse(data))
+      docHtml.value[id] = DOMPurify.sanitize(marked.parse(data, {headerIds: false}))
     })
   })
 });
@@ -61,6 +62,8 @@ const extendedSelectedLayerIds = computed<string[]>(() => {
   const ids: string[] = [selectedLayerIds.value, addtionalIds].flat()
   return ids
 })
+
+const openWelcome = computed<boolean>(() => cookies.get('welcome') !== '1')
 
 watch(
   () => props.parametersUrl,
@@ -104,6 +107,10 @@ function showDocumentation(id: string) {
     drawerHtml.value = `Ooops, no documentation about '${id}'`
   }
   drawerRight.value = true
+}
+
+function welcomeClosed() {
+  cookies.set('welcome','1', '365d');
 }
 </script>
 
@@ -215,7 +222,7 @@ function showDocumentation(id: string) {
       </v-col>
     </v-row>
   </v-container>
-  <simple-dialog button-text="Start" content-url="/welcome.md" open>
+  <simple-dialog button-text="Start" content-url="/welcome.md" :open="openWelcome" @dialog-close="welcomeClosed">
   </simple-dialog>
 </template>
 
