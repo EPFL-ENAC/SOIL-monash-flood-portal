@@ -47,9 +47,10 @@ const scenarioItems = [
     label: "Climate change"
   }]
 
+const showContinuousVulnerability = ref<boolean>(false)
 const showInundation = ref<boolean>(false)
 
-watch([themeIdx, tab, showInundation, timeIdx, scenarioIdx, vulnerability], () => {
+watch([themeIdx, tab, showContinuousVulnerability, showInundation, timeIdx, scenarioIdx, vulnerability], () => {
   updateLayers()
 })
 
@@ -88,7 +89,7 @@ function updateLayers() {
     const map = tabItems.value.filter((item: SelectableItem) => item.id === tab.value).pop()
     if (map.id === 'vulnerability') {
       if (vulnerability.value)
-        sels.push(vulnerability.value)
+        sels.push(`${vulnerability.value}${showContinuousVulnerability.value ? '_cont' : ''}`)
     }
     else if (withTimeScenario) {
       sels.push(`${map.id}_${scenario.id}_${time}`)
@@ -136,6 +137,7 @@ function updateLayers() {
           density="compact"
           class="mt-2"
         ></v-select>
+        <v-checkbox-btn v-if="tab === 'vulnerability'" v-model="showContinuousVulnerability" label="Continuous"></v-checkbox-btn>
         <v-checkbox-btn v-model="showInundation" label="Inundation"></v-checkbox-btn>
       </div>
       <div class="mt-2">

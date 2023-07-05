@@ -280,6 +280,47 @@
       ]
     },
     {
+      "id": "vulnerability_cont",
+      "label": "Vulnerability",
+      "children": [
+        {
+          "id": "economic_cont",
+          "label": "Economic",
+          "legendScaleId": "vulnerability-scale"
+        },
+        {
+          "id": "susceptibility_cont",
+          "label": "Susceptibility",
+          "legendScaleId": "vulnerability-scale"
+        },
+        {
+          "id": "social_cont",
+          "label": "Social",
+          "legendScaleId": "vulnerability-scale"
+        },
+        {
+          "id": "resilience_cont",
+          "label": "Resilience",
+          "legendScaleId": "vulnerability-scale"
+        },
+        {
+          "id": "physical_cont",
+          "label": "Physical",
+          "legendScaleId": "vulnerability-scale"
+        },
+        {
+          "id": "exposure_cont",
+          "label": "Exposure",
+          "legendScaleId": "vulnerability-scale"
+        },
+        {
+          "id": "CFVI_cont",
+          "label": "CFVI",
+          "legendScaleId": "vulnerability-scale"
+        }
+      ]
+    },
+    {
       "id": "inundation",
       "label": "Inundation depth",
       "children": [
