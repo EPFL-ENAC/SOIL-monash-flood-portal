@@ -4,7 +4,7 @@ import MapLibreMap from '@/components/MapLibreMap.vue'
 import { useTitleStore } from '@/stores/title'
 import type { Parameters } from '@/utils/jsonWebMap'
 import { mdiChevronLeft, mdiChevronRight, mdiClose, mdiLayers, mdiMapLegend } from '@mdi/js'
-import type { SelectableItem, SelectableSingleItem } from '@/utils/layerSelector'
+import type { SelectableGroupItem, SelectableItem, SelectableSingleItem } from '@/utils/layerSelector'
 import axios from 'axios'
 import { storeToRefs } from 'pinia'
 import { computed, ref, shallowRef, triggerRef, watch } from 'vue'
@@ -32,13 +32,6 @@ const legendItems = computed(() =>
   singleItems.value
     .filter((item: SelectableSingleItem) => selectedLayerIds.value.some((id: string) => item.id === id))
     .filter((item: SelectableSingleItem) => item.legend !== undefined || item.legendImage !== undefined || item.legendScale !== undefined)
-    .map((item: SelectableSingleItem) => ({
-      id: item.id,
-      label: item.label,
-      legend: item.legend,
-      legendImage: item.legendImage,
-      legendScale: item.legendScale
-    }))
 )
 
 watch(
@@ -63,13 +56,8 @@ watch(
 
 function getParent(id: string): SelectableItem | undefined {
   return (parameters.value.selectableItems ?? [])
-    .filter((item: SelectableItem) => {
-      if ('children' in item) {
-        return item.children.map((child: SelectableSingleItem) => child.id).includes(id)
-      }
-      return false
-    })
-    .pop()
+    .find((item: SelectableItem) => (item as SelectableGroupItem).children 
+      && (item as SelectableGroupItem).children.find((child: SelectableSingleItem) => child.id == id) !== undefined)
 }
 
 function getParentLabel(id: string) {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SelectableItem, SelectableGroupItem } from '@/utils/layerSelector'
+import type { SelectableItem, SelectableGroupItem, SelectableSingleItem } from '@/utils/layerSelector'
 import { watch, ref, computed } from 'vue'
 
 const props = withDefaults(
@@ -55,9 +55,14 @@ watch([themeIdx, tab, showInundation, timeIdx, scenarioIdx, vulnerability], () =
 
 watch(() => props.items,
   (value: SelectableItem[]) => {
-    // init with light theme
-    if (value.filter((item: SelectableItem) => item.id === 'theme').pop())
-      themeIdx.value = 1
+    // init with default selected theme
+    const themeGroup = value.find((item: SelectableItem) => item.id === 'theme')
+    if (themeGroup) {
+      (themeGroup as SelectableGroupItem).children.forEach((item: SelectableSingleItem, index: number) => {
+      if (item.selected)
+        themeIdx.value = index
+      })
+    }
     // init with first map
     const firstTab = value.filter((item: SelectableItem) => (item as SelectableGroupItem).tab)[0]
     if (firstTab)
@@ -92,7 +97,6 @@ function updateLayers() {
   if (showInundation.value && withTimeScenario) {
     sels.push(`depth_${scenario.id}_${time}`)
   }
-  console.log(sels)
   emit('update:modelValue', sels)
 }
 
