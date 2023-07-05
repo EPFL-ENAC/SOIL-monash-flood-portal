@@ -215,7 +215,7 @@
       "source": "economic",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -225,7 +225,7 @@
       "source": "susceptibility",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -235,7 +235,7 @@
       "source": "social",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -245,7 +245,7 @@
       "source": "resilience",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -255,7 +255,7 @@
       "source": "physical",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -265,7 +265,7 @@
       "source": "exposure",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -275,7 +275,7 @@
       "source": "CFVI",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -285,7 +285,7 @@
       "source": "economic_cont",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -295,7 +295,7 @@
       "source": "susceptibility_cont",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -305,7 +305,7 @@
       "source": "social_cont",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -315,7 +315,7 @@
       "source": "resilience_cont",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -325,7 +325,7 @@
       "source": "physical_cont",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -335,7 +335,7 @@
       "source": "exposure_cont",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
@@ -345,7 +345,7 @@
       "source": "CFVI_cont",
       "minzoom": 6,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.6
       },
       "layout": { "visibility": "none" }
     },
