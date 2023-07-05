@@ -2,7 +2,7 @@
 import LayerSelector from '@/components/LayerSelector.vue'
 import MapLibreMap from '@/components/MapLibreMap.vue'
 import { useTitleStore } from '@/stores/title'
-import type { Parameters } from '@/utils/jsonWebMap'
+import type { Parameters, LegendScale, ScaleEntry } from '@/utils/jsonWebMap'
 import { mdiChevronLeft, mdiChevronRight, mdiClose, mdiLayers, mdiMapLegend } from '@mdi/js'
 import type { SelectableGroupItem, SelectableItem, SelectableSingleItem } from '@/utils/layerSelector'
 import axios from 'axios'
@@ -31,7 +31,7 @@ const selectableLayerIds = computed<string[]>(() => singleItems.value.map((item)
 const legendItems = computed(() =>
   singleItems.value
     .filter((item: SelectableSingleItem) => selectedLayerIds.value.some((id: string) => item.id === id))
-    .filter((item: SelectableSingleItem) => item.legend !== undefined || item.legendImage !== undefined || item.legendScale !== undefined)
+    .filter((item: SelectableSingleItem) => item.legend !== undefined || item.legendImage !== undefined || item.legendScaleId !== undefined)
 )
 
 const extendedSelectedLayerIds = computed<string[]>(() => {
@@ -72,6 +72,10 @@ function getParentLabel(id: string) {
   const parent = getParent(id)
   return parent?.label
 }
+
+function getLegendScale(id: string): ScaleEntry[] | undefined {
+  return parameters.value?.legendScales?.find((scale: LegendScale) => scale.id === id)?.scale
+}
 </script>
 
 <template>
@@ -106,10 +110,10 @@ function getParentLabel(id: string) {
                 <div class="mb-2 text-overline">{{ getParentLabel(item.id) }}: {{ item.label }}</div>
                 <div v-if="item.legend" class="mb-3 text-caption">{{ item.legend }}</div>
                 <v-img v-if="item.legendImage" :src="item.legendImage" />
-                <v-table v-if="item.legendScale" density="compact">
+                <v-table v-if="item.legendScaleId" density="compact">
                   <tbody>
                     <tr
-                      v-for="entry in item.legendScale"
+                      v-for="entry in getLegendScale(item.legendScaleId)"
                       :key="entry.color"
                     >
                       <td :style="`background-color: ${entry.color}`"></td>
@@ -153,6 +157,7 @@ function getParentLabel(id: string) {
           :selected-layer-ids="extendedSelectedLayerIds"
           :popup-layer-ids="parameters.popupLayerIds"
           :zoom="parameters.zoom"
+          :scales="parameters.legendScales"
         />
       </v-col>
     </v-row>

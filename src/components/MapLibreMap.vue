@@ -4,6 +4,7 @@ import '@maplibre/maplibre-gl-geocoder/dist/maplibre-gl-geocoder.css'
 
 import { geocoderApi } from '@/utils/geocoder'
 import { DivControl } from '@/utils/control'
+import type { LegendScale, ScaleEntry } from '@/utils/jsonWebMap'
 import MaplibreGeocoder from '@maplibre/maplibre-gl-geocoder'
 import {
   AttributionControl,
@@ -28,6 +29,7 @@ const props = withDefaults(
     styleSpec: string | StyleSpecification
     center?: LngLatLike
     zoom?: number
+    scales: LegendScale[]
     aspectRatio?: number
     minZoom?: number
     maxZoom?: number
@@ -39,6 +41,7 @@ const props = withDefaults(
   {
     center: undefined,
     zoom: 12,
+    scales: () => [],
     aspectRatio: undefined,
     minZoom: undefined,
     maxZoom: undefined,
@@ -116,14 +119,10 @@ watch(
         if (map) {
           map.getCanvas().style.cursor = 'pointer'
           const fprops = e.features?.at(0)?.properties
-          let html = Object.entries(fprops ?? {})
-                .map(([key, value]) => `<strong>${key}:</strong> ${value}`)
-                .join('<br>')
-          html = `<strong>${layerId}</strong><br>${html}`
-          if ((layerId.startsWith('hazard') || layerId.startsWith('risk')) && fprops && fprops.scenari_name) {
+          // display combinations of scenario and time scale for hazard and risk related layers
+          if (fprops && fprops.scenari_name) {
             const scenari = fprops['scenari_name'].split(',')
             const times = fprops['scenari_date'].split(',')
-            const labels = fprops['hzrd_clss'] ? fprops['hzrd_clss'].split(',') : fprops['risk_clss'].split(',')
             const codes = fprops['gridcode'].split(',').map((val: string) => Number.parseInt(val))
             const data: any = {}
             scenari.forEach((scenario: string, index: number) => {
@@ -134,17 +133,16 @@ watch(
                 data[scenario][times[index]] = {}
               }
               data[scenario][times[index]]['code'] = codes[index]
-              data[scenario][times[index]]['label'] = labels[index]
             })
-            console.debug(data)
-            const colors = ['#b1b2b2', '#96cfe2', '#9ad148', '#fdae61', '#d7191c']
-            const toColor = (code: number) => colors[code-1]
-            const toTitle = (label: string) => label || ''
+            // reuse legend scales from parameters
+            const scales: ScaleEntry[] | undefined = props.scales.find((scale: LegendScale) => scale.id === 'hazard-risk-scale')?.scale
+            const toColor = (code: number) => scales?.find((entry: ScaleEntry) => entry.value === code)?.color
+            const toLabel = (code: number) => scales?.find((entry: ScaleEntry) => entry.value === code)?.label
             const toCells = (scenario: string) =>
               ['20', '50', '100']
-                .map((year) => `<td style="background-color: ${toColor(data[scenario]?.[year]?.code)}; width: 25px" title="${toTitle(data[scenario]?.[year]?.label)}"></td>`)
+                .map((year) => `<td style="background-color: ${toColor(data[scenario]?.[year]?.code)}; width: 25px" title="${toLabel(data[scenario]?.[year]?.code)}"></td>`)
                 .join('')
-            html = `<p class="text-overline">${layerId}</p>
+            let html = `<p class="text-overline">${layerId}</p>
               <table>
                 <tbody>
                 <tr>
@@ -163,11 +161,11 @@ watch(
                 </tr>
                 </tbody>
               </table>`
+            popup
+              .setLngLat(e.lngLat)
+              .setHTML(html)
+              .addTo(map)
           }
-          popup
-            .setLngLat(e.lngLat)
-            .setHTML(html)
-            .addTo(map)
         }
       })
     })

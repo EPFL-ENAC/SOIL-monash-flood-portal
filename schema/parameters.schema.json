@@ -42,6 +42,9 @@
                 "label": {
                     "type": "string"
                 },
+                "value": {
+                    "type": "number"
+                },
                 "min": {
                     "type": "number"
                 },
@@ -50,6 +53,20 @@
                 },
                 "unit": {
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LegendScale": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "scale": {
+                    "items": {
+                        "$ref": "#/definitions/ScaleEntry"
+                    },
+                    "type": "array"
                 }
             },
             "type": "object"
@@ -77,11 +94,8 @@
                 "legendImage": {
                     "type": "string"
                 },
-                "legendScale": {
-                    "items": {
-                        "$ref": "#/definitions/ScaleEntry"
-                    },
-                    "type": "array"
+                "legendScaleId": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -170,6 +184,12 @@
         "zoom": {
             "description": "Map default zoom level",
             "type": "number"
+        },
+        "legendScales": {
+            "items": {
+                "$ref": "#/definitions/LegendScale"
+            },
+            "type": "array"
         }
     },
     "type": "object"

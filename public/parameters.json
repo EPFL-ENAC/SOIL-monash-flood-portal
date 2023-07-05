@@ -2,6 +2,110 @@
   "$schema": "https://raw.githubusercontent.com/EPFL-ENAC/SOIL-monash-flood-portal/main/schema/parameters.schema.json",
   "center": { "lat": 3.46769, "lng": 101.54976 },
   "zoom": 10,
+  "legendScales": [
+    {
+      "id": "hazard-risk-scale",
+      "scale": [
+        {
+          "color": "#d7191c",
+          "label": "Very high",
+          "value": 5
+        },
+        {
+          "color": "#fdae61",
+          "label": "High",
+          "value": 4
+        },
+        {
+          "color": "#9ad148",
+          "label": "Medium",
+          "value": 3
+        },
+        {
+          "color": "#96cfe2",
+          "label": "Low",
+          "value": 2
+        },
+        {
+          "color": "#b1b2b2",
+          "label": "Very low",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "vulnerability-scale",
+      "scale": [
+        {
+          "color": "#d7191c",
+          "label": "Very high",
+          "min": 0.75
+        },
+        {
+          "color": "#fdae61",
+          "label": "High",
+          "min": 0.5,
+          "max": 0.75
+        },
+        {
+          "color": "#9ad148",
+          "label": "Medium",
+          "min": 0.25,
+          "max": 0.5
+        },
+        {
+          "color": "#96cfe2",
+          "label": "Low",
+          "min": 0.1,
+          "max": 0.25
+        },
+        {
+          "color": "#b1b2b2",
+          "label": "Very low",
+          "max": 0.1
+        }
+      ]
+    },
+    {
+      "id": "depth-scale",
+      "scale": [
+        {
+          "color": "#08306b",
+          "label": "Very high",
+          "min": 1.5,
+          "unit": "m"
+        },
+        {
+          "color": "#6baed6",
+          "label": "High",
+          "min": 1,
+          "max": 1.5,
+          "unit": "m"
+        },
+        {
+          "color": "#c6dbef",
+          "label": "Medium",
+          "min": 0.5,
+          "max": 1,
+          "unit": "m"
+        },
+        {
+          "color": "#dbe9f6",
+          "label": "Low",
+          "min": 0.25,
+          "max": 0.5,
+          "unit": "m"
+        },
+        {
+          "color": "#f7fbff",
+          "label": "Very low",
+          "min": 0,
+          "max": 0.25,
+          "unit": "m"
+        }
+      ]
+    }
+  ],
   "popupLayerIds": [
     "hazard", 
     "risk"
@@ -38,168 +142,42 @@
           "ids": ["hazard"],
           "label": "20 years",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high"
-            },
-            {
-              "color": "#fdae61",
-              "label": "High"
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium"
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low"
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low"
-            }
-          ]
+          "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "hazard_base_50",
           "ids": ["hazard"],
           "label": "50 years",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high"
-            },
-            {
-              "color": "#fdae61",
-              "label": "High"
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium"
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low"
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low"
-            }
-          ]
+          "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "hazard_base_100",
           "ids": ["hazard"],
           "label": "100 years",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high"
-            },
-            {
-              "color": "#fdae61",
-              "label": "High"
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium"
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low"
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low"
-            }
-          ]
+          "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "hazard_cc_20",
           "ids": ["hazard"],
           "label": "20 years (climate change)",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high"
-            },
-            {
-              "color": "#fdae61",
-              "label": "High"
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium"
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low"
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low"
-            }
-          ]
+          "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "hazard_cc_50",
           "ids": ["hazard"],
           "label": "50 years (climate change)",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high"
-            },
-            {
-              "color": "#fdae61",
-              "label": "High"
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium"
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low"
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low"
-            }
-          ]
+          "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "hazard_cc_100",
           "ids": ["hazard"],
           "label": "100 years (climate change)",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high"
-            },
-            {
-              "color": "#fdae61",
-              "label": "High"
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium"
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low"
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low"
-            }
-          ]
+          "legendScaleId": "hazard-risk-scale"
         }
       ]
     },
@@ -213,168 +191,42 @@
           "ids": ["risk"],
           "label": "20 years",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high"
-            },
-            {
-              "color": "#fdae61",
-              "label": "High"
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium"
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low"
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low"
-            }
-          ]
+          "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "risk_base_50",
           "ids": ["risk"],
           "label": "50 years",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high"
-            },
-            {
-              "color": "#fdae61",
-              "label": "High"
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium"
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low"
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low"
-            }
-          ]
+          "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "risk_base_100",
           "ids": ["risk"],
           "label": "100 years",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high"
-            },
-            {
-              "color": "#fdae61",
-              "label": "High"
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium"
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low"
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low"
-            }
-          ]
+          "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "risk_cc_20",
           "ids": ["risk"],
           "label": "20 years (climate change)",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high"
-            },
-            {
-              "color": "#fdae61",
-              "label": "High"
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium"
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low"
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low"
-            }
-          ]
+          "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "risk_cc_50",
           "ids": ["risk"],
           "label": "50 years (climate change)",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high"
-            },
-            {
-              "color": "#fdae61",
-              "label": "High"
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium"
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low"
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low"
-            }
-          ]
+          "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "risk_cc_100",
           "ids": ["risk"],
           "label": "100 years (climate change)",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high"
-            },
-            {
-              "color": "#fdae61",
-              "label": "High"
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium"
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low"
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low"
-            }
-          ]
+          "legendScaleId": "hazard-risk-scale"
         }
       ]
     },
@@ -387,246 +239,43 @@
           "id": "economic",
           "label": "Economic",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
-            },
-            {
-              "color": "#fdae61",
-              "label": "High",
-              "min": 0.5,
-              "max": 0.75
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            }
-          ]
+          "legendScaleId": "vulnerability-scale"
         },
         {
           "id": "susceptibility",
           "label": "Susceptibility",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
-            },
-            {
-              "color": "#fdae61",
-              "label": "High",
-              "min": 0.5,
-              "max": 0.75
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            }
-          ]
+          "legendScaleId": "vulnerability-scale"
         },
         {
           "id": "social",
           "label": "Social",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
-            },
-            {
-              "color": "#fdae61",
-              "label": "High",
-              "min": 0.5,
-              "max": 0.75
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            }
-          ]
+          "legendScaleId": "vulnerability-scale"
         },
         {
           "id": "resilience",
           "label": "Resilience",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
-            },
-            {
-              "color": "#fdae61",
-              "label": "High",
-              "min": 0.5,
-              "max": 0.75
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            }
-          ]
+          "legendScaleId": "vulnerability-scale"
         },
         {
           "id": "physical",
           "label": "Physical",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
-            },
-            {
-              "color": "#fdae61",
-              "label": "High",
-              "min": 0.5,
-              "max": 0.75
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            }
-          ]
+          "legendScaleId": "vulnerability-scale"
         },
         {
           "id": "exposure",
           "label": "Exposure",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
-            },
-            {
-              "color": "#fdae61",
-              "label": "High",
-              "min": 0.5,
-              "max": 0.75
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            }
-          ]
+          "legendScaleId": "vulnerability-scale"
         },
         {
           "id": "CFVI",
           "label": "CFVI",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#d7191c",
-              "label": "Very high",
-              "min": 0.75
-            },
-            {
-              "color": "#fdae61",
-              "label": "High",
-              "min": 0.5,
-              "max": 0.75
-            },
-            {
-              "color": "#9ad148",
-              "label": "Medium",
-              "min": 0.25,
-              "max": 0.5
-            },
-            {
-              "color": "#96cfe2",
-              "label": "Low",
-              "min": 0.1,
-              "max": 0.25
-            },
-            {
-              "color": "#b1b2b2",
-              "label": "Very low",
-              "max": 0.1
-            }
-          ]
+          "legendScaleId": "vulnerability-scale"
         }
       ]
     },
@@ -639,252 +288,42 @@
           "label": "20 years",
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 20 years ARI.",
-          "legendScale": [
-            {
-              "color": "#08306b",
-              "label": "Very high",
-              "min": 1.5,
-              "unit": "m"
-            },
-            {
-              "color": "#6baed6",
-              "label": "High",
-              "min": 1,
-              "max": 1.5,
-              "unit": "m"
-            },
-            {
-              "color": "#c6dbef",
-              "label": "Medium",
-              "min": 0.5,
-              "max": 1,
-              "unit": "m"
-            },
-            {
-              "color": "#dbe9f6",
-              "label": "Low",
-              "min": 0.25,
-              "max": 0.5,
-              "unit": "m"
-            },
-            {
-              "color": "#f7fbff",
-              "label": "Very low",
-              "min": 0,
-              "max": 0.25,
-              "unit": "m"
-            }
-          ]
+          "legendScaleId": "depth-scale"
         },
         {
           "id": "depth_base_50",
           "label": "50 years",
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 50 years ARI.",
-          "legendScale": [
-            {
-              "color": "#08306b",
-              "label": "Very high",
-              "min": 1.5,
-              "unit": "m"
-            },
-            {
-              "color": "#6baed6",
-              "label": "High",
-              "min": 1,
-              "max": 1.5,
-              "unit": "m"
-            },
-            {
-              "color": "#c6dbef",
-              "label": "Medium",
-              "min": 0.5,
-              "max": 1,
-              "unit": "m"
-            },
-            {
-              "color": "#dbe9f6",
-              "label": "Low",
-              "min": 0.25,
-              "max": 0.5,
-              "unit": "m"
-            },
-            {
-              "color": "#f7fbff",
-              "label": "Very low",
-              "min": 0,
-              "max": 0.25,
-              "unit": "m"
-            }
-          ]
+          "legendScaleId": "depth-scale"
         },
         {
           "id": "depth_base_100",
           "label": "100 years",
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 100 years ARI.",
-          "legendScale": [
-            {
-              "color": "#08306b",
-              "label": "Very high",
-              "min": 1.5,
-              "unit": "m"
-            },
-            {
-              "color": "#6baed6",
-              "label": "High",
-              "min": 1,
-              "max": 1.5,
-              "unit": "m"
-            },
-            {
-              "color": "#c6dbef",
-              "label": "Medium",
-              "min": 0.5,
-              "max": 1,
-              "unit": "m"
-            },
-            {
-              "color": "#dbe9f6",
-              "label": "Low",
-              "min": 0.25,
-              "max": 0.5,
-              "unit": "m"
-            },
-            {
-              "color": "#f7fbff",
-              "label": "Very low",
-              "min": 0,
-              "max": 0.25,
-              "unit": "m"
-            }
-          ]
+          "legendScaleId": "depth-scale"
         },
         {
           "id": "depth_cc_20",
           "label": "20 years (climate change)",
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 20 years ARI with the consideration of climate change.",
-          "legendScale": [
-            {
-              "color": "#08306b",
-              "label": "Very high",
-              "min": 1.5,
-              "unit": "m"
-            },
-            {
-              "color": "#6baed6",
-              "label": "High",
-              "min": 1,
-              "max": 1.5,
-              "unit": "m"
-            },
-            {
-              "color": "#c6dbef",
-              "label": "Medium",
-              "min": 0.5,
-              "max": 1,
-              "unit": "m"
-            },
-            {
-              "color": "#dbe9f6",
-              "label": "Low",
-              "min": 0.25,
-              "max": 0.5,
-              "unit": "m"
-            },
-            {
-              "color": "#f7fbff",
-              "label": "Very low",
-              "min": 0,
-              "max": 0.25,
-              "unit": "m"
-            }
-          ]
+          "legendScaleId": "depth-scale"
         },
         {
           "id": "depth_cc_50",
           "label": "50 years (climate change)",
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 50 years ARI with the consideration of climate change.",
-          "legendScale": [
-            {
-              "color": "#08306b",
-              "label": "Very high",
-              "min": 1.5,
-              "unit": "m"
-            },
-            {
-              "color": "#6baed6",
-              "label": "High",
-              "min": 1,
-              "max": 1.5,
-              "unit": "m"
-            },
-            {
-              "color": "#c6dbef",
-              "label": "Medium",
-              "min": 0.5,
-              "max": 1,
-              "unit": "m"
-            },
-            {
-              "color": "#dbe9f6",
-              "label": "Low",
-              "min": 0.25,
-              "max": 0.5,
-              "unit": "m"
-            },
-            {
-              "color": "#f7fbff",
-              "label": "Very low",
-              "min": 0,
-              "max": 0.25,
-              "unit": "m"
-            }
-          ]
+          "legendScaleId": "depth-scale"
         },
         {
           "id": "depth_cc_100",
           "label": "100 years (climate change)",
           "legend": "Inundation of Sungai Selangor River basin for 100 years ARI with the consideration of climate change.",
           "selected": false,
-          "legendScale": [
-            {
-              "color": "#08306b",
-              "label": "Very high",
-              "min": 1.5,
-              "unit": "m"
-            },
-            {
-              "color": "#6baed6",
-              "label": "High",
-              "min": 1,
-              "max": 1.5,
-              "unit": "m"
-            },
-            {
-              "color": "#c6dbef",
-              "label": "Medium",
-              "min": 0.5,
-              "max": 1,
-              "unit": "m"
-            },
-            {
-              "color": "#dbe9f6",
-              "label": "Low",
-              "min": 0.25,
-              "max": 0.5,
-              "unit": "m"
-            },
-            {
-              "color": "#f7fbff",
-              "label": "Very low",
-              "min": 0,
-              "max": 0.25,
-              "unit": "m"
-            }
-          ]
+          "legendScaleId": "depth-scale"
         }
       ]
     }
