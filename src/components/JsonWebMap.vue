@@ -25,12 +25,18 @@ const parameters = shallowRef<Parameters>({})
 const drawerRail = ref(false)
 const drawerRight = ref(false)
 const drawerHtml = ref('')
+const docId = ref<string>()
 const docHtml = ref<any>({})
 const { mobile } = useDisplay()
 const { cookies } = useCookies()
 const { title, subtitle } = storeToRefs(useTitleStore())
 
-const documentationIds = ['hazard', 'risk', 'vulnerability', 'inundations']
+const documentationIds = [
+  'hazard', 
+  'risk',
+  'vulnerability',
+  'inundations'
+]
 
 onMounted(() => {
   documentationIds.forEach((id: string) => {
@@ -101,12 +107,17 @@ function getLegendScale(id: string): ScaleEntry[] | undefined {
 }
 
 function showDocumentation(id: string) {
-  if (id in docHtml.value) {
-    drawerHtml.value = docHtml.value[id]
+  if (docId.value === id) {
+    drawerRight.value = !drawerRight.value
   } else {
-    drawerHtml.value = `Ooops, no documentation about '${id}'`
+    if (id in docHtml.value) {
+      drawerHtml.value = docHtml.value[id]
+    } else {
+      drawerHtml.value = `Ooops, no documentation about '${id}'`
+    }
+    docId.value = id
+    drawerRight.value = true
   }
-  drawerRight.value = true
 }
 
 function welcomeClosed() {
@@ -115,7 +126,7 @@ function welcomeClosed() {
 </script>
 
 <template>
-  <v-navigation-drawer :rail="drawerRail" permanent @click="drawerRail = false">
+  <v-navigation-drawer :rail="drawerRail" permanent :width="mobile ? 200 : 300" @click="drawerRail = false">
     <v-list density="compact" nav>
       <v-list-item :prepend-icon="drawerRail ? mdiChevronRight : undefined">
         <template #append>

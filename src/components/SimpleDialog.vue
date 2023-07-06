@@ -3,7 +3,7 @@ import axios from 'axios'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 import { useDisplay } from 'vuetify'
-import { defineProps, onMounted, ref, withDefaults } from "vue";
+import { defineProps, onMounted, ref, withDefaults } from 'vue'
 
 const props = withDefaults(
   defineProps<{
