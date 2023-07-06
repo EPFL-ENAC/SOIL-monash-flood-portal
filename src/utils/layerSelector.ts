@@ -14,9 +14,10 @@ export interface ScaleEntry {
 
 export interface SelectableSingleItem extends SelectableParentItem {
   id: string
+  ids: string[]
   legend?: string
   legendImage?: string
-  legendScale?: ScaleEntry[]
+  legendScaleId?: string
 }
 export interface SelectableGroupItem extends SelectableParentItem {
   id: string

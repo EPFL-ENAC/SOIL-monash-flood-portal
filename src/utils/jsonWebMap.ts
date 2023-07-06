@@ -1,6 +1,20 @@
 import type { LngLatLike } from 'maplibre-gl'
 import type { SelectableItem } from './layerSelector'
 
+export interface ScaleEntry {
+  color: string
+  label: string
+  value?: number
+  min?: number
+  max?: number
+  unit?: string
+}
+
+export interface LegendScale {
+  id: string
+  scale: ScaleEntry[]
+}
+
 export interface Parameters {
   /**
    * Map default center coordinates
@@ -26,4 +40,8 @@ export interface Parameters {
    * Subtitle of the map
    */
   subtitle?: string
+  /**
+   * Legend scales
+   */
+  legendScales?: LegendScale[]
 }

@@ -4,6 +4,7 @@ import '@maplibre/maplibre-gl-geocoder/dist/maplibre-gl-geocoder.css'
 
 import { geocoderApi } from '@/utils/geocoder'
 import { DivControl } from '@/utils/control'
+import type { LegendScale, ScaleEntry } from '@/utils/jsonWebMap'
 import MaplibreGeocoder from '@maplibre/maplibre-gl-geocoder'
 import {
   AttributionControl,
@@ -28,6 +29,7 @@ const props = withDefaults(
     styleSpec: string | StyleSpecification
     center?: LngLatLike
     zoom?: number
+    scales: LegendScale[]
     aspectRatio?: number
     minZoom?: number
     maxZoom?: number
@@ -39,6 +41,7 @@ const props = withDefaults(
   {
     center: undefined,
     zoom: 12,
+    scales: () => [],
     aspectRatio: undefined,
     minZoom: undefined,
     maxZoom: undefined,
@@ -82,9 +85,7 @@ onMounted(() => {
 
   map.on('mousemove', function (event: MapMouseEvent) {
     if (positionControl.container) {
-      positionControl.container.innerHTML = `Lat/Lon: (${event.lngLat.lat.toFixed(
-        4
-      )}; ${event.lngLat.lng.toFixed(4)})`
+      positionControl.container.innerHTML = `Lat/Lon: (${event.lngLat.lat.toFixed(4)}; ${event.lngLat.lng.toFixed(4)})`
     }
   })
   map.on('mouseout', function () {
@@ -117,14 +118,54 @@ watch(
       map?.on('click', layerId, function (e) {
         if (map) {
           map.getCanvas().style.cursor = 'pointer'
-          let html = Object.entries(e.features?.at(0)?.properties ?? {})
-                .map(([key, value]) => `<strong>${key}:</strong> ${value}`)
-                .join('<br>')
-          html = `<strong>${layerId}</strong><br>${html}`
-          popup
-            .setLngLat(e.lngLat)
-            .setHTML(html)
-            .addTo(map)
+          const fprops = e.features?.at(0)?.properties
+          // display combinations of scenario and ARI for hazard and risk related layers
+          if (fprops && fprops.scenari_name) {
+            const scenari = fprops['scenari_name'].split(',')
+            const times = fprops['scenari_date'].split(',')
+            const codes = fprops['gridcode'].split(',').map((val: string) => Number.parseInt(val))
+            const data: any = {}
+            scenari.forEach((scenario: string, index: number) => {
+              if (!data[scenario]) {
+                data[scenario] = {}
+              }
+              if (!data[scenario][times[index]]) {
+                data[scenario][times[index]] = {}
+              }
+              data[scenario][times[index]]['code'] = codes[index]
+            })
+            // reuse legend scales from parameters
+            const scales: ScaleEntry[] | undefined = props.scales.find((scale: LegendScale) => scale.id === 'hazard-risk-scale')?.scale
+            const toColor = (code: number) => scales?.find((entry: ScaleEntry) => entry.value === code)?.color
+            const toLabel = (code: number) => scales?.find((entry: ScaleEntry) => entry.value === code)?.label
+            const toCells = (scenario: string) =>
+              ['20', '50', '100']
+                .map((year) => `<td style="background-color: ${toColor(data[scenario]?.[year]?.code)}; width: 25px" title="${toLabel(data[scenario]?.[year]?.code)}"></td>`)
+                .join('')
+            let html = `<p class="text-overline">${layerId}</p>
+              <table>
+                <tbody>
+                <tr>
+                  <td class="text-caption text-right pr-1">Base</td>
+                  ${toCells('base')}
+                </tr>
+                <tr>
+                  <td class="text-caption text-right pr-1">Climate change</td>
+                  ${toCells('cc')}
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="text-caption">20</td>
+                  <td class="text-caption">50</td>
+                  <td class="text-caption">100</td>
+                </tr>
+                </tbody>
+              </table>`
+            popup
+              .setLngLat(e.lngLat)
+              .setHTML(html)
+              .addTo(map)
+          }
         }
       })
     })
@@ -150,7 +191,7 @@ function filterLayers() {
   if (map?.loaded()) {
     map
       .getStyle()
-      .layers.filter((layer) => props.selectableLayerIds.includes(layer.id))
+      .layers
       .forEach((layer) => {
         map?.setLayoutProperty(
           layer.id,

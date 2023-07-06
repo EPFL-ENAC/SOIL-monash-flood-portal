@@ -3,6 +3,8 @@ import { storeToRefs } from 'pinia'
 import { RouterView } from 'vue-router'
 import { useTitleStore } from './stores/title'
 import epflLogoUrl from '/EPFL_Logo_184X53.svg'
+import { mdiInformation } from '@mdi/js'
+
 const { title, subtitle } = storeToRefs(useTitleStore())
 </script>
 
@@ -13,6 +15,7 @@ const { title, subtitle } = storeToRefs(useTitleStore())
         <div v-if="title" class="text-h5">{{ title }}</div>
         <div v-if="subtitle" class="text-subtitle-2">{{ subtitle }}</div>
       </v-app-bar-title>
+      <v-btn to="/about" :icon="mdiInformation" class="mr-3"></v-btn>
       <template #append>
         <a href="https://epfl.ch" target="_blank">
           <v-img :src="epflLogoUrl" width="100px" />
