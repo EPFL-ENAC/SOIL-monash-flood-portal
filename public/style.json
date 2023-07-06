@@ -350,66 +350,6 @@
       "layout": { "visibility": "none" }
     },
     {
-      "id": "depth_base_20",
-      "type": "raster",
-      "source": "depth_base_20",
-      "minzoom": 6,
-      "paint": {
-        "raster-opacity": 0.8
-      },
-      "layout": { "visibility": "none" }
-    },
-    {
-      "id": "depth_base_50",
-      "type": "raster",
-      "source": "depth_base_50",
-      "minzoom": 6,
-      "paint": {
-        "raster-opacity": 0.8
-      },
-      "layout": { "visibility": "none" }
-    },
-    {
-      "id": "depth_base_100",
-      "type": "raster",
-      "source": "depth_base_100",
-      "minzoom": 6,
-      "paint": {
-        "raster-opacity": 0.8
-      },
-      "layout": { "visibility": "none" }
-    },
-    {
-      "id": "depth_cc_20",
-      "type": "raster",
-      "source": "depth_cc_20",
-      "minzoom": 6,
-      "paint": {
-        "raster-opacity": 0.8
-      },
-      "layout": { "visibility": "none" }
-    },
-    {
-      "id": "depth_cc_50",
-      "type": "raster",
-      "source": "depth_cc_50",
-      "minzoom": 6,
-      "paint": {
-        "raster-opacity": 0.8
-      },
-      "layout": { "visibility": "none" }
-    },
-    {
-      "id": "depth_cc_100",
-      "type": "raster",
-      "source": "depth_cc_100",
-      "minzoom": 6,
-      "paint": {
-        "raster-opacity": 0.8
-      },
-      "layout": { "visibility": "none" }
-    },
-    {
       "id": "hazard",
       "type": "fill",
       "source": "hazard",
@@ -429,14 +369,14 @@
             "interpolate",
             ["linear"],
             ["get", "gridcode"],
-            1, "#b1b2b2",
-            2, "#96cfe2",
-            3, "#9ad148",
-            4, "#fdae61",
-            5, "#d7191c"
+            1,"#ffffb2",
+            2,"#fecc5c",
+            3,"#fd8d3c",
+            4,"#f03b20",
+            5,"#bd0026"
         ],
         "fill-outline-color": "#987db7",
-        "fill-opacity": 0.5
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" }
     },
@@ -450,14 +390,14 @@
             "interpolate",
             ["linear"],
             ["get", "gridcode"],
-            1, "#b1b2b2",
-            2, "#96cfe2",
-            3, "#9ad148",
-            4, "#fdae61",
-            5, "#d7191c"
+            1,"#ffffb2",
+            2,"#fecc5c",
+            3,"#fd8d3c",
+            4,"#f03b20",
+            5,"#bd0026"
         ],
         "fill-outline-color": "#987db7",
-        "fill-opacity": 0.5
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" }
     },
@@ -471,14 +411,14 @@
             "interpolate",
             ["linear"],
             ["get", "gridcode"],
-            1, "#b1b2b2",
-            2, "#96cfe2",
-            3, "#9ad148",
-            4, "#fdae61",
-            5, "#d7191c"
+            1,"#ffffb2",
+            2,"#fecc5c",
+            3,"#fd8d3c",
+            4,"#f03b20",
+            5,"#bd0026"
         ],
         "fill-outline-color": "#987db7",
-        "fill-opacity": 0.5
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" }
     },
@@ -492,14 +432,14 @@
             "interpolate",
             ["linear"],
             ["get", "gridcode"],
-            1, "#b1b2b2",
-            2, "#96cfe2",
-            3, "#9ad148",
-            4, "#fdae61",
-            5, "#d7191c"
+            1,"#ffffb2",
+            2,"#fecc5c",
+            3,"#fd8d3c",
+            4,"#f03b20",
+            5,"#bd0026"
         ],
         "fill-outline-color": "#987db7",
-        "fill-opacity": 0.5
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" }
     },
@@ -513,14 +453,14 @@
             "interpolate",
             ["linear"],
             ["get", "gridcode"],
-            1, "#b1b2b2",
-            2, "#96cfe2",
-            3, "#9ad148",
-            4, "#fdae61",
-            5, "#d7191c"
+            1,"#ffffb2",
+            2,"#fecc5c",
+            3,"#fd8d3c",
+            4,"#f03b20",
+            5,"#bd0026"
         ],
         "fill-outline-color": "#987db7",
-        "fill-opacity": 0.5
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" }
     },
@@ -534,14 +474,14 @@
             "interpolate",
             ["linear"],
             ["get", "gridcode"],
-            1, "#b1b2b2",
-            2, "#96cfe2",
-            3, "#9ad148",
-            4, "#fdae61",
-            5, "#d7191c"
+            1,"#ffffb2",
+            2,"#fecc5c",
+            3,"#fd8d3c",
+            4,"#f03b20",
+            5,"#bd0026"
         ],
         "fill-outline-color": "#987db7",
-        "fill-opacity": 0.5
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" }
     },
@@ -565,14 +505,14 @@
             "interpolate",
             ["linear"],
             ["get", "gridcode"],
-            1, "#b1b2b2",
-            2, "#96cfe2",
-            3, "#9ad148",
-            4, "#fdae61",
-            5, "#d7191c"
+            1,"#ffffb2",
+            2,"#fecc5c",
+            3,"#fd8d3c",
+            4,"#f03b20",
+            5,"#bd0026"
         ],
         "fill-outline-color": "#987db7",
-        "fill-opacity": 0.5
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" }
     },
@@ -586,14 +526,14 @@
             "interpolate",
             ["linear"],
             ["get", "gridcode"],
-            1, "#b1b2b2",
-            2, "#96cfe2",
-            3, "#9ad148",
-            4, "#fdae61",
-            5, "#d7191c"
+            1,"#ffffb2",
+            2,"#fecc5c",
+            3,"#fd8d3c",
+            4,"#f03b20",
+            5,"#bd0026"
         ],
         "fill-outline-color": "#987db7",
-        "fill-opacity": 0.5
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" }
     },
@@ -607,14 +547,14 @@
             "interpolate",
             ["linear"],
             ["get", "gridcode"],
-            1, "#b1b2b2",
-            2, "#96cfe2",
-            3, "#9ad148",
-            4, "#fdae61",
-            5, "#d7191c"
+            1,"#ffffb2",
+            2,"#fecc5c",
+            3,"#fd8d3c",
+            4,"#f03b20",
+            5,"#bd0026"
         ],
         "fill-outline-color": "#987db7",
-        "fill-opacity": 0.5
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" }
     },
@@ -628,14 +568,14 @@
             "interpolate",
             ["linear"],
             ["get", "gridcode"],
-            1, "#b1b2b2",
-            2, "#96cfe2",
-            3, "#9ad148",
-            4, "#fdae61",
-            5, "#d7191c"
+            1,"#ffffb2",
+            2,"#fecc5c",
+            3,"#fd8d3c",
+            4,"#f03b20",
+            5,"#bd0026"
         ],
         "fill-outline-color": "#987db7",
-        "fill-opacity": 0.5
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" }
     },
@@ -649,14 +589,14 @@
             "interpolate",
             ["linear"],
             ["get", "gridcode"],
-            1, "#b1b2b2",
-            2, "#96cfe2",
-            3, "#9ad148",
-            4, "#fdae61",
-            5, "#d7191c"
+            1,"#ffffb2",
+            2,"#fecc5c",
+            3,"#fd8d3c",
+            4,"#f03b20",
+            5,"#bd0026"
         ],
         "fill-outline-color": "#987db7",
-        "fill-opacity": 0.5
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" }
     },
@@ -670,14 +610,74 @@
             "interpolate",
             ["linear"],
             ["get", "gridcode"],
-            1, "#b1b2b2",
-            2, "#96cfe2",
-            3, "#9ad148",
-            4, "#fdae61",
-            5, "#d7191c"
+            1,"#ffffb2",
+            2,"#fecc5c",
+            3,"#fd8d3c",
+            4,"#f03b20",
+            5,"#bd0026"
         ],
         "fill-outline-color": "#987db7",
-        "fill-opacity": 0.5
+        "fill-opacity": 0.7
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "depth_base_20",
+      "type": "raster",
+      "source": "depth_base_20",
+      "minzoom": 6,
+      "paint": {
+        "raster-opacity": 0.7
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "depth_base_50",
+      "type": "raster",
+      "source": "depth_base_50",
+      "minzoom": 6,
+      "paint": {
+        "raster-opacity": 0.7
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "depth_base_100",
+      "type": "raster",
+      "source": "depth_base_100",
+      "minzoom": 6,
+      "paint": {
+        "raster-opacity": 0.7
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "depth_cc_20",
+      "type": "raster",
+      "source": "depth_cc_20",
+      "minzoom": 6,
+      "paint": {
+        "raster-opacity": 0.7
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "depth_cc_50",
+      "type": "raster",
+      "source": "depth_cc_50",
+      "minzoom": 6,
+      "paint": {
+        "raster-opacity": 0.7
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "depth_cc_100",
+      "type": "raster",
+      "source": "depth_cc_100",
+      "minzoom": 6,
+      "paint": {
+        "raster-opacity": 0.7
       },
       "layout": { "visibility": "none" }
     }
