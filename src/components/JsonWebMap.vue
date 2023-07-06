@@ -41,7 +41,7 @@ const documentationIds = [
 onMounted(() => {
   documentationIds.forEach((id: string) => {
     axios
-    .get<string>(`/${id}.md`)
+    .get<string>(`../${id}.md`)
     .then((response) => response.data)
     .then((data) => {
       docHtml.value[id] = DOMPurify.sanitize(marked.parse(data, {headerIds: false}))
@@ -233,7 +233,7 @@ function welcomeClosed() {
       </v-col>
     </v-row>
   </v-container>
-  <simple-dialog button-text="Start" content-url="/welcome.md" :open="openWelcome" @dialog-close="welcomeClosed">
+  <simple-dialog button-text="Start" content-url="../welcome.md" :open="openWelcome" @dialog-close="welcomeClosed">
   </simple-dialog>
 </template>
 

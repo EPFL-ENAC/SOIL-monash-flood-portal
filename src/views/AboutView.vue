@@ -9,7 +9,7 @@ const contentHtml = ref<string>('')
 
 onMounted(() => {
   axios
-    .get<string>('/about.md')
+    .get<string>('../about.md')
     .then((response) => response.data)
     .then((data) => {
       contentHtml.value = DOMPurify.sanitize(marked.parse(data, {headerIds: false}))
