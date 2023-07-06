@@ -161,21 +161,21 @@
         {
           "id": "hazard_cc_20",
           "ids": ["hazard"],
-          "label": "20 years (climate change)",
+          "label": "20 years - climate change",
           "selected": false,
           "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "hazard_cc_50",
           "ids": ["hazard"],
-          "label": "50 years (climate change)",
+          "label": "50 years - climate change",
           "selected": false,
           "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "hazard_cc_100",
           "ids": ["hazard"],
-          "label": "100 years (climate change)",
+          "label": "100 years - climate change",
           "selected": false,
           "legendScaleId": "hazard-risk-scale"
         }
@@ -210,21 +210,21 @@
         {
           "id": "risk_cc_20",
           "ids": ["risk"],
-          "label": "20 years (climate change)",
+          "label": "20 years - climate change",
           "selected": false,
           "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "risk_cc_50",
           "ids": ["risk"],
-          "label": "50 years (climate change)",
+          "label": "50 years - climate change",
           "selected": false,
           "legendScaleId": "hazard-risk-scale"
         },
         {
           "id": "risk_cc_100",
           "ids": ["risk"],
-          "label": "100 years (climate change)",
+          "label": "100 years - climate change",
           "selected": false,
           "legendScaleId": "hazard-risk-scale"
         }
@@ -347,21 +347,21 @@
         },
         {
           "id": "depth_cc_20",
-          "label": "20 years (climate change)",
+          "label": "20 years - climate change",
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 20 years ARI with the consideration of climate change.",
           "legendScaleId": "depth-scale"
         },
         {
           "id": "depth_cc_50",
-          "label": "50 years (climate change)",
+          "label": "50 years - climate change",
           "selected": false,
           "legend": "Inundation of Sungai Selangor River basin for 50 years ARI with the consideration of climate change.",
           "legendScaleId": "depth-scale"
         },
         {
           "id": "depth_cc_100",
-          "label": "100 years (climate change)",
+          "label": "100 years - climate change",
           "legend": "Inundation of Sungai Selangor River basin for 100 years ARI with the consideration of climate change.",
           "selected": false,
           "legendScaleId": "depth-scale"

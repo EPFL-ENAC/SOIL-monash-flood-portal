@@ -154,7 +154,7 @@ function welcomeClosed() {
           <v-card-text class="pa-0">
             <v-row>
               <v-col v-for="(item, index) in legendItems" :key="index" cols="12">
-                <div class="mb-2 text-overline">{{ getParentLabel(item.id) }}: {{ item.label }}</div>
+                <div class="mb-2 text-overline">{{ getParentLabel(item.id) }} ({{ item.label }})</div>
                 <div v-if="item.legend" class="mb-3 text-caption">{{ item.legend }}</div>
                 <v-img v-if="item.legendImage" :src="item.legendImage" />
                 <v-table v-if="item.legendScaleId" density="compact">
