@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import LayerSelector from '@/components/LayerSelector.vue'
-import SimpleDialog from '@/components/SimpleDialog.vue'
+import MarkdownDialog from '@/components/MarkdownDialog.vue'
 import MapLibreMap from '@/components/MapLibreMap.vue'
 import { useTitleStore } from '@/stores/title'
 import type { Parameters, LegendScale, ScaleEntry } from '@/utils/jsonWebMap'
@@ -233,8 +233,8 @@ function welcomeClosed() {
       </v-col>
     </v-row>
   </v-container>
-  <simple-dialog button-text="Start" content-url="welcome.md" :open="openWelcome" @dialog-close="welcomeClosed">
-  </simple-dialog>
+  <markdown-dialog button-text="Start" content-url="welcome.md" :open="openWelcome" @dialog-close="welcomeClosed">
+  </markdown-dialog>
 </template>
 
 <style lang="scss">
