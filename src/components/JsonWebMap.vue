@@ -44,7 +44,7 @@ onMounted(() => {
     .get<string>(`${id}.md`)
     .then((response) => response.data)
     .then((data) => {
-      docHtml.value[id] = DOMPurify.sanitize(marked.parse(data, {headerIds: false}))
+      docHtml.value[id] = DOMPurify.sanitize(marked.parse(data, {headerIds: false, mangle: false}))
     })
   })
 });
@@ -141,7 +141,7 @@ function welcomeClosed() {
       </v-list-item>
       <v-list-item :prepend-icon="mdiLayers">
         <v-list-item-title>
-          <span class="text-h6">Layers</span>
+          <span class="text-h6">Maps</span>
         </v-list-item-title>
       </v-list-item>
       <v-list-item v-show="!drawerRail">

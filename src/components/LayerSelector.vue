@@ -104,7 +104,6 @@ function updateLayers() {
   <v-card flat>
     <v-card-text class="pa-0">
       <div class="mt-2">
-        <div class="mb-2 text-overline">Map</div>
         <v-select
           v-model="tab"
           label="Map"

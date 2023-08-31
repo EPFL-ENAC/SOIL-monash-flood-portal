@@ -74,8 +74,8 @@ onMounted(() => {
   map.addControl(new ScaleControl({}))
   map.addControl(new FullscreenControl({}))
   map.addControl(new AttributionControl({
-      compact: true,
-      customAttribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>, <a href="https://www.monash.edu.my/" target="_blank">Monash Univ. Malaysia</a>'
+      compact: false,
+      customAttribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>, <a href="https://www.monash.edu.my/" target="_blank">Monash Univ. Malaysia</a>, <a href="https://www.epfl.ch/labs/soil/" target="_blank">SOIL</a>'
   }));
   map.addControl(
     new MaplibreGeocoder(geocoderApi, {
