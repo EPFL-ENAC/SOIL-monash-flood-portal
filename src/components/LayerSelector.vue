@@ -28,6 +28,12 @@ const vulnerabilityItems = computed<any[]>(() =>
     .flatMap((item: any) => item.children)
 )
 
+const landuse = ref<string>()
+const landuseItems = computed<any[]>(() =>
+  props.items?.filter((item: any) => item.id === 'landuse')
+    .flatMap((item: any) => item.children)
+)
+
 const tab = ref<string>()
 const tabItems = computed<any[]>(() =>
   props.items?.filter((item: any) => item.tab)
@@ -69,9 +75,13 @@ watch(() => props.items,
     if (firstTab)
       tab.value = firstTab.id
     // init with first vulnerability
-    const vulnerabilityTab = value.filter((item: SelectableItem) => item.id === 'vulnerability').pop()
+    const vulnerabilityTab = value.find((item: SelectableItem) => item.id === 'vulnerability')
     if (vulnerabilityTab)
-      vulnerability.value = (vulnerabilityTab as SelectableGroupItem).children[0].id          
+      vulnerability.value = (vulnerabilityTab as SelectableGroupItem).children[0].id
+    // init with first vulnerability
+    const landuseTab = value.find((item: SelectableItem) => item.id === 'landuse')
+    if (landuseTab)
+      landuse.value = (landuseTab as SelectableGroupItem).children[0].id
     updateLayers()
   },
   { immediate: true }
@@ -90,6 +100,10 @@ function updateLayers() {
     if (map.id === 'vulnerability') {
       if (vulnerability.value)
         sels.push(`${vulnerability.value}${showContinuousVulnerability.value ? '_cont' : ''}`)
+    }
+    else if (map.id === 'landuse') {
+      if (landuse.value)
+        sels.push(landuse.value)
     }
     else if (withTimeScenario) {
       sels.push(`${map.id}_${scenario.id}_${time}`)
@@ -122,6 +136,16 @@ function updateLayers() {
           v-model="tab"
           label="Map"
           :items="tabItems"
+          item-title="label"
+          item-value="id"
+          density="compact"
+          class="mt-2"
+        ></v-select>
+        <v-select
+          v-if="tab === 'landuse'"
+          v-model="landuse"
+          label="Land usage"
+          :items="landuseItems"
           item-title="label"
           item-value="id"
           density="compact"
