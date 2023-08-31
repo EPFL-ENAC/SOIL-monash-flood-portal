@@ -50,10 +50,16 @@ onMounted(() => {
 });
 
 const singleItems = computed<SelectableSingleItem[]>(() =>
-  (parameters.value.selectableItems ?? []).flatMap((item: SelectableItem) =>
-    'children' in item ? item.children : [item]
-  )
+  (parameters.value.selectableItems ?? [])
+    .filter((item: SelectableItem) => item.id !== 'theme')
+    .flatMap((item: SelectableItem) => 'children' in item ? item.children : [item])
 )
+
+const themeItems = computed<SelectableSingleItem[]>(() => {
+  const themeGroup = parameters.value?.selectableItems?.find((item: SelectableItem) => item.id === 'theme') as SelectableGroupItem
+  return themeGroup ? themeGroup.children : []
+})
+
 const selectableLayerIds = computed<string[]>(() => singleItems.value.map((item) => item.id))
 const legendItems = computed(() =>
   singleItems.value
@@ -223,11 +229,12 @@ function welcomeClosed() {
         <MapLibreMap
           ref="map"
           :center="parameters.center"
+          :zoom="parameters?.zoom"
           :style-spec="styleUrl"
+          :themes="themeItems"
           :selectable-layer-ids="selectableLayerIds"
           :selected-layer-ids="extendedSelectedLayerIds"
           :popup-layer-ids="parameters.popupLayerIds"
-          :zoom="parameters.zoom"
           :scales="parameters.legendScales"
         />
       </v-col>

@@ -16,12 +16,6 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: string[]): void
 }>()
 
-const themeIdx = ref<number>()
-const themeItems = computed<any[]>(() =>
-  props.items?.filter((item: any) => item.id === 'theme')
-    .flatMap((item: any) => item.children)
-)
-
 const vulnerability = ref<string>()
 const vulnerabilityItems = computed<any[]>(() =>
   props.items?.filter((item: any) => item.id === 'vulnerability')
@@ -56,20 +50,12 @@ const scenarioItems = [
 const showContinuousVulnerability = ref<boolean>(false)
 const showInundation = ref<boolean>(false)
 
-watch([themeIdx, tab, showContinuousVulnerability, showInundation, timeIdx, scenarioIdx, vulnerability], () => {
+watch([tab, showContinuousVulnerability, showInundation, timeIdx, scenarioIdx, vulnerability], () => {
   updateLayers()
 })
 
 watch(() => props.items,
   (value: SelectableItem[]) => {
-    // init with default selected theme
-    const themeGroup = value.find((item: SelectableItem) => item.id === 'theme')
-    if (themeGroup) {
-      (themeGroup as SelectableGroupItem).children.forEach((item: SelectableSingleItem, index: number) => {
-      if (item.selected)
-        themeIdx.value = index
-      })
-    }
     // init with first map
     const firstTab = value.filter((item: SelectableItem) => (item as SelectableGroupItem).tab)[0]
     if (firstTab)
@@ -89,9 +75,6 @@ watch(() => props.items,
 
 function updateLayers() {
   const sels = []
-  if (themeIdx.value !== undefined) {
-    sels.push(themeItems.value[themeIdx.value].id)
-  }
   const time = timeItems[timeIdx.value]
   const scenario = scenarioItems[scenarioIdx.value]
   const withTimeScenario = time !== undefined && scenario !== undefined
@@ -120,16 +103,6 @@ function updateLayers() {
 <template>
   <v-card flat>
     <v-card-text class="pa-0">
-      <div>
-        <div class="mb-2 text-overline">Theme</div>
-        <v-btn-toggle
-          v-model="themeIdx"
-          divided
-          variant="outlined"
-        >
-          <v-btn v-for="(item, index) in themeItems" :key="index" size="x-small">{{ item.label }}</v-btn>
-        </v-btn-toggle>
-      </div>
       <div class="mt-2">
         <div class="mb-2 text-overline">Map</div>
         <v-select
