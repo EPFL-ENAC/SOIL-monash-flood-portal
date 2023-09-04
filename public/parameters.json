@@ -133,6 +133,25 @@
       ]
     },
     {
+      "id": "landuse",
+      "label": "Land usage",
+      "tab": true,
+      "children": [
+        {
+          "id": "landuse_abiotic",
+          "ids": [],
+          "label": "Abiotic",
+          "selected": false
+        },
+        {
+          "id": "landuse_biotic",
+          "ids": [],
+          "label": "Biotic",
+          "selected": false
+        }
+      ]
+    },
+    {
       "id": "hazard",
       "label": "Hazard",
       "tab": true,
