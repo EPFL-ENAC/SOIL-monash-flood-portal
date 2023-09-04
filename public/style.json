@@ -187,7 +187,7 @@
     },
     "landuse": {
       "type": "vector",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/landuse/{z}/{x}/{y}.pbf"]
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/landuse4/{z}/{x}/{y}.pbf"]
     }
   },
   "layers": [
