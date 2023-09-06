@@ -174,6 +174,7 @@ watch(
             console.log(fprops)
             const rows = Object.keys(fprops as Object)
               .sort()
+              .filter((key) => key !== 'id')
               .map((key) => `
                 <tr>
                   <td class="text-caption text-right pr-1">${key}</td>
