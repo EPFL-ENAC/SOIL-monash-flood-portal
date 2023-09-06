@@ -170,6 +170,25 @@ watch(
               .setLngLat(e.lngLat)
               .setHTML(html)
               .addTo(map)
+          } else if (fprops) {
+            console.log(fprops)
+            const rows = Object.keys(fprops as Object)
+              .sort()
+              .map((key) => `
+                <tr>
+                  <td class="text-caption text-right pr-1">${key}</td>
+                  <td class="text-caption text-right pr-1">${fprops[key]}</td>
+                  </tr>`).join('')
+            const html = `<p class="text-overline">${layerId}</p>
+              <table>
+                <tbody>
+                  ${rows}
+                </tbody>
+              </table>`
+            popup
+              .setLngLat(e.lngLat)
+              .setHTML(html)
+              .addTo(map)
           }
         }
       })

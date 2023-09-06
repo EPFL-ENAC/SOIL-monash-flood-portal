@@ -50,7 +50,7 @@ const scenarioItems = [
 const showContinuousVulnerability = ref<boolean>(false)
 const showInundation = ref<boolean>(false)
 
-watch([tab, showContinuousVulnerability, showInundation, timeIdx, scenarioIdx, vulnerability], () => {
+watch([tab, landuse, showContinuousVulnerability, showInundation, timeIdx, scenarioIdx, vulnerability], () => {
   updateLayers()
 })
 
@@ -116,7 +116,7 @@ function updateLayers() {
         <v-select
           v-if="tab === 'landuse'"
           v-model="landuse"
-          label="Land usage"
+          label="Land use"
           :items="landuseItems"
           item-title="label"
           item-value="id"

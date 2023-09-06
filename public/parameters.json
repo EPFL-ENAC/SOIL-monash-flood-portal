@@ -104,11 +104,62 @@
           "unit": "m"
         }
       ]
+    },
+    {
+      "id": "gtn1-scale",
+      "scale": [
+        {
+          "label": "Agricultural",
+          "color": "#dae021"
+        },
+        {
+          "label": "Bare Land",
+          "color": "#efefe8"
+        },
+        {
+          "label": "Commercial",
+          "color": "#e08721"
+        },
+        {
+          "label": "Community Institutions and Facilities",
+          "color": "#cfa3ed"
+        },
+        {
+          "label": "Industrial",
+          "color": "#c9d3be"
+        },
+        {
+          "label": "Infrastructures and Utilities",
+          "color": "#739e92"
+        },
+        {
+          "label": "Forest",
+          "color": "#7ae021"
+        },
+        {
+          "label": "Recreational and Undeveloped Land",
+          "color": "#efefe8"
+        },
+        {
+          "label": "Residential",
+          "color": "#eda3c1"
+        },
+        {
+          "label": "Transport",
+          "color": "#dcf1f2"
+        },
+        {
+          "label": "Water Bodies",
+          "color": "#75b8ef"
+        }
+      ]
     }
   ],
   "popupLayerIds": [
     "hazard", 
-    "risk"
+    "risk",
+    "landuse_abiotic",
+    "landuse_biotic"
   ],
   "selectableItems": [
     {
@@ -134,20 +185,22 @@
     },
     {
       "id": "landuse",
-      "label": "Land usage",
+      "label": "Land use",
       "tab": true,
       "children": [
         {
           "id": "landuse_abiotic",
           "ids": [],
           "label": "Abiotic",
-          "selected": false
+          "selected": false,
+          "legendScaleId": "gtn1-scale"
         },
         {
           "id": "landuse_biotic",
           "ids": [],
           "label": "Biotic",
-          "selected": false
+          "selected": false,
+          "legendScaleId": "gtn1-scale"
         }
       ]
     },
