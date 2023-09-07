@@ -653,7 +653,10 @@
         "fill-opacity": 0.7,
         "fill-outline-color": "#b5b5b5"
       },
-      "layout": { "visibility": "none" }
+      "layout": { "visibility": "none" },
+      "metadata": {
+        "title": "Land Use Abiotic"
+      }
     },
     {
       "id": "landuse_biotic",
@@ -679,7 +682,10 @@
         "fill-opacity": 0.7,
         "fill-outline-color": "#b5b5b5"
       },
-      "layout": { "visibility": "none" }
+      "layout": { "visibility": "none" },
+      "metadata": {
+        "title": "Land Use Biotic"
+      }
     },
     {
       "id": "depth_base_20",
