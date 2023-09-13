@@ -25,4 +25,6 @@ coverage
 *.sln
 *.sw?
 
-data
+data/cdn
+data/cdn-local
+data/work
