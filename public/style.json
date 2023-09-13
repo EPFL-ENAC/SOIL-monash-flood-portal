@@ -187,11 +187,11 @@
     },
     "landuse_abiotic": {
       "type": "vector",
-      "url": "http://localhost:3000/LandUse_Sg_Sel_2020_abiotic"
+      "url": "https://enacit4r-tiles.epfl.ch/monash_20230913_landuse_abiotic"
     },
     "landuse_biotic": {
       "type": "vector",
-      "url": "http://localhost:3000/LandUse_Sg_Sel_2020_biotic"
+      "url": "https://enacit4r-tiles.epfl.ch/monash_20230913_landuse_biotic"
     }
   },
   "layers": [
@@ -633,7 +633,7 @@
       "id": "landuse_abiotic",
       "type": "fill",
       "source": "landuse_abiotic",
-      "source-layer": "LandUse_Sg_Sel_2020_abiotic",
+      "source-layer": "monash_20230913_landuse_abiotic",
       "paint": {
         "fill-color": [
           "case",
@@ -662,7 +662,7 @@
       "id": "landuse_biotic",
       "type": "fill",
       "source": "landuse_biotic",
-      "source-layer": "LandUse_Sg_Sel_2020_biotic",
+      "source-layer": "monash_20230913_landuse_biotic",
       "paint": {
         "fill-color": [
           "case",
