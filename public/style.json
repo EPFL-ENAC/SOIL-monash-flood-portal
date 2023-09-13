@@ -185,9 +185,13 @@
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/riskCC_100yr.geojson"
     },
-    "landuse": {
+    "landuse_abiotic": {
       "type": "vector",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/landuse4/{z}/{x}/{y}.pbf"]
+      "url": "https://enacit4r-tiles.epfl.ch/monash_20230913_landuse_abiotic"
+    },
+    "landuse_biotic": {
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/monash_20230913_landuse_biotic"
     }
   },
   "layers": [
@@ -626,6 +630,64 @@
       "layout": { "visibility": "none" }
     },
     {
+      "id": "landuse_abiotic",
+      "type": "fill",
+      "source": "landuse_abiotic",
+      "source-layer": "monash_20230913_landuse_abiotic",
+      "paint": {
+        "fill-color": [
+          "case",
+          ["==", "Agricultural", ["get", "gtn1"]], "#dae021",
+          ["==", "Bare Land", ["get", "gtn1"]], "#efefe8",
+          ["==", "Commercial", ["get", "gtn1"]], "#e08721",
+          ["==", "Community Institutions and Facilities", ["get", "gtn1"]], "#cfa3ed",
+          ["==", "Industrial", ["get", "gtn1"]], "#c9d3be",
+          ["==", "Infrastructures and Utilities", ["get", "gtn1"]], "#739e92",
+          ["==", "Forest", ["get", "gtn1"]], "#7ae021",
+          ["==", "Recreational and Undeveloped Land", ["get", "gtn1"]], "#efefe8",
+          ["==", "Residemtial", ["get", "gtn1"]], "#eda3c1",
+          ["==", "Transportl", ["get", "gtn1"]], "#dcf1f2",
+          ["==", "Water Bodies", ["get", "gtn1"]], "#75b8ef",
+          "#ffffff"
+        ],
+        "fill-opacity": 0.7,
+        "fill-outline-color": "#b5b5b5"
+      },
+      "layout": { "visibility": "none" },
+      "metadata": {
+        "title": "Land Use Abiotic"
+      }
+    },
+    {
+      "id": "landuse_biotic",
+      "type": "fill",
+      "source": "landuse_biotic",
+      "source-layer": "monash_20230913_landuse_biotic",
+      "paint": {
+        "fill-color": [
+          "case",
+          ["==", "Agricultural", ["get", "gtn1"]], "#dae021",
+          ["==", "Bare Land", ["get", "gtn1"]], "#efefe8",
+          ["==", "Commercial", ["get", "gtn1"]], "#e08721",
+          ["==", "Community Institutions and Facilities", ["get", "gtn1"]], "#cfa3ed",
+          ["==", "Industrial", ["get", "gtn1"]], "#c9d3be",
+          ["==", "Infrastructures and Utilities", ["get", "gtn1"]], "#739e92",
+          ["==", "Forest", ["get", "gtn1"]], "#7ae021",
+          ["==", "Recreational and Undeveloped Land", ["get", "gtn1"]], "#efefe8",
+          ["==", "Residemtial", ["get", "gtn1"]], "#eda3c1",
+          ["==", "Transportl", ["get", "gtn1"]], "#dcf1f2",
+          ["==", "Water Bodies", ["get", "gtn1"]], "#75b8ef",
+          "#ffffff"
+        ],
+        "fill-opacity": 0.7,
+        "fill-outline-color": "#b5b5b5"
+      },
+      "layout": { "visibility": "none" },
+      "metadata": {
+        "title": "Land Use Biotic"
+      }
+    },
+    {
       "id": "depth_base_20",
       "type": "raster",
       "source": "depth_base_20",
@@ -682,30 +744,6 @@
       "minzoom": 6,
       "paint": {
         "raster-opacity": 0.7
-      },
-      "layout": { "visibility": "none" }
-    },
-    {
-      "id": "landuse_abiotic",
-      "type": "fill",
-      "source": "landuse",
-      "source-layer": "LandUse_Sg_Sel_2020_Abiotic",
-      "paint": {
-        "fill-color": "#7ae021",
-        "fill-opacity": 0.5,
-        "fill-outline-color": "#b5b5b5"
-      },
-      "layout": { "visibility": "none" }
-    },
-    {
-      "id": "landuse_biotic",
-      "type": "fill",
-      "source": "landuse",
-      "source-layer": "LandUse_Sg_Sel_202000_Biotic",
-      "paint": {
-        "fill-color": "#dae021",
-        "fill-opacity": 0.5,
-        "fill-outline-color": "#b5b5b5"
       },
       "layout": { "visibility": "none" }
     }

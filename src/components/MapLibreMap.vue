@@ -170,6 +170,36 @@ watch(
               .setLngLat(e.lngLat)
               .setHTML(html)
               .addTo(map)
+          } else if (fprops) {
+            const propTorow = (key: string) => `
+                <tr>
+                  <td class="text-caption font-weight-bold text-left pr-1">${key}</td>
+                  <td class="text-caption text-left pr-1">${fprops[key]}</td>
+                  </tr>`
+            let rows = Object.keys(fprops as Object)
+              .sort()
+              .filter((key) => key !== 'id')
+              .filter((key) => key.startsWith('gtn'))
+              .map(propTorow).join('')
+            rows += Object.keys(fprops as Object)
+              .sort()
+              .filter((key) => key !== 'id')
+              .filter((key) => !key.startsWith('gtn'))
+              .map(propTorow).join('')
+            // @ts-ignore
+            const layerTitle = map.getStyle().layers?.find((layer) => layer.id === layerId)?.metadata?.title;
+            const html = `<p class="text-overline">${layerTitle}</p>
+              <div class="marked">
+              <table style="width: 100%">
+                <tbody>
+                  ${rows}
+                </tbody>
+              </table>
+              </div>`
+            popup
+              .setLngLat(e.lngLat)
+              .setHTML(html)
+              .addTo(map)
           }
         }
       })
