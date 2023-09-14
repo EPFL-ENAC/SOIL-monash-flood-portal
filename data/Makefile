@@ -20,7 +20,7 @@ version=$(shell date +%FT%H:%M)
 bucket=10208-fcd9acb029f419e6493edf97f4592b96
 
 cdn-put:
-	s3cmd put --recursive --acl-public --guess-mime-type cdn s3://${bucket}/monash-flood-portal/${version}/
+	s3cmd put --recursive --acl-public --guess-mime-type cdn/* s3://${bucket}/monash-flood-portal/${version}/
 
 cdn-ls:
 	s3cmd ls --acl-public s3://${bucket}/monash-flood-portal/

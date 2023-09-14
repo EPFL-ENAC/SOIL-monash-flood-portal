@@ -37,32 +37,36 @@
       "id": "vulnerability-scale",
       "scale": [
         {
-          "color": "#d7191c",
-          "label": "Very high",
-          "min": 0.75
+          "color": "#900c00",
+          "label": "Very high"
         },
         {
-          "color": "#fdae61",
-          "label": "High",
-          "min": 0.5,
-          "max": 0.75
+          "color": "#cb2f0d"
         },
         {
-          "color": "#9ad148",
-          "label": "Medium",
-          "min": 0.25,
-          "max": 0.5
+          "color": "#ff821d",
+          "label": "High"
         },
         {
-          "color": "#96cfe2",
-          "label": "Low",
-          "min": 0.1,
-          "max": 0.25
+          "color": "#ecd12e"
         },
         {
-          "color": "#b1b2b2",
-          "label": "Very low",
-          "max": 0.1
+          "color": "#95fb51",
+          "label": "Medium"
+        },
+        {
+          "color": "#3ff393"
+        },
+        {
+          "color": "#26bce1",
+          "label": "Low"
+        },
+        {
+          "color": "#4569ee"
+        },
+        {
+          "color": "#23171b",
+          "label": "Very low"
         }
       ]
     },
@@ -110,7 +114,7 @@
       "scale": [
         {
           "label": "Agricultural",
-          "color": "#dae021"
+          "color": "#b2df8a"
         },
         {
           "label": "Bare Land",
@@ -118,11 +122,15 @@
         },
         {
           "label": "Commercial",
-          "color": "#e08721"
+          "color": "#d62728"
         },
         {
           "label": "Community Institutions and Facilities",
           "color": "#cfa3ed"
+        },
+        {
+          "label": "Forest",
+          "color": "#2ca02c"
         },
         {
           "label": "Industrial",
@@ -133,24 +141,20 @@
           "color": "#739e92"
         },
         {
-          "label": "Forest",
-          "color": "#7ae021"
-        },
-        {
           "label": "Recreational and Undeveloped Land",
-          "color": "#efefe8"
+          "color": "#fdbf6f"
         },
         {
           "label": "Residential",
-          "color": "#eda3c1"
+          "color": "#9467bd"
         },
         {
           "label": "Transport",
-          "color": "#dcf1f2"
+          "color": "#bcbd22"
         },
         {
           "label": "Water Bodies",
-          "color": "#75b8ef"
+          "color": "#17becf"
         }
       ]
     }

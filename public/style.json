@@ -11,179 +11,179 @@
     },
     "economic": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/economic/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/economic/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "susceptibility": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/susceptibility/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/susceptibility/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "social": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/social/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/social/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "resilience": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/resilience/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/resilience/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "physical": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/physical/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/physical/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "exposure": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/exposure/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/exposure/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "CFVI": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/CFVI/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/CFVI/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "economic_cont": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/economic_cont/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/economic_cont/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "susceptibility_cont": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/susceptibility_cont/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/susceptibility_cont/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "social_cont": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/social_cont/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/social_cont/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "resilience_cont": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/resilience_cont/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/resilience_cont/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "physical_cont": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/physical_cont/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/physical_cont/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "exposure_cont": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/exposure_cont/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/exposure_cont/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "CFVI_cont": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/CFVI_cont/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/CFVI_cont/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "depth_base_20": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/depthBase_20yr/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/depthBase_20yr/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "depth_base_50": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/depthBase_50yr/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/depthBase_50yr/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "depth_base_100": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/depthBase_100yr/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/depthBase_100yr/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "depth_cc_20": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/depthCC_20yr/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/depthCC_20yr/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "depth_cc_50": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/depthCC_50yr/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/depthCC_50yr/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "depth_cc_100": {
       "type": "raster",
-      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/tiles/depthCC_100yr/{z}/{x}/{y}.png"],
+      "tiles": ["https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/tiles/depthCC_100yr/{z}/{x}/{y}.png"],
       "minZoom": 0,
       "maxZoom": 20
     },
     "hazard": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/hazard.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazard.geojson"
     },
     "hazard_base_20": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/hazardBase_20.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazardBase_20.geojson"
     },
     "hazard_base_50": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/hazardBase_50.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazardBase_50.geojson"
     },
     "hazard_base_100": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/hazardBase_100.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazardBase_100.geojson"
     },
     "hazard_cc_20": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/hazardCC_20.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazardCC_20.geojson"
     },
     "hazard_cc_50": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/hazardCC_50.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazardCC_50.geojson"
     },
     "hazard_cc_100": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/hazardCC_100.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazardCC_100.geojson"
     },
     "risk": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/risk.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/risk.geojson"
     },
     "risk_base_20": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/riskBase_20yr.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskBase_20yr.geojson"
     },
     "risk_base_50": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/riskBase_50yr.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskBase_50yr.geojson"
     },
     "risk_base_100": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/riskBase_100yr.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskBase_100yr.geojson"
     },
     "risk_cc_20": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/riskCC_20yr.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskCC_20yr.geojson"
     },
     "risk_cc_50": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/riskCC_50yr.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskCC_50yr.geojson"
     },
     "risk_cc_100": {
       "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/riskCC_100yr.geojson"
+      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskCC_100yr.geojson"
     },
     "landuse": {
       "type": "vector",
@@ -633,21 +633,20 @@
       "paint": {
         "fill-color": [
           "case",
-          ["==", "Agricultural", ["get", "gtn1"]], "#dae021",
+          ["==", "Agricultural", ["get", "gtn1"]], "#b2df8a",
           ["==", "Bare Land", ["get", "gtn1"]], "#efefe8",
-          ["==", "Commercial", ["get", "gtn1"]], "#e08721",
+          ["==", "Commercial", ["get", "gtn1"]], "#d62728",
           ["==", "Community Institutions and Facilities", ["get", "gtn1"]], "#cfa3ed",
           ["==", "Industrial", ["get", "gtn1"]], "#c9d3be",
           ["==", "Infrastructures and Utilities", ["get", "gtn1"]], "#739e92",
-          ["==", "Forest", ["get", "gtn1"]], "#7ae021",
-          ["==", "Recreational and Undeveloped Land", ["get", "gtn1"]], "#efefe8",
-          ["==", "Residemtial", ["get", "gtn1"]], "#eda3c1",
-          ["==", "Transportl", ["get", "gtn1"]], "#dcf1f2",
-          ["==", "Water Bodies", ["get", "gtn1"]], "#75b8ef",
+          ["==", "Forest", ["get", "gtn1"]], "#2ca02c",
+          ["==", "Recreational and Undeveloped Land", ["get", "gtn1"]], "#fdbf6f",
+          ["==", "Residemtial", ["get", "gtn1"]], "#9467bd",
+          ["==", "Transportl", ["get", "gtn1"]], "#bcbd22",
+          ["==", "Water Bodies", ["get", "gtn1"]], "#17becf",
           "#ffffff"
         ],
-        "fill-opacity": 0.7,
-        "fill-outline-color": "#b5b5b5"
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" },
       "metadata": {
@@ -662,17 +661,17 @@
       "paint": {
         "fill-color": [
           "case",
-          ["==", "Agricultural", ["get", "gtn1"]], "#dae021",
+          ["==", "Agricultural", ["get", "gtn1"]], "#b2df8a",
           ["==", "Bare Land", ["get", "gtn1"]], "#efefe8",
-          ["==", "Commercial", ["get", "gtn1"]], "#e08721",
+          ["==", "Commercial", ["get", "gtn1"]], "#d62728",
           ["==", "Community Institutions and Facilities", ["get", "gtn1"]], "#cfa3ed",
           ["==", "Industrial", ["get", "gtn1"]], "#c9d3be",
           ["==", "Infrastructures and Utilities", ["get", "gtn1"]], "#739e92",
-          ["==", "Forest", ["get", "gtn1"]], "#7ae021",
-          ["==", "Recreational and Undeveloped Land", ["get", "gtn1"]], "#efefe8",
-          ["==", "Residemtial", ["get", "gtn1"]], "#eda3c1",
-          ["==", "Transportl", ["get", "gtn1"]], "#dcf1f2",
-          ["==", "Water Bodies", ["get", "gtn1"]], "#75b8ef",
+          ["==", "Forest", ["get", "gtn1"]], "#2ca02c",
+          ["==", "Recreational and Undeveloped Land", ["get", "gtn1"]], "#fdbf6f",
+          ["==", "Residemtial", ["get", "gtn1"]], "#9467bd",
+          ["==", "Transportl", ["get", "gtn1"]], "#bcbd22",
+          ["==", "Water Bodies", ["get", "gtn1"]], "#17becf",
           "#ffffff"
         ],
         "fill-opacity": 0.7,
