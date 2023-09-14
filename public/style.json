@@ -187,7 +187,7 @@
     },
     "landuse_abiotic": {
       "type": "vector",
-      "url": "https://enacit4r-tiles.epfl.ch/monash_20230913_landuse_abiotic"
+      "url": "https://enacit4r-tiles.epfl.ch/monash_20230914_landuse_abiotic"
     },
     "landuse_biotic": {
       "type": "vector",
@@ -633,7 +633,7 @@
       "id": "landuse_abiotic",
       "type": "fill",
       "source": "landuse_abiotic",
-      "source-layer": "monash_20230913_landuse_abiotic",
+      "source-layer": "monash_20230914_landuse_abiotic",
       "paint": {
         "fill-color": [
           "case",
