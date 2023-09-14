@@ -32,6 +32,7 @@ const { cookies } = useCookies()
 const { title, subtitle } = storeToRefs(useTitleStore())
 
 const documentationIds = [
+  'ecosystem',
   'hazard', 
   'risk',
   'vulnerability',
@@ -193,6 +194,9 @@ function welcomeClosed() {
         </v-list-item-title>
       </v-list-item>
       <v-list-item v-if="!drawerRail">
+        <div>
+          <v-btn variant="text" class="text-none" @click="showDocumentation('ecosystem')">Ecosystem</v-btn>
+        </div>
         <div>
           <v-btn variant="text" class="text-none" @click="showDocumentation('hazard')">Hazard</v-btn>
         </div>
