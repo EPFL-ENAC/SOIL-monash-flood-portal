@@ -187,7 +187,7 @@
     },
     "landuse": {
       "type": "vector",
-      "url": "https://enacit4r-tiles.epfl.ch/monash_20230914_landuse_abiotic,monash_20230913_landuse_biotic"
+      "url": "https://enacit4r-tiles.epfl.ch/LandUse_Sg_Sel_2020_abiotic,LandUse_Sg_Sel_2020_biotic"
     }
   },
   "layers": [
@@ -629,7 +629,7 @@
       "id": "landuse_abiotic",
       "type": "fill",
       "source": "landuse",
-      "source-layer": "monash_20230914_landuse_abiotic",
+      "source-layer": "LandUse_Sg_Sel_2020_abiotic",
       "paint": {
         "fill-color": [
           "case",
@@ -657,7 +657,7 @@
       "id": "landuse_biotic",
       "type": "fill",
       "source": "landuse",
-      "source-layer": "monash_20230913_landuse_biotic",
+      "source-layer": "LandUse_Sg_Sel_2020_biotic",
       "paint": {
         "fill-color": [
           "case",
@@ -674,8 +674,7 @@
           ["==", "Water Bodies", ["get", "gtn1"]], "#17becf",
           "#ffffff"
         ],
-        "fill-opacity": 0.7,
-        "fill-outline-color": "#b5b5b5"
+        "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" },
       "metadata": {
