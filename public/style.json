@@ -185,13 +185,9 @@
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-08-31T14:04/geojson/riskCC_100yr.geojson"
     },
-    "landuse_abiotic": {
+    "landuse": {
       "type": "vector",
-      "url": "https://enacit4r-tiles.epfl.ch/monash_20230914_landuse_abiotic"
-    },
-    "landuse_biotic": {
-      "type": "vector",
-      "url": "https://enacit4r-tiles.epfl.ch/monash_20230913_landuse_biotic"
+      "url": "https://enacit4r-tiles.epfl.ch/monash_20230914_landuse_abiotic,monash_20230913_landuse_biotic"
     }
   },
   "layers": [
@@ -632,7 +628,7 @@
     {
       "id": "landuse_abiotic",
       "type": "fill",
-      "source": "landuse_abiotic",
+      "source": "landuse",
       "source-layer": "monash_20230914_landuse_abiotic",
       "paint": {
         "fill-color": [
@@ -661,7 +657,7 @@
     {
       "id": "landuse_biotic",
       "type": "fill",
-      "source": "landuse_biotic",
+      "source": "landuse",
       "source-layer": "monash_20230913_landuse_biotic",
       "paint": {
         "fill-color": [
