@@ -185,10 +185,6 @@
       "type": "geojson",
       "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskCC_100yr.geojson"
     },
-    "landuse": {
-      "type": "vector",
-      "url": "https://enacit4r-tiles.epfl.ch/LandUse_Sg_Sel_2020_abiotic,LandUse_Sg_Sel_2020_biotic"
-    },
     "landuse_abiotic": {
       "type": "vector",
       "url": "https://enacit4r-tiles.epfl.ch/LandUse_Sg_Sel_2020_abiotic"
