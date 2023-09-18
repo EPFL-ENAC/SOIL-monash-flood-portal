@@ -188,6 +188,14 @@
     "landuse": {
       "type": "vector",
       "url": "https://enacit4r-tiles.epfl.ch/LandUse_Sg_Sel_2020_abiotic,LandUse_Sg_Sel_2020_biotic"
+    },
+    "landuse_abiotic": {
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/LandUse_Sg_Sel_2020_abiotic"
+    },
+    "landuse_biotic": {
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/LandUse_Sg_Sel_2020_biotic"
     }
   },
   "layers": [
@@ -628,7 +636,7 @@
     {
       "id": "landuse_abiotic",
       "type": "fill",
-      "source": "landuse",
+      "source": "landuse_abiotic",
       "source-layer": "LandUse_Sg_Sel_2020_abiotic",
       "paint": {
         "fill-color": [
@@ -656,7 +664,7 @@
     {
       "id": "landuse_biotic",
       "type": "fill",
-      "source": "landuse",
+      "source": "landuse_biotic",
       "source-layer": "LandUse_Sg_Sel_2020_biotic",
       "paint": {
         "fill-color": [
