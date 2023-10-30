@@ -130,60 +130,60 @@
       "maxZoom": 20
     },
     "hazard": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazard.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari_hzd"
     },
     "hazard_base_20": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazardBase_20.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari20nocc_hzd"
     },
     "hazard_base_50": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazardBase_50.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari50nocc_hzd"
     },
     "hazard_base_100": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazardBase_100.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari100nocc_hzd"
     },
     "hazard_cc_20": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazardCC_20.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari20cc_hzd"
     },
     "hazard_cc_50": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazardCC_50.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari50cc_hzd"
     },
     "hazard_cc_100": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/hazardCC_100.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari100cc_hzd"
     },
     "risk": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/risk.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari_risk"
     },
     "risk_base_20": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskBase_20yr.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari20nocc_risk"
     },
     "risk_base_50": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskBase_50yr.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari50nocc_risk"
     },
     "risk_base_100": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskBase_100yr.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari100nocc_risk"
     },
     "risk_cc_20": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskCC_20yr.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari20cc_risk"
     },
     "risk_cc_50": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskCC_50yr.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari50cc_risk"
     },
     "risk_cc_100": {
-      "type": "geojson",
-      "data": "https://enacit4r-cdn.epfl.ch/monash-flood-portal/2023-09-14T10:20/geojson/riskCC_100yr.geojson"
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/ari100cc_risk"
     },
     "landuse_abiotic": {
       "type": "vector",
@@ -361,6 +361,7 @@
       "id": "hazard",
       "type": "fill",
       "source": "hazard",
+      "source-layer": "ari_hzd",
       "minzoom": 6,
       "paint": {
         "fill-opacity": 0
@@ -371,6 +372,7 @@
       "id": "hazard_base_20",
       "type": "fill",
       "source": "hazard_base_20",
+      "source-layer": "ari20nocc_hzd",
       "minzoom": 6,
       "paint": {
         "fill-color": [
@@ -380,8 +382,7 @@
             1,"#ffffb2",
             2,"#fecc5c",
             3,"#fd8d3c",
-            4,"#f03b20",
-            5,"#bd0026"
+            4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
         "fill-opacity": 0.7
@@ -392,6 +393,7 @@
       "id": "hazard_base_50",
       "type": "fill",
       "source": "hazard_base_50",
+      "source-layer": "ari50nocc_hzd",
       "minzoom": 6,
       "paint": {
         "fill-color": [
@@ -401,8 +403,7 @@
             1,"#ffffb2",
             2,"#fecc5c",
             3,"#fd8d3c",
-            4,"#f03b20",
-            5,"#bd0026"
+            4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
         "fill-opacity": 0.7
@@ -413,6 +414,7 @@
       "id": "hazard_base_100",
       "type": "fill",
       "source": "hazard_base_100",
+      "source-layer": "ari100nocc_hzd",
       "minzoom": 6,
       "paint": {
         "fill-color": [
@@ -422,8 +424,7 @@
             1,"#ffffb2",
             2,"#fecc5c",
             3,"#fd8d3c",
-            4,"#f03b20",
-            5,"#bd0026"
+            4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
         "fill-opacity": 0.7
@@ -434,6 +435,7 @@
       "id": "hazard_cc_20",
       "type": "fill",
       "source": "hazard_cc_20",
+      "source-layer": "ari20cc_hzd",
       "minzoom": 6,
       "paint": {
         "fill-color": [
@@ -443,8 +445,7 @@
             1,"#ffffb2",
             2,"#fecc5c",
             3,"#fd8d3c",
-            4,"#f03b20",
-            5,"#bd0026"
+            4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
         "fill-opacity": 0.7
@@ -455,6 +456,7 @@
       "id": "hazard_cc_50",
       "type": "fill",
       "source": "hazard_cc_50",
+      "source-layer": "ari50cc_hzd",
       "minzoom": 6,
       "paint": {
         "fill-color": [
@@ -464,8 +466,7 @@
             1,"#ffffb2",
             2,"#fecc5c",
             3,"#fd8d3c",
-            4,"#f03b20",
-            5,"#bd0026"
+            4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
         "fill-opacity": 0.7
@@ -476,6 +477,7 @@
       "id": "hazard_cc_100",
       "type": "fill",
       "source": "hazard_cc_100",
+      "source-layer": "ari100cc_hzd",
       "minzoom": 6,
       "paint": {
         "fill-color": [
@@ -485,8 +487,7 @@
             1,"#ffffb2",
             2,"#fecc5c",
             3,"#fd8d3c",
-            4,"#f03b20",
-            5,"#bd0026"
+            4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
         "fill-opacity": 0.7
@@ -497,6 +498,7 @@
       "id": "risk",
       "type": "fill",
       "source": "risk",
+      "source-layer": "ari_risk",
       "minzoom": 6,
       "paint": {
         "fill-opacity": 0
@@ -507,6 +509,7 @@
       "id": "risk_base_20",
       "type": "fill",
       "source": "risk_base_20",
+      "source-layer": "ari20nocc_risk",
       "minzoom": 6,
       "paint": {
         "fill-color": [
@@ -516,8 +519,7 @@
             1,"#ffffb2",
             2,"#fecc5c",
             3,"#fd8d3c",
-            4,"#f03b20",
-            5,"#bd0026"
+            4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
         "fill-opacity": 0.7
@@ -528,6 +530,7 @@
       "id": "risk_base_50",
       "type": "fill",
       "source": "risk_base_50",
+      "source-layer": "ari50nocc_risk",
       "minzoom": 6,
       "paint": {
         "fill-color": [
@@ -537,8 +540,7 @@
             1,"#ffffb2",
             2,"#fecc5c",
             3,"#fd8d3c",
-            4,"#f03b20",
-            5,"#bd0026"
+            4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
         "fill-opacity": 0.7
@@ -549,6 +551,7 @@
       "id": "risk_base_100",
       "type": "fill",
       "source": "risk_base_100",
+      "source-layer": "ari100nocc_risk",
       "minzoom": 6,
       "paint": {
         "fill-color": [
@@ -558,8 +561,7 @@
             1,"#ffffb2",
             2,"#fecc5c",
             3,"#fd8d3c",
-            4,"#f03b20",
-            5,"#bd0026"
+            4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
         "fill-opacity": 0.7
@@ -570,6 +572,7 @@
       "id": "risk_cc_20",
       "type": "fill",
       "source": "risk_cc_20",
+      "source-layer": "ari20cc_risk",
       "minzoom": 6,
       "paint": {
         "fill-color": [
@@ -579,8 +582,7 @@
             1,"#ffffb2",
             2,"#fecc5c",
             3,"#fd8d3c",
-            4,"#f03b20",
-            5,"#bd0026"
+            4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
         "fill-opacity": 0.7
@@ -591,6 +593,7 @@
       "id": "risk_cc_50",
       "type": "fill",
       "source": "risk_cc_50",
+      "source-layer": "ari50cc_risk",
       "minzoom": 6,
       "paint": {
         "fill-color": [
@@ -600,8 +603,7 @@
             1,"#ffffb2",
             2,"#fecc5c",
             3,"#fd8d3c",
-            4,"#f03b20",
-            5,"#bd0026"
+            4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
         "fill-opacity": 0.7
@@ -612,6 +614,7 @@
       "id": "risk_cc_100",
       "type": "fill",
       "source": "risk_cc_100",
+      "source-layer": "ari100cc_risk",
       "minzoom": 6,
       "paint": {
         "fill-color": [
@@ -621,8 +624,7 @@
             1,"#ffffb2",
             2,"#fecc5c",
             3,"#fd8d3c",
-            4,"#f03b20",
-            5,"#bd0026"
+            4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
         "fill-opacity": 0.7

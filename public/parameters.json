@@ -7,18 +7,13 @@
       "id": "hazard-risk-scale",
       "scale": [
         {
-          "color": "#bd0026",
-          "label": "Very high",
-          "value": 5
-        },
-        {
           "color": "#f03b20",
           "label": "High",
           "value": 4
         },
         {
           "color": "#fd8d3c",
-          "label": "Medium",
+          "label": "Moderate",
           "value": 3
         },
         {

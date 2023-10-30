@@ -125,27 +125,14 @@ watch(
           map.getCanvas().style.cursor = 'pointer'
           const fprops = e.features?.at(0)?.properties
           // display combinations of scenario and ARI for hazard and risk related layers
-          if (fprops && fprops.scenari_name) {
-            const scenari = fprops['scenari_name'].split(',')
-            const times = fprops['scenari_date'].split(',')
-            const codes = fprops['gridcode'].split(',').map((val: string) => Number.parseInt(val))
-            const data: any = {}
-            scenari.forEach((scenario: string, index: number) => {
-              if (!data[scenario]) {
-                data[scenario] = {}
-              }
-              if (!data[scenario][times[index]]) {
-                data[scenario][times[index]] = {}
-              }
-              data[scenario][times[index]]['code'] = codes[index]
-            })
+          if (fprops && fprops.code_20_base >= 0) {
             // reuse legend scales from parameters
             const scales: ScaleEntry[] | undefined = props.scales.find((scale: LegendScale) => scale.id === 'hazard-risk-scale')?.scale
             const toColor = (code: number) => scales?.find((entry: ScaleEntry) => entry.value === code)?.color
             const toLabel = (code: number) => scales?.find((entry: ScaleEntry) => entry.value === code)?.label
             const toCells = (scenario: string) =>
               ['20', '50', '100']
-                .map((year) => `<td style="background-color: ${toColor(data[scenario]?.[year]?.code)}; width: 25px" title="${toLabel(data[scenario]?.[year]?.code)}"></td>`)
+                .map((year) => `<td style="background-color: ${toColor(fprops[`code_${year}_${scenario}`])}; opacity: 0.7; width: 25px" title="${toLabel(fprops[`code_${year}_${scenario}`])}"></td>`)
                 .join('')
             let html = `<p class="text-overline">${layerId}</p>
               <table>
