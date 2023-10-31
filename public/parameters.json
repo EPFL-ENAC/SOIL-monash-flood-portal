@@ -392,6 +392,38 @@
       ]
     },
     {
+      "id": "nbs",
+      "label": "Natural Based Solutions",
+      "tab": true,
+      "children": [
+        {
+          "id": "afforestation",
+          "label": "Afforestation",
+          "selected": false
+        },
+        {
+          "id": "floodplain",
+          "label": "Flood plain",
+          "selected": false
+        },
+        {
+          "id": "greenspace",
+          "label": "Greenspace",
+          "selected": false
+        },
+        {
+          "id": "infiltration",
+          "label": "Infiltration",
+          "selected": false
+        },
+        {
+          "id": "wetlands",
+          "label": "Wetlands",
+          "selected": false
+        }
+      ]
+    },
+    {
       "id": "inundation",
       "label": "Inundation depth",
       "children": [

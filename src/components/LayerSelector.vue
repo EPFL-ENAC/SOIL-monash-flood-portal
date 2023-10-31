@@ -28,6 +28,12 @@ const landuseItems = computed<any[]>(() =>
     .flatMap((item: any) => item.children)
 )
 
+const nbs = ref<string>()
+const nbsItems = computed<any[]>(() =>
+  props.items?.filter((item: any) => item.id === 'nbs')
+    .flatMap((item: any) => item.children)
+)
+
 const tab = ref<string>()
 const tabItems = computed<any[]>(() =>
   props.items?.filter((item: any) => item.tab)
@@ -49,7 +55,7 @@ const scenarioItems = [
 
 const showInundation = ref<boolean>(false)
 
-watch([tab, landuse, showInundation, timeIdx, scenarioIdx, vulnerability], () => {
+watch([tab, landuse, showInundation, timeIdx, scenarioIdx, vulnerability, nbs], () => {
   updateLayers()
 })
 
@@ -63,10 +69,14 @@ watch(() => props.items,
     const vulnerabilityTab = value.find((item: SelectableItem) => item.id === 'vulnerability')
     if (vulnerabilityTab)
       vulnerability.value = (vulnerabilityTab as SelectableGroupItem).children[0].id
-    // init with first vulnerability
+    // init with first landuse
     const landuseTab = value.find((item: SelectableItem) => item.id === 'landuse')
     if (landuseTab)
       landuse.value = (landuseTab as SelectableGroupItem).children[0].id
+    // init with first nbs
+    const nbsTab = value.find((item: SelectableItem) => item.id === 'nbs')
+    if (landuseTab)
+      nbs.value = (nbsTab as SelectableGroupItem).children[0].id
     updateLayers()
   },
   { immediate: true }
@@ -86,6 +96,10 @@ function updateLayers() {
     else if (map.id === 'landuse') {
       if (landuse.value)
         sels.push(landuse.value)
+    }
+    else if (map.id === 'nbs') {
+      if (nbs.value)
+      sels.push(`${nbs.value}_${time}`)
     }
     else if (withTimeScenario) {
       sels.push(`${map.id}_${scenario.id}_${time}`)
@@ -127,6 +141,16 @@ function updateLayers() {
           v-model="vulnerability"
           label="Vulnerability"
           :items="vulnerabilityItems"
+          item-title="label"
+          item-value="id"
+          density="compact"
+          class="mt-2"
+        ></v-select>
+        <v-select
+          v-if="tab === 'nbs'"
+          v-model="nbs"
+          label="Natural based solution"
+          :items="nbsItems"
           item-title="label"
           item-value="id"
           density="compact"
