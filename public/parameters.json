@@ -425,7 +425,8 @@
     },
     {
       "id": "inundation",
-      "label": "Inundation depth",
+      "label": "Inundation",
+      "tab": true,
       "children": [
         {
           "id": "depth_base_20",

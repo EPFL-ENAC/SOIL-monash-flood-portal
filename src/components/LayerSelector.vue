@@ -99,13 +99,16 @@ function updateLayers() {
     }
     else if (map.id === 'nbs') {
       if (nbs.value)
-      sels.push(`${nbs.value}_${time}`)
+        sels.push(`${nbs.value}_${time}`)
+    }
+    else if (map.id === 'inundation') {
+      sels.push(`depth_${scenario.id}_${time}`)
     }
     else if (withTimeScenario) {
       sels.push(`${map.id}_${scenario.id}_${time}`)
     }
   }
-  if (showInundation.value && withTimeScenario) {
+  if (tab.value !== 'inundation' && showInundation.value && withTimeScenario) {
     sels.push(`depth_${scenario.id}_${time}`)
   }
   emit('update:modelValue', sels)
@@ -157,6 +160,7 @@ function updateLayers() {
           class="mt-2"
         ></v-select>
         <v-checkbox-btn
+          v-if="tab !== 'inundation'"
           v-model="showInundation"
           label="Inundation"
           density="compact">
@@ -173,7 +177,9 @@ function updateLayers() {
         </v-btn-toggle>
         <span class="ml-2">years</span>
       </div>
-      <div class="mt-2">
+      <div
+        v-if="tab !== 'nbs' || showInundation"
+        class="mt-2">
         <div class="mb-2 text-overline">Scenario</div>
         <v-btn-toggle
           v-model="scenarioIdx"
@@ -183,7 +189,6 @@ function updateLayers() {
           <v-btn v-for="(item, index) in scenarioItems" :key="index" size="x-small">{{ item.label }}</v-btn>
         </v-btn-toggle>
       </div>
-
     </v-card-text>
   </v-card>
 </template>
