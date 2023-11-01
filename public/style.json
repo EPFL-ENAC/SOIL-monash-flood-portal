@@ -310,6 +310,26 @@
       "type": "vector",
       "url": "https://enacit4r-tiles.epfl.ch/ari100cc_risk"
     },
+    "suitability_afforestation": {
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/suitability_afforestation"
+    },
+    "suitability_floodplain": {
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/suitability_floodplain"
+    },
+    "suitability_greenspace": {
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/suitability_greenspace"
+    },
+    "suitability_infiltration": {
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/suitability_infiltration"
+    },
+    "suitability_wetlands": {
+      "type": "vector",
+      "url": "https://enacit4r-tiles.epfl.ch/suitability_wetlands"
+    },
     "landuse_abiotic": {
       "type": "vector",
       "url": "https://enacit4r-tiles.epfl.ch/LandUse_Sg_Sel_2020_abiotic"
@@ -682,6 +702,61 @@
             4,"#f03b20"
         ],
         "fill-outline-color": "#987db7",
+        "fill-opacity": 0.7
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "suitability_afforestation",
+      "type": "fill",
+      "source": "suitability_afforestation",
+      "source-layer": "suitability_afforestation",
+      "paint": {
+        "fill-color": "#8d5a99",
+        "fill-opacity": 0.7
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "suitability_floodplain",
+      "type": "fill",
+      "source": "suitability_floodplain",
+      "source-layer": "suitability_floodplain",
+      "paint": {
+        "fill-color": "#8d5a99",
+        "fill-opacity": 0.7
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "suitability_greenspace",
+      "type": "fill",
+      "source": "suitability_greenspace",
+      "source-layer": "suitability_greenspace",
+      "paint": {
+        "fill-color": "#8d5a99",
+        "fill-opacity": 0.7
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "suitability_infiltration",
+      "type": "fill",
+      "source": "suitability_infiltration",
+      "source-layer": "suitability_infiltration",
+      "paint": {
+        "fill-color": "#8d5a99",
+        "fill-opacity": 0.7
+      },
+      "layout": { "visibility": "none" }
+    },
+    {
+      "id": "suitability_wetlands",
+      "type": "fill",
+      "source": "suitability_wetlands",
+      "source-layer": "suitability_wetlands",
+      "paint": {
+        "fill-color": "#8d5a99",
         "fill-opacity": 0.7
       },
       "layout": { "visibility": "none" }

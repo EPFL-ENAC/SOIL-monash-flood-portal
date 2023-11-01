@@ -54,9 +54,13 @@ const scenarioItems = [
     label: "Climate change"
   }]
 
+const showNbsResults = ref<boolean>(true)
+
+const showNbsSuitability = ref<boolean>(true)
+
 const showInundation = ref<boolean>(false)
 
-watch([tab, landuse, showInundation, timeIdx, scenarioIdx, vulnerability, nbs], () => {
+watch([tab, landuse, showInundation, timeIdx, scenarioIdx, vulnerability, nbs, showNbsResults, showNbsSuitability], () => {
   if (tab.value === 'nbs')
     showInundation.value = false
   updateLayers()
@@ -101,8 +105,12 @@ function updateLayers() {
         sels.push(landuse.value)
     }
     else if (map.id === 'nbs') {
-      if (nbs.value)
-        sels.push(`${nbs.value}_${time}`)
+      if (nbs.value) {
+        if (showNbsResults.value)
+          sels.push(`${nbs.value}_${time}`)
+        if (showNbsSuitability.value)
+        sels.push(`suitability_${nbs.value}`)
+      }
     }
     else if (map.id === 'inundation') {
       sels.push(`depth_${scenario.id}_${time}`)
@@ -162,6 +170,18 @@ function updateLayers() {
           density="compact"
           class="mt-2"
         ></v-select>
+        <v-checkbox-btn
+          v-if="tab === 'nbs'"
+          v-model="showNbsResults"
+          label="Results"
+          density="compact">
+        </v-checkbox-btn>
+        <v-checkbox-btn
+          v-if="tab === 'nbs'"
+          v-model="showNbsSuitability"
+          label="Suitability"
+          density="compact">
+        </v-checkbox-btn>
         <v-checkbox-btn
           v-if="tab !== 'inundation' && tab !== 'nbs'"
           v-model="showInundation"
