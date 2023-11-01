@@ -176,12 +176,12 @@ function welcomeClosed() {
           :items="parameters.selectableItems"
         />
       </v-list-item>
-      <v-list-item :prepend-icon="mdiMapLegend">
+      <v-list-item v-if="legendItems.length" :prepend-icon="mdiMapLegend">
         <v-list-item-title>
           <span class="text-h6">Legends</span>
         </v-list-item-title>
       </v-list-item>
-      <v-list-item v-if="!drawerRail">
+      <v-list-item v-if="!drawerRail && legendItems.length">
         <v-card>
           <v-card-text class="pa-0">
             <v-row>
