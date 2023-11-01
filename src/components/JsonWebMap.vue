@@ -31,21 +31,46 @@ const { mobile } = useDisplay()
 const { cookies } = useCookies()
 const { title, subtitle } = storeToRefs(useTitleStore())
 
-const documentationIds = [
-  'ecosystem',
-  'hazard', 
-  'risk',
-  'vulnerability',
-  'inundations'
+const documentations = [
+  {
+    id: 'ecosystem',
+    title: 'Ecosystem',
+    url: 'ecosystem.md'
+  },
+  {
+    id: 'hazard',
+    title: 'Hazard',
+    url: 'hazard.md'
+  },
+  {
+    id: 'risk',
+    title: 'Risk',
+    url: 'risk.md'
+  },
+  {
+    id: 'vulnerability',
+    title: 'Vulnerability',
+    url: 'vulnerability.md'
+  },
+  {
+    id: 'inundations',
+    title: 'Inundations',
+    url: 'inundations.md'
+  },
+  {
+    id: 'nbs',
+    title: 'Natural Based Solutions',
+    url: 'nbs.md'
+  }
 ]
 
 onMounted(() => {
-  documentationIds.forEach((id: string) => {
+  documentations.forEach((doc: any) => {
     axios
-    .get<string>(`${id}.md`)
+    .get<string>(doc.url)
     .then((response) => response.data)
     .then((data) => {
-      docHtml.value[id] = DOMPurify.sanitize(marked.parse(data, {headerIds: false, mangle: false}))
+      docHtml.value[doc.id] = DOMPurify.sanitize(marked.parse(data, {headerIds: false, mangle: false}))
     })
   })
 });
@@ -194,20 +219,8 @@ function welcomeClosed() {
         </v-list-item-title>
       </v-list-item>
       <v-list-item v-if="!drawerRail">
-        <div>
-          <v-btn variant="text" class="text-none" @click="showDocumentation('ecosystem')">Ecosystem</v-btn>
-        </div>
-        <div>
-          <v-btn variant="text" class="text-none" @click="showDocumentation('hazard')">Hazard</v-btn>
-        </div>
-        <div>
-          <v-btn variant="text" class="text-none" @click="showDocumentation('risk')">Risk</v-btn>
-        </div>
-        <div>
-          <v-btn variant="text" class="text-none" @click="showDocumentation('vulnerability')">Vulnerability</v-btn>
-        </div>
-        <div>
-          <v-btn variant="text" class="text-none" @click="showDocumentation('inundations')">Inundations</v-btn>
+        <div v-for="doc in documentations" :key="doc.id">
+          <v-btn variant="text" class="text-none" @click="showDocumentation(doc.id)">{{ doc.title }}</v-btn>
         </div>
       </v-list-item>
     </v-list>
