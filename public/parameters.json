@@ -351,75 +351,146 @@
       ]
     },
     {
-      "id": "vulnerability_cont",
-      "label": "Vulnerability",
-      "children": [
-        {
-          "id": "economic_cont",
-          "label": "Economic",
-          "legendScaleId": "vulnerability-scale"
-        },
-        {
-          "id": "susceptibility_cont",
-          "label": "Susceptibility",
-          "legendScaleId": "vulnerability-scale"
-        },
-        {
-          "id": "social_cont",
-          "label": "Social",
-          "legendScaleId": "vulnerability-scale"
-        },
-        {
-          "id": "resilience_cont",
-          "label": "Resilience",
-          "legendScaleId": "vulnerability-scale"
-        },
-        {
-          "id": "physical_cont",
-          "label": "Physical",
-          "legendScaleId": "vulnerability-scale"
-        },
-        {
-          "id": "exposure_cont",
-          "label": "Exposure",
-          "legendScaleId": "vulnerability-scale"
-        },
-        {
-          "id": "CFVI_cont",
-          "label": "CFVI",
-          "legendScaleId": "vulnerability-scale"
-        }
-      ]
-    },
-    {
       "id": "nbs",
-      "label": "Natural Based Solutions",
+      "label": "Natural-based Solutions",
       "tab": true,
       "children": [
         {
           "id": "afforestation",
           "label": "Afforestation",
-          "selected": false
+          "selected": false,
+          "selectable": true,
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "afforestation_20",
+          "label": "Afforestation 20 years",
+          "legend": "Inundation of Sungai Selangor River basin for 20 years ARI.",
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "afforestation_50",
+          "label": "Afforestation 50 years",
+          "legend": "Inundation of Sungai Selangor River basin for 50 years ARI.",
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "afforestation_100",
+          "label": "Afforestation 100 years",
+          "legend": "Inundation of Sungai Selangor River basin for 100 years ARI.",
+          "legendScaleId": "depth-scale"
         },
         {
           "id": "floodplain",
           "label": "Flood plain",
-          "selected": false
+          "selected": false,
+          "selectable": true,
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "floodplain_20",
+          "label": "Flood plain 20 years",
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 20 years ARI.",
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "floodplain_50",
+          "label": "Flood plain 50 years",
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 50 years ARI.",
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "floodplain_100",
+          "label": "Flood plain 100 years",
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 100 years ARI.",
+          "legendScaleId": "depth-scale"
         },
         {
           "id": "greenspace",
           "label": "Greenspace",
-          "selected": false
+          "selected": false,
+          "selectable": true,
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "greenspace_20",
+          "label": "Greenspace 20 years",
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 20 years ARI.",
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "greenspace_50",
+          "label": "Greenspace 50 years",
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 50 years ARI.",
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "greenspace_100",
+          "label": "Greenspace 100 years",
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 100 years ARI.",
+          "legendScaleId": "depth-scale"
         },
         {
           "id": "infiltration",
           "label": "Infiltration",
-          "selected": false
+          "selected": false,
+          "selectable": true,
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "infiltration_20",
+          "label": "Infiltration 20 years",
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 20 years ARI.",
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "infiltration_50",
+          "label": "Infiltration 50 years",
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 50 years ARI.",
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "infiltration_100",
+          "label": "Infiltration 100 years",
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 100 years ARI.",
+          "legendScaleId": "depth-scale"
         },
         {
           "id": "wetlands",
           "label": "Wetlands",
-          "selected": false
+          "selected": false,
+          "selectable": true,
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "wetlands_20",
+          "label": "Wetlands 20 years",
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 20 years ARI.",
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "wetlands_50",
+          "label": "Wetlands 50 years",
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 50 years ARI.",
+          "legendScaleId": "depth-scale"
+        },
+        {
+          "id": "wetlands_100",
+          "label": "Wetlands 100 years",
+          "selected": false,
+          "legend": "Inundation of Sungai Selangor River basin for 100 years ARI.",
+          "legendScaleId": "depth-scale"
         }
       ]
     },

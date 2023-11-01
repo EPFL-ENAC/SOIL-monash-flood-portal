@@ -59,7 +59,7 @@ const documentations = [
   },
   {
     id: 'nbs',
-    title: 'Natural Based Solutions',
+    title: 'Natural-based Solutions',
     url: 'nbs.md'
   }
 ]

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SelectableItem, SelectableGroupItem, SelectableSingleItem } from '@/utils/layerSelector'
+import type { SelectableItem, SelectableGroupItem } from '@/utils/layerSelector'
 import { watch, ref, computed } from 'vue'
 
 const props = withDefaults(
@@ -32,6 +32,7 @@ const nbs = ref<string>()
 const nbsItems = computed<any[]>(() =>
   props.items?.filter((item: any) => item.id === 'nbs')
     .flatMap((item: any) => item.children)
+    .filter((item: any) => item.selectable)
 )
 
 const tab = ref<string>()
@@ -56,6 +57,8 @@ const scenarioItems = [
 const showInundation = ref<boolean>(false)
 
 watch([tab, landuse, showInundation, timeIdx, scenarioIdx, vulnerability, nbs], () => {
+  if (tab.value === 'nbs')
+    showInundation.value = false
   updateLayers()
 })
 
@@ -152,7 +155,7 @@ function updateLayers() {
         <v-select
           v-if="tab === 'nbs'"
           v-model="nbs"
-          label="Natural based solution"
+          label="Natural-based solution"
           :items="nbsItems"
           item-title="label"
           item-value="id"
@@ -160,7 +163,7 @@ function updateLayers() {
           class="mt-2"
         ></v-select>
         <v-checkbox-btn
-          v-if="tab !== 'inundation'"
+          v-if="tab !== 'inundation' && tab !== 'nbs'"
           v-model="showInundation"
           label="Inundation"
           density="compact">

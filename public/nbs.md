@@ -1,4 +1,4 @@
-## Natural Based Solutions
+## Natural-based Solutions
 
 ### Suitability Assessment Criteria
 
