@@ -11,7 +11,7 @@ These criteria are used to select the suitable locations for each NbS, based on 
 * Free and open space (forests, agricultural, bare land, recreation, and undeveloped land)
   * These areas allow for land use changes as compared to built areas.
 * Distance from roads >= 50 m
-  *Allows for buffer from roads to avoid disturbances/disruptions, ex. pollution
+  * Allows for buffer from roads to avoid disturbances/disruptions, ex. pollution
 
 #### Floodplain restorations
 
