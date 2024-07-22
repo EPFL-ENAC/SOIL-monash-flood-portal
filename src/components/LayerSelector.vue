@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import type { SelectableItem, SelectableGroupItem } from '@/utils/layerSelector'
-import { watch, ref, computed } from 'vue'
+import type { SelectableGroupItem, SelectableItem } from '@/utils/layerSelector'
+import { computed, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const props = withDefaults(
   defineProps<{
@@ -18,41 +21,32 @@ const emit = defineEmits<{
 
 const vulnerability = ref<string>()
 const vulnerabilityItems = computed<any[]>(() =>
-  props.items?.filter((item: any) => item.id === 'vulnerability')
+  props.items
+    ?.filter((item: any) => item.id === 'vulnerability')
     .flatMap((item: any) => item.children)
 )
 
 const landuse = ref<string>()
 const landuseItems = computed<any[]>(() =>
-  props.items?.filter((item: any) => item.id === 'landuse')
-    .flatMap((item: any) => item.children)
+  props.items?.filter((item: any) => item.id === 'landuse').flatMap((item: any) => item.children)
 )
 
 const nbs = ref<string>()
 const nbsItems = computed<any[]>(() =>
-  props.items?.filter((item: any) => item.id === 'nbs')
+  props.items
+    ?.filter((item: any) => item.id === 'nbs')
     .flatMap((item: any) => item.children)
     .filter((item: any) => item.selectable)
 )
 
 const tab = ref<string>()
-const tabItems = computed<any[]>(() =>
-  props.items?.filter((item: any) => item.tab)
-)
+const tabItems = computed<any[]>(() => props.items?.filter((item: any) => item.tab))
 
 const timeIdx = ref<number>(0)
 const timeItems = [20, 50, 100]
 
 const scenarioIdx = ref<number>(0)
-const scenarioItems = [
-  { 
-    id: "base",
-    label: "Base"
-  }, 
-  { 
-    id: "cc",
-    label: "Climate change"
-  }]
+const scenarioIds = ['base', 'cc']
 
 const showNbsResults = ref<boolean>(true)
 
@@ -60,30 +54,40 @@ const showNbsSuitability = ref<boolean>(true)
 
 const showInundation = ref<boolean>(false)
 
-watch([tab, landuse, showInundation, timeIdx, scenarioIdx, vulnerability, nbs, showNbsResults, showNbsSuitability], () => {
-  if (tab.value === 'nbs')
-    showInundation.value = false
-  updateLayers()
-})
+watch(
+  [
+    tab,
+    landuse,
+    showInundation,
+    timeIdx,
+    scenarioIdx,
+    vulnerability,
+    nbs,
+    showNbsResults,
+    showNbsSuitability
+  ],
+  () => {
+    if (tab.value === 'nbs') showInundation.value = false
+    updateLayers()
+  }
+)
 
-watch(() => props.items,
+watch(
+  () => props.items,
   (value: SelectableItem[]) => {
     // init with first map
     const firstTab = value.filter((item: SelectableItem) => (item as SelectableGroupItem).tab)[0]
-    if (firstTab)
-      tab.value = firstTab.id
+    if (firstTab) tab.value = firstTab.id
     // init with first vulnerability
     const vulnerabilityTab = value.find((item: SelectableItem) => item.id === 'vulnerability')
     if (vulnerabilityTab)
       vulnerability.value = (vulnerabilityTab as SelectableGroupItem).children[0].id
     // init with first landuse
     const landuseTab = value.find((item: SelectableItem) => item.id === 'landuse')
-    if (landuseTab)
-      landuse.value = (landuseTab as SelectableGroupItem).children[0].id
+    if (landuseTab) landuse.value = (landuseTab as SelectableGroupItem).children[0].id
     // init with first nbs
     const nbsTab = value.find((item: SelectableItem) => item.id === 'nbs')
-    if (landuseTab)
-      nbs.value = (nbsTab as SelectableGroupItem).children[0].id
+    if (landuseTab) nbs.value = (nbsTab as SelectableGroupItem).children[0].id
     updateLayers()
   },
   { immediate: true }
@@ -92,39 +96,35 @@ watch(() => props.items,
 function updateLayers() {
   const sels = []
   const time = timeItems[timeIdx.value]
-  const scenario = scenarioItems[scenarioIdx.value]
-  const withTimeScenario = time !== undefined && scenario !== undefined
-  if (tab.value) { 
+  const scenarioId = scenarioIds[scenarioIdx.value]
+  const withTimeScenario = time !== undefined && scenarioId !== undefined
+  if (tab.value) {
     const map = tabItems.value.filter((item: SelectableItem) => item.id === tab.value).pop()
     if (map.id === 'vulnerability') {
-      if (vulnerability.value)
-        sels.push(`${vulnerability.value}`)
-    }
-    else if (map.id === 'landuse') {
-      if (landuse.value)
-        sels.push(landuse.value)
-    }
-    else if (map.id === 'nbs') {
+      if (vulnerability.value) sels.push(`${vulnerability.value}`)
+    } else if (map.id === 'landuse') {
+      if (landuse.value) sels.push(landuse.value)
+    } else if (map.id === 'nbs') {
       if (nbs.value) {
-        if (showNbsResults.value)
-          sels.push(`${nbs.value}_${time}`)
-        if (showNbsSuitability.value)
-        sels.push(`suitability_${nbs.value}`)
+        if (showNbsResults.value) sels.push(`${nbs.value}_${time}`)
+        if (showNbsSuitability.value) sels.push(`suitability_${nbs.value}`)
       }
-    }
-    else if (map.id === 'inundation') {
-      sels.push(`depth_${scenario.id}_${time}`)
-    }
-    else if (withTimeScenario) {
-      sels.push(`${map.id}_${scenario.id}_${time}`)
+    } else if (map.id === 'inundation') {
+      sels.push(`depth_${scenarioId}_${time}`)
+    } else if (withTimeScenario) {
+      sels.push(`${map.id}_${scenarioId}_${time}`)
     }
   }
   if (tab.value !== 'inundation' && showInundation.value && withTimeScenario) {
-    sels.push(`depth_${scenario.id}_${time}`)
+    sels.push(`depth_${scenarioId}_${time}`)
   }
   emit('update:modelValue', sels)
 }
 
+function getProps(item: any) {
+  const ob = { title: t(item.label), value: item.id }
+  return ob
+}
 </script>
 
 <template>
@@ -133,83 +133,73 @@ function updateLayers() {
       <div class="mt-2">
         <v-select
           v-model="tab"
-          label="Map"
+          :label="$t('map')"
           :items="tabItems"
-          item-title="label"
-          item-value="id"
+          :item-props="getProps"
           density="compact"
           class="mt-2"
-        ></v-select>
+        >
+        </v-select>
         <v-select
           v-if="tab === 'landuse'"
           v-model="landuse"
-          label="Land use"
+          :label="$t('Land use')"
           :items="landuseItems"
-          item-title="label"
-          item-value="id"
+          :item-props="getProps"
           density="compact"
           class="mt-2"
         ></v-select>
         <v-select
           v-if="tab === 'vulnerability'"
           v-model="vulnerability"
-          label="Vulnerability"
+          :label="$t('Vulnerability')"
           :items="vulnerabilityItems"
-          item-title="label"
-          item-value="id"
+          :item-props="getProps"
           density="compact"
           class="mt-2"
         ></v-select>
         <v-select
           v-if="tab === 'nbs'"
           v-model="nbs"
-          label="Natural-based solution"
+          :label="$t('Natural-based solution')"
           :items="nbsItems"
-          item-title="label"
-          item-value="id"
+          :item-props="getProps"
           density="compact"
           class="mt-2"
         ></v-select>
         <v-checkbox-btn
           v-if="tab === 'nbs'"
           v-model="showNbsResults"
-          label="Results"
-          density="compact">
+          :label="$t('Results')"
+          density="compact"
+        >
         </v-checkbox-btn>
         <v-checkbox-btn
           v-if="tab === 'nbs'"
           v-model="showNbsSuitability"
-          label="Suitability"
-          density="compact">
+          :label="$t('Suitability')"
+          density="compact"
+        >
         </v-checkbox-btn>
         <v-checkbox-btn
           v-if="tab !== 'inundation' && tab !== 'nbs'"
           v-model="showInundation"
-          label="Inundation"
-          density="compact">
+          :label="$t('Inundation')"
+          density="compact"
+        >
         </v-checkbox-btn>
       </div>
       <div class="mt-2">
-        <div class="mb-2 text-overline">Average Recurrence Interval</div>
-        <v-btn-toggle
-          v-model="timeIdx"
-          divided
-          variant="outlined"
-        >
+        <div class="mb-2 text-overline">{{ $t('Average Recurrence Interval') }}</div>
+        <v-btn-toggle v-model="timeIdx" divided variant="outlined">
           <v-btn v-for="(item, index) in timeItems" :key="index" size="x-small">{{ item }}</v-btn>
         </v-btn-toggle>
-        <span class="ml-2">years</span>
+        <span class="ml-2">{{ $t('years') }}</span>
       </div>
-      <div
-        v-if="tab !== 'nbs' || showInundation"
-        class="mt-2">
-        <div class="mb-2 text-overline">Scenario</div>
-        <v-btn-toggle
-          v-model="scenarioIdx"
-          divided
-          variant="outlined"
-        >
-          <v-btn v-for="(item, index) in scenarioItems" :key="index" size="x-small">{{ item.label }}</v-btn>
+      <div v-if="tab !== 'nbs' || showInundation" class="mt-2">
+        <div class="mb-2 text-overline">{{ $t('Scenario') }}</div>
+        <v-btn-toggle v-model="scenarioIdx" divided variant="outlined">
+          <v-btn v-for="(id, index) in scenarioIds" :key="index" size="x-small">{{ $t(id) }}</v-btn>
         </v-btn-toggle>
       </div>
     </v-card-text>

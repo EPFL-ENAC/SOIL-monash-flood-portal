@@ -1,18 +1,30 @@
 <script setup lang="ts">
 import LayerSelector from '@/components/LayerSelector.vue'
-import MarkdownDialog from '@/components/MarkdownDialog.vue'
 import MapLibreMap from '@/components/MapLibreMap.vue'
+import MarkdownDialog from '@/components/MarkdownDialog.vue'
 import { useTitleStore } from '@/stores/title'
-import type { Parameters, LegendScale, ScaleEntry } from '@/utils/jsonWebMap'
-import { mdiChevronLeft, mdiChevronRight, mdiClose, mdiLayers, mdiMapLegend, mdiBookOpenPageVariant } from '@mdi/js'
-import type { SelectableGroupItem, SelectableItem, SelectableSingleItem } from '@/utils/layerSelector'
+import type { LegendScale, Parameters, ScaleEntry } from '@/utils/jsonWebMap'
+import type {
+  SelectableGroupItem,
+  SelectableItem,
+  SelectableSingleItem
+} from '@/utils/layerSelector'
+import {
+  mdiBookOpenPageVariant,
+  mdiChevronLeft,
+  mdiChevronRight,
+  mdiClose,
+  mdiLayers,
+  mdiMapLegend
+} from '@mdi/js'
 import axios from 'axios'
-import { marked } from 'marked'
 import DOMPurify from 'dompurify'
+import { marked } from 'marked'
 import { storeToRefs } from 'pinia'
-import { useDisplay } from 'vuetify'
-import { useCookies } from 'vue3-cookies'
 import { computed, onMounted, ref, shallowRef, triggerRef, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useCookies } from 'vue3-cookies'
+import { useDisplay } from 'vuetify'
 
 const props = defineProps<{
   styleUrl: string
@@ -31,66 +43,65 @@ const { mobile } = useDisplay()
 const { cookies } = useCookies()
 const { title, subtitle } = storeToRefs(useTitleStore())
 
-const documentations = [
-  {
-    id: 'ecosystem',
-    title: 'Ecosystem',
-    url: 'ecosystem.md'
-  },
-  {
-    id: 'hazard',
-    title: 'Hazard',
-    url: 'hazard.md'
-  },
-  {
-    id: 'risk',
-    title: 'Risk',
-    url: 'risk.md'
-  },
-  {
-    id: 'vulnerability',
-    title: 'Vulnerability',
-    url: 'vulnerability.md'
-  },
-  {
-    id: 'inundations',
-    title: 'Inundations',
-    url: 'inundations.md'
-  },
-  {
-    id: 'nbs',
-    title: 'Natural-based Solutions',
-    url: 'nbs.md'
-  }
-]
+const documentations = ['ecosystem', 'hazard', 'risk', 'vulnerability', 'inundations', 'nbs']
+
+const { locale } = useI18n()
+
+const loadDocumentation = (currentLocale: string) => {
+  documentations.forEach((idDoc: string) => {
+    const defaultUrl = `${idDoc}_en.md`
+    const docUrl = currentLocale !== 'en' ? `${idDoc}_${currentLocale}.md` : defaultUrl
+    axios
+      .get<string>(docUrl)
+      .catch(() => axios.get<string>(defaultUrl))
+      .then((response) => response.data)
+      .then((data) => {
+        docHtml.value[idDoc] = DOMPurify.sanitize(
+          marked.parse(data, { headerIds: false, mangle: false })
+        )
+        if (idDoc === docId.value) {
+          drawerHtml.value = docHtml.value[idDoc]
+        }
+      })
+  })
+}
 
 onMounted(() => {
-  documentations.forEach((doc: any) => {
-    axios
-    .get<string>(doc.url)
-    .then((response) => response.data)
-    .then((data) => {
-      docHtml.value[doc.id] = DOMPurify.sanitize(marked.parse(data, {headerIds: false, mangle: false}))
-    })
-  })
-});
+  loadDocumentation(locale.value)
+})
+
+watch(
+  () => locale.value,
+  (newLocale) => {
+    loadDocumentation(newLocale)
+  }
+)
 
 const singleItems = computed<SelectableSingleItem[]>(() =>
   (parameters.value.selectableItems ?? [])
     .filter((item: SelectableItem) => item.id !== 'theme')
-    .flatMap((item: SelectableItem) => 'children' in item ? item.children : [item])
+    .flatMap((item: SelectableItem) => ('children' in item ? item.children : [item]))
 )
 
 const themeItems = computed<SelectableSingleItem[]>(() => {
-  const themeGroup = parameters.value?.selectableItems?.find((item: SelectableItem) => item.id === 'theme') as SelectableGroupItem
+  const themeGroup = parameters.value?.selectableItems?.find(
+    (item: SelectableItem) => item.id === 'theme'
+  ) as SelectableGroupItem
   return themeGroup ? themeGroup.children : []
 })
 
 const selectableLayerIds = computed<string[]>(() => singleItems.value.map((item) => item.id))
 const legendItems = computed(() =>
   singleItems.value
-    .filter((item: SelectableSingleItem) => selectedLayerIds.value.some((id: string) => item.id === id))
-    .filter((item: SelectableSingleItem) => item.legend !== undefined || item.legendImage !== undefined || item.legendScaleId !== undefined)
+    .filter((item: SelectableSingleItem) =>
+      selectedLayerIds.value.some((id: string) => item.id === id)
+    )
+    .filter(
+      (item: SelectableSingleItem) =>
+        item.legend !== undefined ||
+        item.legendImage !== undefined ||
+        item.legendScaleId !== undefined
+    )
 )
 
 const extendedSelectedLayerIds = computed<string[]>(() => {
@@ -124,14 +135,18 @@ watch(
 )
 
 function getParent(id: string): SelectableItem | undefined {
-  return (parameters.value.selectableItems ?? [])
-    .find((item: SelectableItem) => (item as SelectableGroupItem).children 
-      && (item as SelectableGroupItem).children.find((child: SelectableSingleItem) => child.id == id) !== undefined)
+  return (parameters.value.selectableItems ?? []).find(
+    (item: SelectableItem) =>
+      (item as SelectableGroupItem).children &&
+      (item as SelectableGroupItem).children.find(
+        (child: SelectableSingleItem) => child.id == id
+      ) !== undefined
+  )
 }
 
-function getParentLabel(id: string) {
+function getParentLabel(id: string): string {
   const parent = getParent(id)
-  return parent?.label
+  return parent?.label || ''
 }
 
 function getLegendScale(id: string): ScaleEntry[] | undefined {
@@ -153,12 +168,17 @@ function showDocumentation(id: string) {
 }
 
 function welcomeClosed() {
-  cookies.set('welcome','1', '365d');
+  cookies.set('welcome', '1', '365d')
 }
 </script>
 
 <template>
-  <v-navigation-drawer :rail="drawerRail" permanent :width="mobile ? 200 : 300" @click="drawerRail = false">
+  <v-navigation-drawer
+    :rail="drawerRail"
+    permanent
+    :width="mobile ? 200 : 300"
+    @click="drawerRail = false"
+  >
     <v-list density="compact" nav>
       <v-list-item :prepend-icon="drawerRail ? mdiChevronRight : undefined">
         <template #append>
@@ -167,18 +187,15 @@ function welcomeClosed() {
       </v-list-item>
       <v-list-item :prepend-icon="mdiLayers">
         <v-list-item-title>
-          <span class="text-h6">Maps</span>
+          <span class="text-h6">{{ $t('maps') }}</span>
         </v-list-item-title>
       </v-list-item>
       <v-list-item v-show="!drawerRail">
-        <LayerSelector
-          v-model="selectedLayerIds"
-          :items="parameters.selectableItems"
-        />
+        <LayerSelector v-model="selectedLayerIds" :items="parameters.selectableItems" />
       </v-list-item>
       <v-list-item v-if="legendItems.length" :prepend-icon="mdiMapLegend">
         <v-list-item-title>
-          <span class="text-h6">Legends</span>
+          <span class="text-h6">{{ $t('legends') }}</span>
         </v-list-item-title>
       </v-list-item>
       <v-list-item v-if="!drawerRail && legendItems.length">
@@ -186,22 +203,27 @@ function welcomeClosed() {
           <v-card-text class="pa-0">
             <v-row>
               <v-col v-for="(item, index) in legendItems" :key="index" cols="12">
-                <div class="mb-2 text-overline">{{ getParentLabel(item.id) }} ({{ item.label }})</div>
-                <div v-if="item.legend" class="mb-3 text-caption">{{ item.legend }}</div>
+                <div class="mb-2 text-overline">
+                  {{ $t(getParentLabel(item.id)) }} ({{ $t(item.label) }})
+                </div>
+                <div v-if="item.legend" class="mb-3 text-caption">{{ $t(item.legend) }}</div>
                 <v-img v-if="item.legendImage" :src="item.legendImage" />
                 <v-table v-if="item.legendScaleId" density="compact">
                   <tbody>
-                    <tr
-                      v-for="entry in getLegendScale(item.legendScaleId)"
-                      :key="entry.color"
-                    >
+                    <tr v-for="entry in getLegendScale(item.legendScaleId)" :key="entry.color">
                       <td :style="`background-color: ${entry.color}`"></td>
                       <td>
-                        <div>{{ entry.label }}</div>
+                        <div>{{ $t(entry.label || ' ') }}</div>
                         <div class="text-caption">
-                          <span v-if="entry.min === undefined && entry.max !== undefined">{{ entry.max }} &le;</span>
-                          <span v-if="entry.min !== undefined && entry.max !== undefined">{{ entry.min }} - {{ entry.max }}</span>
-                          <span v-if="entry.min !== undefined && entry.max === undefined">&gt; {{ entry.min }}</span>
+                          <span v-if="entry.min === undefined && entry.max !== undefined"
+                            >{{ entry.max }} &le;</span
+                          >
+                          <span v-if="entry.min !== undefined && entry.max !== undefined"
+                            >{{ entry.min }} - {{ entry.max }}</span
+                          >
+                          <span v-if="entry.min !== undefined && entry.max === undefined"
+                            >&gt; {{ entry.min }}</span
+                          >
                           <span v-if="entry.unit">&nbsp;({{ entry.unit }})</span>
                         </div>
                       </td>
@@ -215,12 +237,14 @@ function welcomeClosed() {
       </v-list-item>
       <v-list-item :prepend-icon="mdiBookOpenPageVariant">
         <v-list-item-title>
-          <span class="text-h6">Documentation</span>
+          <span class="text-h6">{{ $t('documentation') }}</span>
         </v-list-item-title>
       </v-list-item>
       <v-list-item v-if="!drawerRail">
-        <div v-for="doc in documentations" :key="doc.id">
-          <v-btn variant="text" class="text-none" @click="showDocumentation(doc.id)">{{ doc.title }}</v-btn>
+        <div v-for="docId in documentations" :key="docId">
+          <v-btn variant="text" class="text-none" @click="showDocumentation(docId)">{{
+            $t(docId)
+          }}</v-btn>
         </div>
       </v-list-item>
     </v-list>
@@ -234,8 +258,7 @@ function welcomeClosed() {
       </v-list-item>
       <v-list-item>
         <v-card>
-          <v-card-text v-html="drawerHtml" class="marked">
-          </v-card-text>
+          <v-card-text v-html="drawerHtml" class="marked"> </v-card-text>
         </v-card>
       </v-list-item>
     </v-list>
@@ -257,7 +280,12 @@ function welcomeClosed() {
       </v-col>
     </v-row>
   </v-container>
-  <markdown-dialog button-text="Start" content-url="welcome.md" :open="openWelcome" @dialog-close="welcomeClosed">
+  <markdown-dialog
+    button-text="Start"
+    content-url="welcome.md"
+    :open="openWelcome"
+    @dialog-close="welcomeClosed"
+  >
   </markdown-dialog>
 </template>
 
