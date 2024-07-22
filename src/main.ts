@@ -6,9 +6,10 @@ import { createApp } from 'vue'
 
 import en from '@/locales/en.json'
 import fr from '@/locales/fr.json'
+import ms from '@/locales/ms.json'
 import { LocalStorageKey } from '@/utils/localStorage'
 import { createI18n } from 'vue-i18n'
-import { en as vuetifyEn, fr as vuetifyFr } from 'vuetify/locale'
+import { en as vuetifyEn, fr as vuetifyFr, id as vuetifyId } from 'vuetify/locale'
 
 import './assets/main.css'
 
@@ -20,7 +21,8 @@ export const i18n = createI18n({
   fallbackLocale: 'en',
   messages: {
     en: { $vuetify: vuetifyEn, ...en },
-    fr: { $vuetify: vuetifyFr, ...fr }
+    fr: { $vuetify: vuetifyFr, ...fr },
+    ms: { $vuetify: vuetifyId, ...ms }
   }
 })
 
