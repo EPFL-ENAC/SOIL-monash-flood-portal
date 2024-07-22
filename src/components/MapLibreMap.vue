@@ -192,8 +192,11 @@ watch(
               .map(propTorow)
               .join('')
             // @ts-ignore
-            const layerTitle = map.getStyle().layers?.find((layer) => layer.id === layerId)
-              ?.metadata?.title
+            const layerTitle = (
+              map.getStyle().layers?.find((layer) => layer.id === layerId)?.metadata as {
+                title?: string
+              }
+            )?.title
             const html = `<p class="text-overline">${layerTitle}</p>
               <div class="marked">
               <table style="width: 100%">
